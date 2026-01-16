@@ -22,7 +22,7 @@ jobs:
       run: chmod +x gradlew
     
     - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@v2
+      uses: gradle/wrapper-validation-action@v3
     
     - name: Check code formatting
       run: ./gradlew spotlessCheck --no-daemon || echo "Spotless not configured"
