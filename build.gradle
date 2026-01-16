@@ -73,7 +73,7 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation fg.deobf("curse.maven:sorceryfight-471288:6242473")
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9')
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.8.2')
     implementation fg.deobf('dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20')
 }
 
