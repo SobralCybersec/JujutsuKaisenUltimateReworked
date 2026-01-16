@@ -7,14 +7,14 @@
 ```bash
 git add .github/
 git commit -m "ci: add CI/CD workflows"
-git push origin master
+git push origin develop
 ```
 
 ### 2. Crie um Pull Request de teste para ativar os workflows:
 ```bash
 git checkout -b test-ci
 git push origin test-ci
-# Abra um PR no GitHub: test-ci → master
+# Abra um PR no GitHub: test-ci → develop
 ```
 
 ### 3. Aguarde os workflows executarem
@@ -22,9 +22,9 @@ git push origin test-ci
 
 ### 4. Configure a proteção de branches:
 
-#### Para branch 'master':
+#### Para branch 'develop':
 1. Settings > Branches > Add rule
-2. Branch name pattern: `master`
+2. Branch name pattern: `develop`
 3. ✓ Require a pull request before merging
 4. ✓ Require status checks to pass before merging
 5. Clique em "Search for status checks" e selecione:
@@ -32,10 +32,3 @@ git push origin test-ci
    - `validate`
 6. ✓ Require branches to be up to date before merging
 7. Save changes
-
-## Opcional: Criar branch develop
-```bash
-git checkout -b develop
-git push origin develop
-# Configure proteção similar para develop
-```

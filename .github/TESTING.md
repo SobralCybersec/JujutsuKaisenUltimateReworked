@@ -25,7 +25,7 @@ bash gradlew build --no-daemon
 ```bash
 git add .github/ test-ci.sh
 git commit -m "ci: add CI/CD workflows"
-git push origin master
+git push origin develop
 ```
 
 ### 2. Criar branch de teste
@@ -40,7 +40,7 @@ git push origin test-ci-feature
 ### 3. Abrir Pull Request
 1. Vá para: https://github.com/SobralCybersec/JujutsuKaisenUltimateReworked/pulls
 2. Clique em "New Pull Request"
-3. Selecione: `test-ci-feature` → `master`
+3. Selecione: `test-ci-feature` → `develop`
 4. Clique em "Create Pull Request"
 
 ### 4. Verificar workflows
@@ -75,7 +75,7 @@ Abra um PR e veja os checks falharem ❌
 Após os workflows executarem pela primeira vez:
 
 1. Settings > Branches > Add rule
-2. Branch: `master`
+2. Branch: `develop`
 3. ✓ Require status checks: `build`, `validate`
 4. Save
 

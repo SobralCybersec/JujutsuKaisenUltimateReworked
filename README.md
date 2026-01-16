@@ -146,8 +146,6 @@ O projeto usa flags otimizadas do Aikar para melhor performance:
 ### Workflows configurados
 - **CI**: Build e testes automáticos em push/PR
 - **PR Validation**: Validação obrigatória de Pull Requests
-- **Release**: Geração automática de releases em tags
-- **Dependabot**: Atualização automática de dependências
 
 ### Processo de PR
 1. Crie uma branch a partir de `develop`
@@ -322,8 +320,6 @@ The project uses Aikar's optimized flags for better performance:
 ### Configured workflows
 - **CI**: Automatic build and tests on push/PR
 - **PR Validation**: Mandatory Pull Request validation
-- **Release**: Automatic release generation on tags
-- **Dependabot**: Automatic dependency updates
 
 ### PR Process
 1. Create a branch from `develop`
