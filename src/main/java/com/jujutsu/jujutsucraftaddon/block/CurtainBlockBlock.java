@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-
+//Teste
 public class CurtainBlockBlock extends Block implements EntityBlock {
     public CurtainBlockBlock() {
         super(Properties.of().instrument(NoteBlockInstrument.HAT).sound(SoundType.GRAVEL).strength(-1, 3600000).randomTicks());

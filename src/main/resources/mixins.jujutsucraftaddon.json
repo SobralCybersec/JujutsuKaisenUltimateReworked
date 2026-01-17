@@ -31,6 +31,7 @@
     "DomainExpansionEffectStartedappliedProcedureMixin",
     "DomainExpansionOnEffectActiveTickProcedureMixin",
     "EffectCharactorProcedureMixin",
+    "EntityMixin",
     "FushigoTojiWhenEntityDiesMixin",
     "GetDomainBlockProcedureMixin",
     "GojoSatoruModelMixin",
@@ -120,7 +121,8 @@
     "WhenRightClickToEntityMixin"
   ],
   "client": [
-    "PlayerAttackMixin"
+    "PlayerAttackMixin",
+    "OptionsAccessor"
   ],
   "minVersion": "0.8"
 }

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.ImpactFrames;
+import com.jujutsu.jujutsucraftaddon.vfx.ImpactFrames;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;

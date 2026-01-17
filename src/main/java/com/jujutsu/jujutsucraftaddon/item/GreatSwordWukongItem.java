@@ -2,7 +2,7 @@ package com.jujutsu.jujutsucraftaddon.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jujutsu.jujutsucraftaddon.abilities.CuttingSlashAbility;
+import com.jujutsu.jujutsucraftaddon.abilities.techniques.cuttingslash.CuttingSlashAbility;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneDespawn;
 import com.jujutsu.jujutsucraftaddon.procedures.WukongStaffLivingEntityIsHitWithItemProcedure;
 import dev.kosmx.playerAnim.api.layered.IAnimation;

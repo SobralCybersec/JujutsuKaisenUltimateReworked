@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity;
 
-import com.jujutsu.jujutsucraftaddon.abilities.EarthWallAbility;
+import com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation;
 import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
 import com.jujutsu.jujutsucraftaddon.procedures.AIClonesProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneEntityAIProcedure;
@@ -238,7 +238,7 @@ public class CloneEntity extends TamableAnimal implements GeoEntity {
                         AIClonesProcedure.execute(this.level(), this);
                     }
                     if (Math.random() < (1) / ((float) 3000)) {
-                        EarthWallAbility.createEarthWall(this);
+                        EarthWallCreation.createEarthWall(this);
                     }
                 }
             } else {
