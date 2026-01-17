@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.earthwall;
+package com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -11,8 +11,8 @@ import net.minecraft.world.entity.player.Player;
 
 import java.util.List;
 
-import static com.jujutsu.jujutsucraftaddon.abilities.earthwall.EarthWallCreation.WALL_HEIGHT;
-import static com.jujutsu.jujutsucraftaddon.abilities.earthwall.EarthWallCreation.WALL_WIDTH;
+import static com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation.WALL_HEIGHT;
+import static com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation.WALL_WIDTH;
 
 public class EarthWallKnockback {
     private static final double KNOCKBACK_FORCE = 1.5;

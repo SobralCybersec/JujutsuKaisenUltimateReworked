@@ -1,6 +1,7 @@
 plugins {
     id 'eclipse'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
@@ -13,12 +14,18 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 minecraft {
     mappings channel: 'official', version: '1.20.1'
 
+
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     copyIdeResources = true
 
     runs {
         client {
+            args += [
+                    '--username', 'Satushi',
+                    '--uuid', "d7350096-66a7-48fd-8b5f-4d4acdc14627"
+            ]
+
             jvmArgs += [
                     "-Xms8G", "-Xmx8G", "-XX:+UseG1GC", "-XX:+ParallelRefProcEnabled", "-XX:MaxGCPauseMillis=200",
                     "-XX:+UnlockExperimentalVMOptions", "-XX:+DisableExplicitGC", "-XX:+AlwaysPreTouch",
@@ -73,8 +80,8 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation fg.deobf("curse.maven:sorceryfight-471288:6242473")
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9')
     implementation fg.deobf('dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20')
+    implementation fg.deobf("curse.maven:geckolib-388172:7025129")
 }
 
 mixin {

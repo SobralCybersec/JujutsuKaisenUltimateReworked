@@ -1,7 +1,11 @@
 package com.jujutsu.jujutsucraftaddon.network;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.abilities.*;
+import com.jujutsu.jujutsucraftaddon.abilities.items.boomerang.BoomerangAbility;
+import com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation;
+import com.jujutsu.jujutsucraftaddon.abilities.elemental.fireblast.FireBlastCreate;
+import com.jujutsu.jujutsucraftaddon.abilities.elemental.watersurge.WaterSurgeCreate;
+import com.jujutsu.jujutsucraftaddon.abilities.items.songoftime.SongOfTimeAbility;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneChanger;
 import com.jujutsu.jujutsucraftaddon.procedures.DismantleCutProcedure;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
@@ -126,11 +130,11 @@ public class AltarMessageWukong {
             } else if (page == 4) {
                 CloneChanger.execute(world, x, y, z, entity);
             } else if (page == 5) {
-                EarthWallAbility.createEarthWall(entity);
+                EarthWallCreation.createEarthWall(entity);
             }  else if (page == 6) {
-                FireBlastAbility.createFireBlast(entity);
+                FireBlastCreate.createFireBlast(entity);
             } else if (page == 7) {
-                WaterSurgeAbility.createWaterSurge(entity);
+                WaterSurgeCreate.createWaterSurge(entity);
             } else if (page == 8) {
                 BoomerangAbility.throwBoomerang(entity);
             } else if (page == 9) {

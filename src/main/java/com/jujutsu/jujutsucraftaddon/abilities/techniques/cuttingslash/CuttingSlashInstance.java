@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.cuttingslash;
+package com.jujutsu.jujutsucraftaddon.abilities.techniques.cuttingslash;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon;
+package com.jujutsu.jujutsucraftaddon.vfx;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

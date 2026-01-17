@@ -3,7 +3,7 @@ package com.jujutsu.jujutsucraftaddon.item;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jujutsu.jujutsucraftaddon.WaveEffect;
-import com.jujutsu.jujutsucraftaddon.abilities.EarthWallAbility;
+import com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation;
 import com.jujutsu.jujutsucraftaddon.procedures.WukongStaffLivingEntityIsHitWithItemProcedure;
 import dev.kosmx.playerAnim.api.layered.IAnimation;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
@@ -91,7 +91,7 @@ public class HammerWukongItem extends SwordItem {
                     }
                 }
             }
-            EarthWallAbility.createEarthWall(entity);
+            EarthWallCreation.createEarthWall(entity);
         }
         return ar;
     }

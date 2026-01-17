@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.boomerang;
+package com.jujutsu.jujutsucraftaddon.abilities.items.boomerang;
 
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;

@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.fireblast;
+package com.jujutsu.jujutsucraftaddon.abilities.elemental.fireblast;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

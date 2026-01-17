@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.fireblast;
+package com.jujutsu.jujutsucraftaddon.abilities.elemental.fireblast;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -11,7 +11,7 @@ import net.minecraft.world.phys.AABB;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.jujutsu.jujutsucraftaddon.abilities.fireblast.FireBlastAbility.scheduledRemovals;
+import static com.jujutsu.jujutsucraftaddon.abilities.elemental.fireblast.FireBlastAbility.scheduledRemovals;
 
 public class FireBlastCreate {
     private static final int FIRE_DURATION = 80;

@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.earthwall;
+package com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;

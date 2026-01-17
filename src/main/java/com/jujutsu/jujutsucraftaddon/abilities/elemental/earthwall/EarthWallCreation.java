@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities.earthwall;
+package com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -8,8 +8,8 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.jujutsu.jujutsucraftaddon.abilities.earthwall.EarthWallAbility.scheduledRemovals;
-import static com.jujutsu.jujutsucraftaddon.abilities.earthwall.EarthWallKnockback.knockbackEntities;
+import static com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallAbility.scheduledRemovals;
+import static com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallKnockback.knockbackEntities;
 
 public class EarthWallCreation {
     public static final int WALL_WIDTH = 20;
