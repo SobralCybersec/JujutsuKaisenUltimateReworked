@@ -1,4 +1,4 @@
-package com.jujutsu.jujutsucraftaddon.abilities;
+package com.jujutsu.jujutsucraftaddon.abilities.fireblast;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -18,44 +18,9 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = "jujutsucraftaddon")
 public class FireBlastAbility {
     private static final int BLAST_RADIUS = 5;
-    private static final int FIRE_DURATION = 80;
-    private static final int FIRE_LIFETIME = 60;
 
-    private static final List<ScheduledFireRemoval> scheduledRemovals = new ArrayList<>();
+    public static final List<ScheduledFireRemoval> scheduledRemovals = new ArrayList<>();
 
-    public static void createFireBlast(Player player) {
-        if (player.level().isClientSide) return;
-
-        ServerLevel serverLevel = (ServerLevel) player.level();
-        BlockPos centerPos = player.blockPosition();
-        List<BlockPos> fireBlocks = new ArrayList<>();
-
-        for (int x = -BLAST_RADIUS; x <= BLAST_RADIUS; x++) {
-            for (int z = -BLAST_RADIUS; z <= BLAST_RADIUS; z++) {
-                BlockPos pos = centerPos.offset(x, 0, z);
-                if (serverLevel.getBlockState(pos).isAir()) {
-                    serverLevel.setBlock(pos, Blocks.SOUL_FIRE.defaultBlockState(), 3);
-                    fireBlocks.add(pos);
-                }
-            }
-        }
-
-        igniteEntities(serverLevel, centerPos);
-        scheduledRemovals.add(new ScheduledFireRemoval(serverLevel, fireBlocks, FIRE_LIFETIME));
-    }
-
-    private static void igniteEntities(ServerLevel level, BlockPos centerPos) {
-        List<Entity> nearbyEntities = level.getEntities(null, new AABB(
-                centerPos.getX() - BLAST_RADIUS, centerPos.getY(), centerPos.getZ() - BLAST_RADIUS,
-                centerPos.getX() + BLAST_RADIUS, centerPos.getY() + 2, centerPos.getZ() + BLAST_RADIUS
-        ));
-
-        for (Entity entity : nearbyEntities) {
-            if (entity instanceof LivingEntity && !(entity instanceof Player)) {
-                entity.setSecondsOnFire(FIRE_DURATION / 20);
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void onServerTick(TickEvent.ServerTickEvent event) {
@@ -77,7 +42,7 @@ public class FireBlastAbility {
         }
     }
 
-    private static class ScheduledFireRemoval {
+    public static class ScheduledFireRemoval {
         private final ServerLevel level;
         private final List<BlockPos> blockPositions;
         private int ticksLeft;
