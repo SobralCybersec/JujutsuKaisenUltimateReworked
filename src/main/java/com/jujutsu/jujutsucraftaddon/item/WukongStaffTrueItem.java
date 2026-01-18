@@ -2,7 +2,7 @@ package com.jujutsu.jujutsucraftaddon.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jujutsu.jujutsucraftaddon.misc.WeaponRenderer;
+import com.jujutsu.jujutsucraftaddon.misc.renderer.WeaponSizeManipulationRenderer;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneDespawn;
 import com.jujutsu.jujutsucraftaddon.procedures.SpawnFakeCloneProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.WukongStaffEntitySwingsItemProcedure;
@@ -94,7 +94,7 @@ public class WukongStaffTrueItem extends SwordItem {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return new WeaponRenderer();
+                return new WeaponSizeManipulationRenderer();
             }
         });
     }

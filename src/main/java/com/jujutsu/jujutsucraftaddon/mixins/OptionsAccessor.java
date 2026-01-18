@@ -1,6 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
-import net.minecraft.client.Options;
+
 import net.minecraft.client.OptionInstance;
+import net.minecraft.client.Options;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 

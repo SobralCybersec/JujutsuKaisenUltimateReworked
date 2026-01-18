@@ -4,7 +4,19 @@
  */
 package com.jujutsu.jujutsucraftaddon.init;
 
-import com.jujutsu.jujutsucraftaddon.client.particle.*;
+import com.jujutsu.jujutsucraftaddon.client.particle.blackflash.*;
+import com.jujutsu.jujutsucraftaddon.client.particle.bloodparticles.BloodParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.bloodparticles.BloodRedParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.cursedenergy.*;
+import com.jujutsu.jujutsucraftaddon.client.particle.hit.*;
+import com.jujutsu.jujutsucraftaddon.client.particle.misc.DashMovementParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.misc.IceSmokeParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.misc.SmokeWhiteParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.slashparticles.*;
+import com.jujutsu.jujutsucraftaddon.client.particle.thunderparticles.ThunderBlackParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.thunderparticles.ThunderBlueParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.thunderparticles.ThunderBlueeParticle;
+import com.jujutsu.jujutsucraftaddon.client.particle.thunderparticles.ThunderWhiteParticle;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,13 +56,13 @@ public class JujutsucraftaddonModParticles {
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.KAI_4.get(), Kai4Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.BLOOD.get(), BloodParticle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.PUNCH.get(), PunchParticle::provider);
-        event.registerSpriteSet(JujutsucraftaddonModParticleTypes.ICE.get(), IceParticle::provider);
+        event.registerSpriteSet(JujutsucraftaddonModParticleTypes.ICE.get(), IceSmokeParticle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.TSUKUMO_PUNCH.get(), TsukumoPunchParticle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.KAI_5.get(), Kai5Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.HAITI_5.get(), Haiti5Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.HAITI_6.get(), Haiti6Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.KAI_6.get(), Kai6Particle::provider);
-        event.registerSpriteSet(JujutsucraftaddonModParticleTypes.DASH_1.get(), Dash1Particle::provider);
+        event.registerSpriteSet(JujutsucraftaddonModParticleTypes.DASH_1.get(), DashMovementParticle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.HAITI_7.get(), Haiti7Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.HAITI_8.get(), Haiti8Particle::provider);
         event.registerSpriteSet(JujutsucraftaddonModParticleTypes.HAITI_9.get(), Haiti9Particle::provider);

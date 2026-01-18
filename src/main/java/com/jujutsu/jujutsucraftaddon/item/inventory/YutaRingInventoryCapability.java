@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.inventory;
 
-import com.jujutsu.jujutsucraftaddon.client.gui.YutaStorageScreen;
+import com.jujutsu.jujutsucraftaddon.client.gui.storage.YutaRikaStorageGUIScreen;
 import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
@@ -26,7 +26,7 @@ public class YutaRingInventoryCapability implements ICapabilitySerializable<Comp
     @OnlyIn(Dist.CLIENT)
     public static void onItemDropped(ItemTossEvent event) {
         if (event.getEntity().getItem().getItem() == JujutsucraftaddonModItems.YUTA_RING.get()) {
-            if (Minecraft.getInstance().screen instanceof YutaStorageScreen) {
+            if (Minecraft.getInstance().screen instanceof YutaRikaStorageGUIScreen) {
                 Minecraft.getInstance().player.closeContainer();
             }
         }

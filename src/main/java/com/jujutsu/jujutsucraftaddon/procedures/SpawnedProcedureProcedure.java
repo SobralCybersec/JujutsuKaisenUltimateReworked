@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity;
 import com.jujutsu.jujutsucraftaddon.entity.*;
+import com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity;
 import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
 import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
 import net.mcreator.jujutsucraft.entity.*;

@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer;
 
-import com.jujutsu.jujutsucraftaddon.archived.GenericArmorLayerJJK;
-import com.jujutsu.jujutsucraftaddon.archived.GenericItemLayerJJK;
+import com.jujutsu.jujutsucraftaddon.armor.render.GenericArmorLayerJJK;
+import com.jujutsu.jujutsucraftaddon.armor.render.GenericItemLayerJJK;
 import com.jujutsu.jujutsucraftaddon.entity.FakePurpleClonesEntity;
 import com.jujutsu.jujutsucraftaddon.entity.layer.CloneLayer;
 import com.jujutsu.jujutsucraftaddon.entity.model.FakePurpleClonesModel;

@@ -1,10 +1,10 @@
 package com.jujutsu.jujutsucraftaddon.network;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.abilities.items.boomerang.BoomerangAbility;
 import com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation;
 import com.jujutsu.jujutsucraftaddon.abilities.elemental.fireblast.FireBlastCreate;
 import com.jujutsu.jujutsucraftaddon.abilities.elemental.watersurge.WaterSurgeCreate;
+import com.jujutsu.jujutsucraftaddon.abilities.items.boomerang.BoomerangAbility;
 import com.jujutsu.jujutsucraftaddon.abilities.items.songoftime.SongOfTimeAbility;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneChanger;
 import com.jujutsu.jujutsucraftaddon.procedures.DismantleCutProcedure;

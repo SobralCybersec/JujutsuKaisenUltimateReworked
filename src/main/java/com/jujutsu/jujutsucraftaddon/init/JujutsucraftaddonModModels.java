@@ -4,9 +4,9 @@
  */
 package com.jujutsu.jujutsucraftaddon.init;
 
-import com.jujutsu.jujutsucraftaddon.client.model.ModelCiclo2;
-import com.jujutsu.jujutsucraftaddon.client.model.ModelSatushi;
-import com.jujutsu.jujutsucraftaddon.client.model.Modelarmor3;
+import com.jujutsu.jujutsucraftaddon.client.model.ModelBaseArmor;
+import com.jujutsu.jujutsucraftaddon.client.model.ModelBaseEntity;
+import com.jujutsu.jujutsucraftaddon.client.model.ModelCircleEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,8 +16,8 @@ import net.minecraftforge.fml.common.Mod;
 public class JujutsucraftaddonModModels {
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ModelSatushi.LAYER_LOCATION, ModelSatushi::createBodyLayer);
-        event.registerLayerDefinition(ModelCiclo2.LAYER_LOCATION, ModelCiclo2::createBodyLayer);
-        event.registerLayerDefinition(Modelarmor3.LAYER_LOCATION, Modelarmor3::createBodyLayer);
+        event.registerLayerDefinition(ModelBaseEntity.LAYER_LOCATION, ModelBaseEntity::createBodyLayer);
+        event.registerLayerDefinition(ModelCircleEntity.LAYER_LOCATION, ModelCircleEntity::createBodyLayer);
+        event.registerLayerDefinition(ModelBaseArmor.LAYER_LOCATION, ModelBaseArmor::createBodyLayer);
     }
 }
