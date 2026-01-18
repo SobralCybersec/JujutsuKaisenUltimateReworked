@@ -1,10 +1,10 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.CloneEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ErroEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ErrorEntity;
-import com.jujutsu.jujutsucraftaddon.entity.FakeClonesEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErrorEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakeClonesEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;

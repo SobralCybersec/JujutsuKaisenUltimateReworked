@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.misc.mechanics;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModKeyMappings;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModKeyMappings;
 import com.jujutsu.jujutsucraftaddon.procedures.LockOnHandler;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;

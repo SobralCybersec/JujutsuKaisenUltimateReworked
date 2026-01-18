@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.block.entity;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModBlockEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;

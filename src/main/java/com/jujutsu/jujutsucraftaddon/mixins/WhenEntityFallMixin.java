@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.ItadoriShinjukuEntity;
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import com.jujutsu.jujutsucraftaddon.procedures.ReturnEnergyColorProcedure2;
 import net.mcreator.jujutsucraft.entity.ItadoriYujiShinjukuEntity;
 import net.mcreator.jujutsucraft.entity.OkkotsuYutaCullingGameEntity;

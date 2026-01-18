@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.mcreator.jujutsucraft.entity.DagonEntity;
 import net.mcreator.jujutsucraft.entity.UroTakakoEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.layer;
 
-import com.jujutsu.jujutsucraftaddon.entity.FakePurpleClonesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakePurpleClonesEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;

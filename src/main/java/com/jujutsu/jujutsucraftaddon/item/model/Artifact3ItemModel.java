@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.model;
 
-import com.jujutsu.jujutsucraftaddon.item.Artifact3Item;
+import com.jujutsu.jujutsucraftaddon.item.artifact.Artifact3Item;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

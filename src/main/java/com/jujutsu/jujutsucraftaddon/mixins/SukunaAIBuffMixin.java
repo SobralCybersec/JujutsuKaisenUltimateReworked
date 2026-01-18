@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.ErrorEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ItadoriShinjukuEntity;
-import com.jujutsu.jujutsucraftaddon.entity.SukunaMangaEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErrorEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaMangaEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.procedures.TenShadowsRegisterProcedure;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.init.JujutsucraftModItems;
@@ -81,7 +81,7 @@ public abstract class SukunaAIBuffMixin {
                     }
                 }
                 AIActiveProcedure.execute(world, x, y, z, entity);
-                fushiguro_body = entity instanceof SukunaFushiguroEntity || entity instanceof SukunaMangaEntity || entity instanceof com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity;
+                fushiguro_body = entity instanceof SukunaFushiguroEntity || entity instanceof SukunaMangaEntity || entity instanceof com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
                 ItemStack var10000;
                 LivingEntity _livEnt15;
                 if (entity instanceof LivingEntity) {

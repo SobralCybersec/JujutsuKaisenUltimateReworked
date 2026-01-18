@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.item.inventory;
 
 import com.jujutsu.jujutsucraftaddon.client.gui.storage.YutaRikaStorageGUIScreen;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

@@ -1,6 +1,7 @@
 package com.jujutsu.jujutsucraftaddon;
 
-import com.jujutsu.jujutsucraftaddon.init.*;
+import com.jujutsu.jujutsucraftaddon.init.mod.*;
+import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModNetworkHandler;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;

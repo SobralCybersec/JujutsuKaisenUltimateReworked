@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.MakiPreparation2Entity;
-import com.jujutsu.jujutsucraftaddon.entity.MakiPreparationEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModParticleTypes;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.MakiPreparation2Entity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.MakiPreparationEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModParticleTypes;
 import net.mcreator.jujutsucraft.procedures.AIGojoSchoolDaysProcedure;
 import net.mcreator.jujutsucraft.procedures.AIZeninMakiProcedure;
 import net.minecraft.server.level.ServerLevel;

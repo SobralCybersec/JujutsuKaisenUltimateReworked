@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;

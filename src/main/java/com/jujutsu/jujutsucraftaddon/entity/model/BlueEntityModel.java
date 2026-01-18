@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.BlueEntityEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.BlueEntityEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 import software.bernie.geckolib.model.GeoModel;

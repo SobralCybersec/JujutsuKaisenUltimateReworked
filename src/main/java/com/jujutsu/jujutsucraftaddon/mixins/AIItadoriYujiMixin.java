@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.CloneEntity;
-import com.jujutsu.jujutsucraftaddon.entity.FakeClonesEntity;
-import com.jujutsu.jujutsucraftaddon.entity.FakePurpleClonesEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ItadoriShinjukuEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakeClonesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakePurpleClonesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import net.mcreator.jujutsucraft.entity.ItadoriYujiEntity;
 import net.mcreator.jujutsucraft.entity.ItadoriYujiShibuyaEntity;
 import net.mcreator.jujutsucraft.entity.ItadoriYujiShinjukuEntity;

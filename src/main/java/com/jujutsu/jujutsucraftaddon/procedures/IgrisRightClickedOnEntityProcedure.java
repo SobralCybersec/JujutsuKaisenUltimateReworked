@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.IgrisEntity;
-import com.jujutsu.jujutsucraftaddon.entity.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
 import net.minecraft.world.entity.Entity;
 
 public class IgrisRightClickedOnEntityProcedure {

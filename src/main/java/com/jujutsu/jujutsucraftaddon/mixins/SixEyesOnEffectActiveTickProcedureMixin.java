@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import com.jujutsu.jujutsucraftaddon.procedures.DisplayOverlayProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.GojoMoveBlueProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.NoSixEyesGojoProcedure;

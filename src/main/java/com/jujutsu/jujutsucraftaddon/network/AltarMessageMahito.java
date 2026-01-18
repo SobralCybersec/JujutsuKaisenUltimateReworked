@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.network;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.procedures.RemoveCE;
 import com.jujutsu.jujutsucraftaddon.procedures.SpawnCloneProcedure;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;

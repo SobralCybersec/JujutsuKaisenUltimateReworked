@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.MakiPreparation2Entity;
-import com.jujutsu.jujutsucraftaddon.entity.MakiPreparationEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.MakiPreparation2Entity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.MakiPreparationEntity;
 import net.mcreator.jujutsucraft.procedures.AIZeninMakiProcedure;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LevelAccessor;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.GojoMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.gojo.GojoMangaEntity;
 import net.minecraft.world.entity.Entity;
 
 public class MangaGojoNBTProcedure {

@@ -1,6 +1,12 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.*;
+import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakeClonesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.CentipedeEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.UiUiEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;

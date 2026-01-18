@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import net.mcreator.jujutsucraft.entity.CrowEntity;
 import net.mcreator.jujutsucraft.entity.PureLoveCannonEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModEntities;

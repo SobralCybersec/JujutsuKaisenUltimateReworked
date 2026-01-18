@@ -9,30 +9,14 @@ import net.minecraft.world.entity.Entity;
 
 public class ClanGojoProcedure {
     public static void execute(CommandContext<CommandSourceStack> arguments) {
-        {
-            String _setval = "Gojo";
-            (new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                capability.Clans = _setval;
-                capability.syncPlayerVariables((new Object() {
-                    public Entity getEntity() {
-                        try {
-                            return EntityArgument.getEntity(arguments, "Player");
-                        } catch (CommandSyntaxException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }.getEntity()));
+        try {
+            Entity player = EntityArgument.getEntity(arguments, "Player");
+            player.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                capability.Clans = "Gojo";
+                capability.syncPlayerVariables(player);
             });
+        } catch (CommandSyntaxException e) {
+            e.printStackTrace();
         }
     }
 }

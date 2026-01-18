@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.PartialRikaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
 import com.jujutsu.jujutsucraftaddon.procedures.DeerBuffedProcedure;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.procedures.AIActiveProcedure;

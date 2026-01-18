@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.fluid;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModBlocks;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModFluidTypes;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModFluids;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModBlocks;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModFluidTypes;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModFluids;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;

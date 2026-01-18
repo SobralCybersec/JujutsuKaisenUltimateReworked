@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.misc;
 
-import com.jujutsu.jujutsucraftaddon.entity.AntiVeilEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.AntiVeilEntity;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

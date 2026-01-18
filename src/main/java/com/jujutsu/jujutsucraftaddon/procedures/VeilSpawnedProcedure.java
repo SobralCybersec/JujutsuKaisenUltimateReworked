@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.VeilEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModBlocks;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.entity.misc.VeilEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModBlocks;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.context.CommandContext;

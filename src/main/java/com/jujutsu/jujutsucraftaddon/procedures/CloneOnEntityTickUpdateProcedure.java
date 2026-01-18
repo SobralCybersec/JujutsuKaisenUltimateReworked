@@ -1,7 +1,10 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.*;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.clone.*;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.CentipedeEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.procedures.AISukunaProcedure;
 import net.minecraft.commands.CommandSource;

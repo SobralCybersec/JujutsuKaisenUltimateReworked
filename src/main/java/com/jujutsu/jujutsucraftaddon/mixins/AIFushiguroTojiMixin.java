@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModParticleTypes;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModParticleTypes;
 import com.jujutsu.jujutsucraftaddon.procedures.DomainBreakerTojiProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.SixEyesCutProcedure;
 import net.mcreator.jujutsucraft.entity.FushiguroTojiBugEntity;

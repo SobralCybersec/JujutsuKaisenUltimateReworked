@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.WaveEffect;
-import com.jujutsu.jujutsucraftaddon.entity.IgrisEntity;
-import com.jujutsu.jujutsucraftaddon.entity.Shadow1Entity;
-import com.jujutsu.jujutsucraftaddon.init.*;
+import com.jujutsu.jujutsucraftaddon.misc.vfx.WaveEffect;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.init.mod.*;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;

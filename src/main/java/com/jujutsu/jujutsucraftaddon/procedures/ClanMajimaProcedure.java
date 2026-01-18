@@ -8,50 +8,34 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-public class ClanMajimaProcedure {
-    public static void execute(CommandContext<CommandSourceStack> arguments) {
-        {
-            String _setval = "Majima";
-            (new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                capability.Clans = _setval;
-                capability.syncPlayerVariables((new Object() {
-                    public Entity getEntity() {
-                        try {
-                            return EntityArgument.getEntity(arguments, "Player");
-                        } catch (CommandSyntaxException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }.getEntity()));
-            });
-        }
+import java.util.List;
 
-        if ((new Object() {
-            public Entity getEntity() {
-                try {
-                    return EntityArgument.getEntity(arguments, "Player");
-                } catch (CommandSyntaxException e) {
-                    e.printStackTrace();
-                    return null;
-                }
+public class ClanMajimaProcedure {
+    private static final List<Item> MAJIMA_ITEMS = List.of(
+            JujutsucraftModItems.KNIFE.get()
+    );
+
+    public static void execute(CommandContext<CommandSourceStack> arguments) {
+        try {
+            Entity player = EntityArgument.getEntity(arguments, "Player");
+
+            player.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                capability.Clans = "Majima";
+                capability.syncPlayerVariables(player);
+            });
+
+            if (player instanceof Player _player) {
+                MAJIMA_ITEMS.forEach(item ->
+                        ItemHandlerHelper.giveItemToPlayer(_player, new ItemStack(item))
+                );
             }
-        }.getEntity()) instanceof Player _player) {
-            ItemStack _setstack1 = new ItemStack(JujutsucraftModItems.KNIFE.get()).copy();
-            _setstack1.setCount(1);
-            ItemHandlerHelper.giveItemToPlayer(_player, _setstack1);
+
+        } catch (CommandSyntaxException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,9 +1,13 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.*;
-import com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.MakiPreparationEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.RikoAmanaiEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaNoShirtEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;
 import net.minecraft.core.BlockPos;

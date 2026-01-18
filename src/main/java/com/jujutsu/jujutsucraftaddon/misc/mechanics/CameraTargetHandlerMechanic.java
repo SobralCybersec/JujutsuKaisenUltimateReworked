@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.misc.mechanics;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModKeyMappings;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModKeyMappings;
 import com.jujutsu.jujutsucraftaddon.network.ZTargetPacket;
 import com.jujutsu.jujutsucraftaddon.procedures.ZTargetSystem;
 import net.minecraft.client.Minecraft;

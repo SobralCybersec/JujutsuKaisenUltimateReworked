@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.layer;
 
-import com.jujutsu.jujutsucraftaddon.entity.ErrorEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErrorEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;

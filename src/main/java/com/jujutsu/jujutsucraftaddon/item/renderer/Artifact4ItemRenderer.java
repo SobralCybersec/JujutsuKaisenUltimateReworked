@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.renderer;
 
-import com.jujutsu.jujutsucraftaddon.item.Artifact4Item;
+import com.jujutsu.jujutsucraftaddon.item.artifact.Artifact4Item;
 import com.jujutsu.jujutsucraftaddon.item.model.Artifact4ItemModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

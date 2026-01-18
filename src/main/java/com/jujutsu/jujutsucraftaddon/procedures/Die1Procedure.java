@@ -1,11 +1,12 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.TextureSyncPacket;
-import com.jujutsu.jujutsucraftaddon.entity.CloneEntity;
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.packets.TextureSyncPacket;
+import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.init.JujutsucraftModEntities;
@@ -155,7 +156,7 @@ public class Die1Procedure {
 
         }
 
-        if (sourceentity instanceof SukunaPerfectEntity || sourceentity instanceof com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity) {
+        if (sourceentity instanceof SukunaPerfectEntity || sourceentity instanceof SukunaFushiguroEntity) {
             if (entity instanceof YutaCullingGamesEntity) {
                 if (!entity.getPersistentData().contains("hasSpawnedGojo")) {
                     double yaw = entity.getPersistentData().getDouble("yaw");

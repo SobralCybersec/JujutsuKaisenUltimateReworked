@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.AngellEntity;
-import com.jujutsu.jujutsucraftaddon.entity.HakariEntity;
-import com.jujutsu.jujutsucraftaddon.entity.KashimoFemboyEntity;
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.AngellEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.HakariEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.KashimoFemboyEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
 import net.mcreator.jujutsucraft.procedures.AIKashimoHajimeProcedure;
 import net.mcreator.jujutsucraft.procedures.AIOkkotsuProcedure;
 import net.mcreator.jujutsucraft.procedures.LocateRikaProcedure;

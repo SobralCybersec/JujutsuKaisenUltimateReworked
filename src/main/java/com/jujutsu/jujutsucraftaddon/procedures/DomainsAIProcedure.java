@@ -1,7 +1,16 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.*;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.gojo.GojoMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.GegeAkutamiEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.HakariEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.HusseinDongEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.SatushiEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.TanjerinaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.UraumeEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

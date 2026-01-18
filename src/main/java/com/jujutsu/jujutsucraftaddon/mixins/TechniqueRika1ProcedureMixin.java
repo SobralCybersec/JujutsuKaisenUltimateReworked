@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
 import com.jujutsu.jujutsucraftaddon.procedures.LocatePartialProcedure;
 import net.mcreator.jujutsucraft.entity.OkkotsuYutaCullingGameEntity;
 import net.mcreator.jujutsucraft.entity.Rika2Entity;

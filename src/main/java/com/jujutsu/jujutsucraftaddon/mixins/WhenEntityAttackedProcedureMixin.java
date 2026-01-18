@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEnchantments;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEnchantments;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import com.jujutsu.jujutsucraftaddon.procedures.AnimationDodgeProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.SukunaAttackAnimationsProcedure;
