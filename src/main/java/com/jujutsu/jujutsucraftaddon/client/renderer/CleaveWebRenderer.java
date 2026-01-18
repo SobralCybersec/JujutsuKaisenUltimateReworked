@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer;
 
-import com.jujutsu.jujutsucraftaddon.client.model.ModelCiclo2;
+import com.jujutsu.jujutsucraftaddon.client.model.ModelCircleEntity;
 import com.jujutsu.jujutsucraftaddon.entity.CleaveWebEntity;
 import com.jujutsu.jujutsucraftaddon.procedures.CleaveWebDisplayConditionProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.CleaveWebModelVisualScaleProcedure;
@@ -17,10 +17,10 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 
-public class CleaveWebRenderer extends MobRenderer<CleaveWebEntity, ModelCiclo2<CleaveWebEntity>> {
+public class CleaveWebRenderer extends MobRenderer<CleaveWebEntity, ModelCircleEntity<CleaveWebEntity>> {
     public CleaveWebRenderer(EntityRendererProvider.Context context) {
-        super(context, new ModelCiclo2<CleaveWebEntity>(context.bakeLayer(ModelCiclo2.LAYER_LOCATION)), 0.5f);
-        this.addLayer(new RenderLayer<CleaveWebEntity, ModelCiclo2<CleaveWebEntity>>(this) {
+        super(context, new ModelCircleEntity<CleaveWebEntity>(context.bakeLayer(ModelCircleEntity.LAYER_LOCATION)), 0.5f);
+        this.addLayer(new RenderLayer<CleaveWebEntity, ModelCircleEntity<CleaveWebEntity>>(this) {
             final ResourceLocation LAYER_TEXTURE = new ResourceLocation("jujutsucraftaddon:textures/entities/cowebblack.png");
 
             @Override
@@ -31,7 +31,7 @@ public class CleaveWebRenderer extends MobRenderer<CleaveWebEntity, ModelCiclo2<
                 double z = entity.getZ();
                 if (CleaveWebDisplayConditionProcedure.execute(entity)) {
                     VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(LAYER_TEXTURE));
-                    EntityModel model = new ModelCiclo2(Minecraft.getInstance().getEntityModels().bakeLayer(ModelCiclo2.LAYER_LOCATION));
+                    EntityModel model = new ModelCircleEntity(Minecraft.getInstance().getEntityModels().bakeLayer(ModelCircleEntity.LAYER_LOCATION));
                     this.getParentModel().copyPropertiesTo(model);
                     model.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
                     model.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);

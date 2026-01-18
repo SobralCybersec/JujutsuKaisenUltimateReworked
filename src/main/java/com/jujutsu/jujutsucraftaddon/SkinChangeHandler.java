@@ -23,8 +23,6 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static net.minecraft.client.renderer.texture.OverlayTexture.pack;
-
 @Mod.EventBusSubscriber(modid = "jujutsucraftaddon", value = Dist.CLIENT)
 public class SkinChangeHandler {
 

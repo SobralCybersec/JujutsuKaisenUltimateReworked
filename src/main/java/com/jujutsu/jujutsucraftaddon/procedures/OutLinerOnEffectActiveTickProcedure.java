@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.vfx.ImpactFrames;
+import com.jujutsu.jujutsucraftaddon.misc.vfx.KokusenImpactFramesVFX;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -11,7 +11,7 @@ public class OutLinerOnEffectActiveTickProcedure {
         if (entity == null)
             return;
         if (Math.random() <= 0.2) {
-            ImpactFrames.execute(125);
+            KokusenImpactFramesVFX.execute(125);
         }
         if (world.isClientSide()) {
             if (Minecraft.getInstance().gameRenderer.currentEffect() == null) {

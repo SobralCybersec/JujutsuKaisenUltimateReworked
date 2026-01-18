@@ -5,7 +5,11 @@
 package com.jujutsu.jujutsucraftaddon.init;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.block.*;
+import com.jujutsu.jujutsucraftaddon.block.domain.CurtainBlockBlock;
+import com.jujutsu.jujutsucraftaddon.block.domain.NoDomainBlock;
+import com.jujutsu.jujutsucraftaddon.block.domain.SnowDomainBlock;
+import com.jujutsu.jujutsucraftaddon.block.domain.VeilBlockBlock;
+import com.jujutsu.jujutsucraftaddon.block.liquid.YokuBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

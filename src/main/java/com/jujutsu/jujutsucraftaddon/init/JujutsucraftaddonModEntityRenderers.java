@@ -5,6 +5,9 @@
 package com.jujutsu.jujutsucraftaddon.init;
 
 import com.jujutsu.jujutsucraftaddon.client.renderer.*;
+import com.jujutsu.jujutsucraftaddon.client.renderer.misc.AntiVeilRenderer;
+import com.jujutsu.jujutsucraftaddon.client.renderer.misc.BlueEntityRenderer;
+import com.jujutsu.jujutsucraftaddon.client.renderer.shadows.CentipedeRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;

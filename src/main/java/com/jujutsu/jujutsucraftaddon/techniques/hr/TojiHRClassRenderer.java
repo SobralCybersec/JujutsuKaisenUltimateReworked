@@ -2,7 +2,6 @@ package com.jujutsu.jujutsucraftaddon.techniques.hr;
 
 import com.jujutsu.jujutsucraftaddon.mixins.OptionsAccessor;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.LivingEntity;

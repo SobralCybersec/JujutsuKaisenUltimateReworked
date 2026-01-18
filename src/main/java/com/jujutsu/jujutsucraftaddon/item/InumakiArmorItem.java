@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item;
 
-import com.jujutsu.jujutsucraftaddon.client.model.Modelarmor3;
+import com.jujutsu.jujutsucraftaddon.client.model.ModelBaseArmor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -75,7 +75,7 @@ public abstract class InumakiArmorItem extends ArmorItem {
                 @Override
                 public HumanoidModel getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel defaultModel) {
                     HumanoidModel armorModel = new HumanoidModel(new ModelPart(Collections.emptyList(),
-                            Map.of("head", new Modelarmor3(Minecraft.getInstance().getEntityModels().bakeLayer(Modelarmor3.LAYER_LOCATION)).Helmet, "hat", new ModelPart(Collections.emptyList(), Collections.emptyMap()), "body",
+                            Map.of("head", new ModelBaseArmor(Minecraft.getInstance().getEntityModels().bakeLayer(ModelBaseArmor.LAYER_LOCATION)).Helmet, "hat", new ModelPart(Collections.emptyList(), Collections.emptyMap()), "body",
                                     new ModelPart(Collections.emptyList(), Collections.emptyMap()), "right_arm", new ModelPart(Collections.emptyList(), Collections.emptyMap()), "left_arm",
                                     new ModelPart(Collections.emptyList(), Collections.emptyMap()), "right_leg", new ModelPart(Collections.emptyList(), Collections.emptyMap()), "left_leg",
                                     new ModelPart(Collections.emptyList(), Collections.emptyMap()))));

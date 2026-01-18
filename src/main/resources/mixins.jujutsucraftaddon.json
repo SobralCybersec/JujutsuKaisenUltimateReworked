@@ -121,8 +121,8 @@
     "WhenRightClickToEntityMixin"
   ],
   "client": [
-    "PlayerAttackMixin",
-    "OptionsAccessor"
+    "OptionsAccessor",
+    "PlayerAttackMixin"
   ],
   "minVersion": "0.8"
 }

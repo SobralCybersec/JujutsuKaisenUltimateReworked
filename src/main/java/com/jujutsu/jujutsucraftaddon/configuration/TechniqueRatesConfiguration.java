@@ -1,0 +1,100 @@
+package com.jujutsu.jujutsucraftaddon.configuration;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+
+public class TechniqueRatesConfiguration {
+    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec SPEC;
+
+    public static final ForgeConfigSpec.ConfigValue<Double> GOJO;
+    public static final ForgeConfigSpec.ConfigValue<Double> GETO;
+    public static final ForgeConfigSpec.ConfigValue<Double> FUSHIGURO;
+    public static final ForgeConfigSpec.ConfigValue<Double> MAKI;
+    public static final ForgeConfigSpec.ConfigValue<Double> SUKUNA;
+    public static final ForgeConfigSpec.ConfigValue<Double> INUMAKI;
+    public static final ForgeConfigSpec.ConfigValue<Double> OKKOTSU;
+    public static final ForgeConfigSpec.ConfigValue<Double> JOGO;
+    public static final ForgeConfigSpec.ConfigValue<Double> KASHIMO;
+    public static final ForgeConfigSpec.ConfigValue<Double> DAGON;
+    public static final ForgeConfigSpec.ConfigValue<Double> TSUKUMO;
+    public static final ForgeConfigSpec.ConfigValue<Double> CHOSO;
+    public static final ForgeConfigSpec.ConfigValue<Double> MEIMEI;
+    public static final ForgeConfigSpec.ConfigValue<Double> ISHIGORI;
+    public static final ForgeConfigSpec.ConfigValue<Double> NANAMI;
+    public static final ForgeConfigSpec.ConfigValue<Double> HANAMI;
+    public static final ForgeConfigSpec.ConfigValue<Double> MAHITO;
+    public static final ForgeConfigSpec.ConfigValue<Double> MAHORAGA;
+    public static final ForgeConfigSpec.ConfigValue<Double> TAKABA;
+    public static final ForgeConfigSpec.ConfigValue<Double> NAOYA;
+    public static final ForgeConfigSpec.ConfigValue<Double> TODO;
+    public static final ForgeConfigSpec.ConfigValue<Double> ITADORI;
+    public static final ForgeConfigSpec.ConfigValue<Double> JINICHI;
+    public static final ForgeConfigSpec.ConfigValue<Double> KUROURUSHI;
+    public static final ForgeConfigSpec.ConfigValue<Double> URAUME;
+    public static final ForgeConfigSpec.ConfigValue<Double> OGI;
+    public static final ForgeConfigSpec.ConfigValue<Double> HIGURUMA;
+    public static final ForgeConfigSpec.ConfigValue<Double> ANGEL;
+    public static final ForgeConfigSpec.ConfigValue<Double> HAKARI;
+    public static final ForgeConfigSpec.ConfigValue<Double> MIGUEL;
+    public static final ForgeConfigSpec.ConfigValue<Double> KUSAKABE;
+    public static final ForgeConfigSpec.ConfigValue<Double> CHOJURO;
+    public static final ForgeConfigSpec.ConfigValue<Double> YAGA;
+    public static final ForgeConfigSpec.ConfigValue<Double> KUGISAKI;
+    public static final ForgeConfigSpec.ConfigValue<Double> JUNPE;
+    public static final ForgeConfigSpec.ConfigValue<Double> NISHIMIYA;
+    public static final ForgeConfigSpec.ConfigValue<Double> DHRUV;
+    public static final ForgeConfigSpec.ConfigValue<Double> YOROZU;
+    public static final ForgeConfigSpec.ConfigValue<Double> TAKAKOURO;
+    public static final ForgeConfigSpec.ConfigValue<Double> SMALLPOXDEITY;
+    public static final ForgeConfigSpec.ConfigValue<Double> INO;
+    public static final ForgeConfigSpec.ConfigValue<Double> KAORI;
+
+    static {
+        BUILDER.push("Jujutsu Random Rates");
+        GOJO = BUILDER.comment("Gojo").define("Gojo", 1.0);
+        GETO = BUILDER.comment("Geto").define("Geto", 3.0);
+        FUSHIGURO = BUILDER.comment("Fushiguro").define("Fushiguro", 4.0);
+        MAKI = BUILDER.comment("Maki").define("Maki", 5.0);
+        SUKUNA = BUILDER.comment("Sukuna").define("Sukuna", 2.0);
+        INUMAKI = BUILDER.comment("Inumaki").define("Inumaki", 6.0);
+        OKKOTSU = BUILDER.comment("Okkotsu").define("Okkotsu", 7.0);
+        JOGO = BUILDER.comment("Jogo").define("Jogo", 8.0);
+        KASHIMO = BUILDER.comment("Kashimo").define("Kashimo", 9.0);
+        DAGON = BUILDER.comment("Dagon").define("Dagon", 10.0);
+        TSUKUMO = BUILDER.comment("Tsukumo").define("Tsukumo", 11.0);
+        CHOSO = BUILDER.comment("Choso").define("Choso", 12.0);
+        MEIMEI = BUILDER.comment("Meimei").define("MeiMei", 13.0);
+        ISHIGORI = BUILDER.comment("Ishigori").define("Ishigori", 14.0);
+        NANAMI = BUILDER.comment("Nanami").define("Nanami", 15.0);
+        HANAMI = BUILDER.comment("Hanami").define("Hanami", 16.0);
+        MAHITO = BUILDER.comment("Mahito").define("Mahito", 17.0);
+        MAHORAGA = BUILDER.comment("Mahoraga").define("Mahoraga", 18.0);
+        TAKABA = BUILDER.comment("Takaba").define("Takaba", 19.0);
+        NAOYA = BUILDER.comment("Naoya").define("Naoya", 20.0);
+        TODO = BUILDER.comment("Todo").define("Todo", 21.0);
+        ITADORI = BUILDER.comment("Itadori").define("Itadori", 22.0);
+        JINICHI = BUILDER.comment("Jinichi").define("Jinichi", 23.0);
+        KUROURUSHI = BUILDER.comment("Kurourushi").define("Kurourushi", 24.0);
+        URAUME = BUILDER.comment("Uraume").define("Uraume", 25.0);
+        OGI = BUILDER.comment("Ogi").define("Ogi", 26.0);
+        HIGURUMA = BUILDER.comment("Higuruma").define("Higuruma", 27.0);
+        ANGEL = BUILDER.comment("Angel").define("Angel", 28.0);
+        HAKARI = BUILDER.comment("Hakari").define("Hakari", 29.0);
+        MIGUEL = BUILDER.comment("Miguel").define("Miguel", 30.0);
+        KUSAKABE = BUILDER.comment("Kusakabe").define("Kusakabe", 31.0);
+        CHOJURO = BUILDER.comment("Chojuro").define("Chojuro", 32.0);
+        YAGA = BUILDER.comment("Yaga").define("Yaga", 33.0);
+        KUGISAKI = BUILDER.comment("Kugisaki").define("Kugisaki", 34.0);
+        JUNPE = BUILDER.comment("Junpei").define("Junpei", 35.0);
+        NISHIMIYA = BUILDER.comment("Nishimiya").define("Nishimiya", 36.0);
+        DHRUV = BUILDER.comment("Dhruv").define("Dhruv", 37.0);
+        YOROZU = BUILDER.comment("Yorozu").define("Yorozu", 38.0);
+        TAKAKOURO = BUILDER.comment("Uro").define("TakakoUro", 39.0);
+        SMALLPOXDEITY = BUILDER.comment("SmallPox").define("SmallpoxDeity", 40.0);
+        INO = BUILDER.comment("Ino Chance").define("Ino Takuma", 41.0);
+        KAORI = BUILDER.comment("Kaori").define("Kaori", 42.0);
+        BUILDER.pop();
+        SPEC = BUILDER.build();
+    }
+}
+

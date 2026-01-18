@@ -1,12 +1,12 @@
 package com.jujutsu.jujutsucraftaddon;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.player.Player;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class RainbowTextUtil {
     public static void sendRainbowMessage(Player player, String message) {
