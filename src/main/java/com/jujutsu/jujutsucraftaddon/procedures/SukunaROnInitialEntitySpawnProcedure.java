@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;

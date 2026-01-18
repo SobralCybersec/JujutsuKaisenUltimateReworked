@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.model;
 
-import com.jujutsu.jujutsucraftaddon.item.WukongItem;
+import com.jujutsu.jujutsucraftaddon.item.weapons.WukongItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

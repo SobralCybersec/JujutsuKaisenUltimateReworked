@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.entity.GojoSatoruSchoolDaysEntity;
 import net.mcreator.jujutsucraft.procedures.KeyStartTechniqueOnKeyPressedProcedure;
 import net.minecraft.commands.CommandSource;

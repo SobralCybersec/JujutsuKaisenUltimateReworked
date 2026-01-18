@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;

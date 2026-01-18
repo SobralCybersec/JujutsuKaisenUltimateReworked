@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.MalevolentShrineEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.MalevolentShrineEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

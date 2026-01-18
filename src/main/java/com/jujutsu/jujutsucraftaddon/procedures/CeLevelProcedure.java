@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;

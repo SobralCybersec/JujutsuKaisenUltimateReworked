@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.FakeClonesEntity;
-import com.jujutsu.jujutsucraftaddon.entity.FakePurpleClonesEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakeClonesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.FakePurpleClonesEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;

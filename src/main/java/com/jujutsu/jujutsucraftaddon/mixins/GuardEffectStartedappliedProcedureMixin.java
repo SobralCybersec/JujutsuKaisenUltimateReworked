@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.init.JujutsucraftModAttributes;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.procedures.PlayAnimationProcedure;

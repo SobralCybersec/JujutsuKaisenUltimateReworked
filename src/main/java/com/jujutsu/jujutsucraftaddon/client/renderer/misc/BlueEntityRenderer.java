@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.misc;
 
-import com.jujutsu.jujutsucraftaddon.entity.BlueEntityEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.BlueEntityEntity;
 import com.jujutsu.jujutsucraftaddon.entity.model.BlueEntityModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

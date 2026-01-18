@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

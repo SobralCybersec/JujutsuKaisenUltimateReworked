@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

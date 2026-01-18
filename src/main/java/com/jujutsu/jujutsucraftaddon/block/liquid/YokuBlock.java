@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.block.liquid;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModFluids;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModFluids;
 import com.jujutsu.jujutsucraftaddon.procedures.YokuMobplayerCollidesBlockProcedure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.item.KimonoWhiteItem;
+import com.jujutsu.jujutsucraftaddon.item.robes.KimonoWhiteItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

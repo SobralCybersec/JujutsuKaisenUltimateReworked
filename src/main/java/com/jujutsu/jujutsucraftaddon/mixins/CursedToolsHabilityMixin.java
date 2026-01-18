@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.IgrisEntity;
-import com.jujutsu.jujutsucraftaddon.entity.Shadow1Entity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.IgrisEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.entity.EightHandledSwrodDivergentSilaDivineGeneralMahoragaEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModItems;

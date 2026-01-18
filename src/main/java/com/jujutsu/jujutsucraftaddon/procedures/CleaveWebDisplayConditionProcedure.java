@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.CleaveWebEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.CleaveWebEntity;
 import net.minecraft.world.entity.Entity;
 
 public class CleaveWebDisplayConditionProcedure {

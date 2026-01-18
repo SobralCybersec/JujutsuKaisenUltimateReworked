@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.CloneEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;

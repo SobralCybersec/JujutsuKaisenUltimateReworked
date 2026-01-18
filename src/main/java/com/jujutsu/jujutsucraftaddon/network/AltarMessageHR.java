@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.network;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.WaveEffect;
+import com.jujutsu.jujutsucraftaddon.misc.vfx.WaveEffect;
 import com.jujutsu.jujutsucraftaddon.procedures.SixEyesCutProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.SplitSoulTojiProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.TojiInvertedProcedure;

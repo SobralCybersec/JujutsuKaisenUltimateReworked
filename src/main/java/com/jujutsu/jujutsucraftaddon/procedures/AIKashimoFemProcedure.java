@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.KashimoFemboyEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.KashimoFemboyEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import net.mcreator.jujutsucraft.procedures.IdleTransfigurationProcedure;
 import net.mcreator.jujutsucraft.procedures.RangeAttackProcedure;
 import net.minecraft.commands.arguments.EntityAnchorArgument;

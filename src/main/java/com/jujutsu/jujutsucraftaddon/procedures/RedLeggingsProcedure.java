@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.item.RedCapeItem;
+import com.jujutsu.jujutsucraftaddon.item.robes.RedCapeItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;

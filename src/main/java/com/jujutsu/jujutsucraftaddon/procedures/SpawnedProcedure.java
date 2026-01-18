@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.mojang.util.UUIDTypeAdapter;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;

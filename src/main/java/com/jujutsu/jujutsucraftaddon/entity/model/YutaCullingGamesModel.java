@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.YutaCullingGamesEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.YutaCullingGamesEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 public class YutaCullingGamesModel extends GeoModel<YutaCullingGamesEntity> {

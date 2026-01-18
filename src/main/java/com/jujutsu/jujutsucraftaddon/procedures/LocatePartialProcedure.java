@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.PartialRikaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
 import net.mcreator.jujutsucraft.entity.Rika2Entity;
 import net.mcreator.jujutsucraft.entity.RikaEntity;
 import net.minecraft.server.level.ServerLevel;

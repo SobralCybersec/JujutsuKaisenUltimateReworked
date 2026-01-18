@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.AdjuchaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.AdjuchaEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

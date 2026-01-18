@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.client.screens.GreatScreen;
+import com.jujutsu.jujutsucraftaddon.client.screens.technique.MasteryCursedEnergyMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LevelAccessor;
@@ -14,7 +14,7 @@ public class OpenMastery {
             return;
         Minecraft.getInstance().execute(() -> {
             if (Minecraft.getInstance().screen == null) {
-                Minecraft.getInstance().setScreen(new GreatScreen());
+                Minecraft.getInstance().setScreen(new MasteryCursedEnergyMenu());
             }
         });
     }

@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.entity.FushiguroTojiBugEntity;
 import net.mcreator.jujutsucraft.entity.FushiguroTojiEntity;
 import net.mcreator.jujutsucraft.entity.SukunaFushiguroEntity;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.shadows;
 
-import com.jujutsu.jujutsucraftaddon.entity.CentipedeEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.CentipedeEntity;
 import com.jujutsu.jujutsucraftaddon.entity.model.CentipedeModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

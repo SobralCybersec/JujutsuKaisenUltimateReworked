@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;

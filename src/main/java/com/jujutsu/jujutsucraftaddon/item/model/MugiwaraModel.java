@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.model;
 
-import com.jujutsu.jujutsucraftaddon.item.MugiwaraItem;
+import com.jujutsu.jujutsucraftaddon.item.robes.MugiwaraItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

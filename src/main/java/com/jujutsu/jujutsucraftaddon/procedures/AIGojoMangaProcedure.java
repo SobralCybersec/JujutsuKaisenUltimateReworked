@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.entity.TanjerinaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.shadows.TanjerinaEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

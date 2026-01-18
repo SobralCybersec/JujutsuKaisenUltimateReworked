@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.world.inventory;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMenus;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMenus;
 import com.jujutsu.jujutsucraftaddon.network.YutaStorageSlotMessage;
 import com.jujutsu.jujutsucraftaddon.procedures.ExecuteProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.ReadProcedure;

@@ -1,10 +1,10 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.ErroEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ErrorEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModParticleTypes;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErrorEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModParticleTypes;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;

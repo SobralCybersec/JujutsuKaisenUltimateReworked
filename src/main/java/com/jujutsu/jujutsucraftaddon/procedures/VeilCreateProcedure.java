@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.VeilEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModBlocks;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.misc.VeilEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModBlocks;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

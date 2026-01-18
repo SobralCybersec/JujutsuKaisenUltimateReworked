@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.entity.model;
 
-import com.jujutsu.jujutsucraftaddon.entity.ErrorEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErrorEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;

@@ -8,43 +8,19 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LevelAccessor;
 
+
+
 public class SetDhruvProcedure {
     public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments) {
-        {
-            double _setval = 37;
-            (new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                capability.PlayerCurseTechnique2 = _setval;
-                capability.syncPlayerVariables((new Object() {
-                    public Entity getEntity() {
-                        try {
-                            return EntityArgument.getEntity(arguments, "Player");
-                        } catch (CommandSyntaxException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }.getEntity()));
-                capability.PlayerCurseTechnique = _setval;
-                capability.syncPlayerVariables((new Object() {
-                    public Entity getEntity() {
-                        try {
-                            return EntityArgument.getEntity(arguments, "Player");
-                        } catch (CommandSyntaxException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }.getEntity()));
+        try {
+            Entity player = EntityArgument.getEntity(arguments, "Player");
+            player.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                capability.PlayerCurseTechnique2 = 37;
+                capability.PlayerCurseTechnique = 37;
+                capability.syncPlayerVariables(player);
             });
+        } catch (CommandSyntaxException e) {
+            e.printStackTrace();
         }
     }
 }

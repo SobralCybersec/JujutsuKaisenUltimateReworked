@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.BulletProjectileEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.misc.BulletProjectileEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import dev.kosmx.playerAnim.api.layered.IAnimation;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
 import dev.kosmx.playerAnim.api.layered.ModifierLayer;

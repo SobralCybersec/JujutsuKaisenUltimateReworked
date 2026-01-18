@@ -1,12 +1,12 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.DismantleEntity;
-import com.jujutsu.jujutsucraftaddon.entity.DismantleVariantEntity;
-import com.jujutsu.jujutsucraftaddon.entity.WorldSlashFinalEntity;
-import com.jujutsu.jujutsucraftaddon.entity.WorldSlashVariantEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModItems;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleVariantEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.WorldSlashFinalEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.WorldSlashVariantEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
 import dev.kosmx.playerAnim.api.layered.ModifierLayer;

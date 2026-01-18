@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModParticleTypes;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModParticleTypes;
 import net.mcreator.jujutsucraft.procedures.AIMalevolentShrineProcedure;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;

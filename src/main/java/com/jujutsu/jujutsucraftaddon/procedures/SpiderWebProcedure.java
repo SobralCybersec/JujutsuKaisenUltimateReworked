@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.CleaveWebEntity;
-import com.jujutsu.jujutsucraftaddon.entity.ErroEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.misc.CleaveWebEntity;
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;

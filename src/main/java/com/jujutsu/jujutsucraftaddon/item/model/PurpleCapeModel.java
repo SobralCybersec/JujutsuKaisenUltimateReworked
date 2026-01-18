@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.model;
 
-import com.jujutsu.jujutsucraftaddon.item.PurpleCapeItem;
+import com.jujutsu.jujutsucraftaddon.item.robes.PurpleCapeItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

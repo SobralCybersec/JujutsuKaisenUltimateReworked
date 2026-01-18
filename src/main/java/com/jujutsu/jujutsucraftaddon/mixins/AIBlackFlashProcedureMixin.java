@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModParticleTypes;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModParticleTypes;
 import com.jujutsu.jujutsucraftaddon.procedures.EffectsBlackFlashProcedure;
 import net.mcreator.jujutsucraft.init.JujutsucraftModParticleTypes;
 import net.mcreator.jujutsucraft.procedures.AIBlackFlashProcedure;

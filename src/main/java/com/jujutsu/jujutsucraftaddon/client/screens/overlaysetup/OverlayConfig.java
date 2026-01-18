@@ -15,4 +15,26 @@ public record OverlayConfig(String id, ResourceLocation texture, Predicate<Playe
                 -2
         );
     }
+
+    public static OverlayConfig fullscreen(String id, String texturePath, Predicate<Player> condition) {
+        return new OverlayConfig(
+                id,
+                new ResourceLocation("jujutsucraftaddon", texturePath),
+                condition,
+                0,
+                0
+        );
+    }
+
+    public static OverlayConfig brainStatus(String color, String translationKey, Predicate<Player> condition) {
+        return new OverlayConfig(
+                "brain_" + color,
+                new ResourceLocation("jujutsucraftaddon", "textures/screens/" + color + ".png"),
+                condition,
+                -207,
+                -8
+        );
+    }
+
+
 }

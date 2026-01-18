@@ -1,10 +1,10 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.DismantleEntity;
-import com.jujutsu.jujutsucraftaddon.entity.DismantleVariantEntity;
-import com.jujutsu.jujutsucraftaddon.entity.WorldSlashFinalEntity;
-import com.jujutsu.jujutsucraftaddon.entity.WorldSlashVariantEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleVariantEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.WorldSlashFinalEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.WorldSlashVariantEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.mcreator.jujutsucraft.entity.SukunaEntity;
 import net.mcreator.jujutsucraft.entity.SukunaPerfectEntity;
 import net.minecraft.server.level.ServerLevel;

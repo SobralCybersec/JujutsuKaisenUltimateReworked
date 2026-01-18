@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.PartialRikaEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEnchantments;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEnchantments;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import com.jujutsu.jujutsucraftaddon.procedures.*;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;

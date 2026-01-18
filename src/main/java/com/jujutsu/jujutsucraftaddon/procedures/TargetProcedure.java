@@ -1,8 +1,15 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.*;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModGameRules;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.gojo.GojoMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.gojo.GojoSchoolEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.AdjuchaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.*;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.*;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaNoShirtEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.entity.Rika2Entity;
 import net.mcreator.jujutsucraft.entity.RikaEntity;
 import net.minecraft.core.registries.Registries;

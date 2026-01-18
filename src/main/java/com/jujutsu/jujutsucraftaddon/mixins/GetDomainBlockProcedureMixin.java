@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.ItadoriShinjukuEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.procedures.GetDomainBlockProcedure;

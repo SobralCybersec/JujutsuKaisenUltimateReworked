@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.DismantleEntity;
-import com.jujutsu.jujutsucraftaddon.entity.WorldSlashVariantEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleEntity;
+import com.jujutsu.jujutsucraftaddon.entity.misc.WorldSlashVariantEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;
 import net.mcreator.jujutsucraft.procedures.RangeAttackProcedure;

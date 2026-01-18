@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.PartialRikaEntity;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMobEffects;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import net.mcreator.jujutsucraft.entity.OkkotsuYutaCullingGameEntity;
 import net.mcreator.jujutsucraft.entity.Rika2Entity;
 import net.mcreator.jujutsucraft.entity.RikaEntity;

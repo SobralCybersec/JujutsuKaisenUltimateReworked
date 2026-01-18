@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.network;
 
-import com.jujutsu.jujutsucraftaddon.client.screens.AltarSelectorScreen;
+import com.jujutsu.jujutsucraftaddon.client.screens.technique.YutaSkillMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
 
@@ -14,7 +14,7 @@ public class ProcedureOpenGui {
             Minecraft.getInstance().execute(() -> {
                 // Open GUI only if it hasn't been opened yet
                 if (!guiOpened && Minecraft.getInstance().screen == null) {
-                    Minecraft.getInstance().setScreen(new AltarSelectorScreen());
+                    Minecraft.getInstance().setScreen(new YutaSkillMenu());
                     guiOpened = true; // Set the flag to true
                 }
             });

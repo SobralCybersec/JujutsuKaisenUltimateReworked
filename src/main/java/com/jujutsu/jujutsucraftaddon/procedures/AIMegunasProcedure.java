@@ -1,9 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.HusseinDongEntity;
-import com.jujutsu.jujutsucraftaddon.entity.IronkkEntity;
-import com.jujutsu.jujutsucraftaddon.entity.SukunaFushiguroEntity;
-import com.jujutsu.jujutsucraftaddon.entity.SukunaMangaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.HusseinDongEntity;
+import com.jujutsu.jujutsucraftaddon.entity.oc.IronkkEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaMangaEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;

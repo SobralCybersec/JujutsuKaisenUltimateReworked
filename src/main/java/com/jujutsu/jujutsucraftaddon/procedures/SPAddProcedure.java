@@ -10,54 +10,28 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
+
 public class SPAddProcedure {
     public static void execute(CommandContext<CommandSourceStack> arguments, Entity entity) {
-        if (entity == null)
-            return;
-        {
-            double _setval = ((new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).sp + DoubleArgumentType.getDouble(arguments, "Points");
-            (new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                capability.sp = _setval;
-                capability.syncPlayerVariables((new Object() {
-                    public Entity getEntity() {
-                        try {
-                            return EntityArgument.getEntity(arguments, "Player");
-                        } catch (CommandSyntaxException e) {
-                            e.printStackTrace();
-                            return null;
-                        }
-                    }
-                }.getEntity()));
+        if (entity == null) return;
+
+        try {
+            Entity targetPlayer = EntityArgument.getEntity(arguments, "Player");
+            double pointsToAdd = DoubleArgumentType.getDouble(arguments, "Points");
+
+            targetPlayer.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                capability.sp += pointsToAdd;
+                capability.syncPlayerVariables(targetPlayer);
             });
+
+            if (entity instanceof Player player && !player.level().isClientSide()) {
+                player.displayClientMessage(
+                        Component.literal("Added " + pointsToAdd + " Points To: " + targetPlayer.getDisplayName().getString()),
+                        false
+                );
+            }
+        } catch (CommandSyntaxException e) {
+            e.printStackTrace();
         }
-        if (entity instanceof Player _player && !_player.level().isClientSide())
-            _player.displayClientMessage(Component.literal(("Added " + DoubleArgumentType.getDouble(arguments, "Points") + " Points To: " + (new Object() {
-                public Entity getEntity() {
-                    try {
-                        return EntityArgument.getEntity(arguments, "Player");
-                    } catch (CommandSyntaxException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-            }.getEntity()).getDisplayName().getString())), false);
     }
 }

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModEntities;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.entity.PartialRikaEntity;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
 import net.mcreator.jujutsucraft.entity.*;
 import net.mcreator.jujutsucraft.init.JujutsucraftModAttributes;
 import net.mcreator.jujutsucraft.procedures.SetTagProcedure;

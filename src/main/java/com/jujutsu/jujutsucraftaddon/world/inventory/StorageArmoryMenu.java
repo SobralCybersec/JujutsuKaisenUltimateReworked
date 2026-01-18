@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.world.inventory;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMenus;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMenus;
 import com.jujutsu.jujutsucraftaddon.procedures.Execute1Procedure;
 import com.jujutsu.jujutsucraftaddon.procedures.Read1Procedure;
 import com.jujutsu.jujutsucraftaddon.procedures.Save1Procedure;

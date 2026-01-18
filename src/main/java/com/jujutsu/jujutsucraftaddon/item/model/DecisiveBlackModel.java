@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.item.model;
 
-import com.jujutsu.jujutsucraftaddon.item.DecisiveBlackItem;
+import com.jujutsu.jujutsucraftaddon.item.armors.DecisiveBlackItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 

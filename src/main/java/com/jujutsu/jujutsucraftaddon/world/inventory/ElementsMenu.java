@@ -1,6 +1,6 @@
 package com.jujutsu.jujutsucraftaddon.world.inventory;
 
-import com.jujutsu.jujutsucraftaddon.init.JujutsucraftaddonModMenus;
+import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMenus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
