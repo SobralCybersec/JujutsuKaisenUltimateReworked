@@ -43,13 +43,36 @@ public abstract class ReverseKeyMixin {
                             capability.syncPlayerVariables(player);
                         });
                     }
+
+                    if (entity instanceof Player _player) {
+                        if (!_player.level().isClientSide()) {
+                            _player.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.dont_use").getString()), false);
+                        }
+                    }
+
+                    if (entity instanceof Player _player) {
+                        if (!_player.level().isClientSide()) {
+                            _player.displayClientMessage(Component.literal(Component.literal("Disabled HR Vision").getString()), false);
+                        }
+                    }
+
+                    return;
                 } else {
+
                     {
                         entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
                             capability.HRVision = true;
                             capability.syncPlayerVariables(player);
                         });
                     }
+
+                    if (entity instanceof Player _player) {
+                        if (!_player.level().isClientSide()) {
+                            _player.displayClientMessage(Component.literal(Component.literal("Enabled HR Vision").getString()), false);
+                        }
+                    }
+
+                    return;
                 }
             }
 
