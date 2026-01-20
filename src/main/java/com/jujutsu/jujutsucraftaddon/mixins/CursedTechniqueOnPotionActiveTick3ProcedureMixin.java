@@ -29,7 +29,7 @@ public class CursedTechniqueOnPotionActiveTick3ProcedureMixin {
                 } else if (skill >= 2200.0) {
                     CursedTechniqueCombatProcedure.execute(world, x, y, z, entity);
                 } else if (skill >= 2100.0) {
-                    CursedTechniqueKaoriProcedure.execute(world, x, y, z, entity);
+                    CursedTechniqueKaoriProcedure.execute(world, entity);
                 } else if (skill >= 2000.0) {
                     CursedTechniqueInoProcedure.execute(world, x, y, z, entity);
                 } else if (entity instanceof LivingEntity) {

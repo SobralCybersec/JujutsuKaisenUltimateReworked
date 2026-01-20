@@ -201,7 +201,7 @@ public class AIFushiguroTojiMixin {
                         }
                         entity.getPersistentData().putDouble("cnt_x", 5.0);
                         ResetCounterProcedure.execute(entity);
-                        CalculateAttackProcedure.execute(world, x, y, z, entity);
+                        CalculateAttackProcedure.execute(world, entity);
                         if (entity instanceof FushiguroTojiEntity) {
                             LivingEntity _livEnt37;
                             if (!entity.getPersistentData().getBoolean("Armoury")) {

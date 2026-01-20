@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
+import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
 import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleEntity;
 import com.jujutsu.jujutsucraftaddon.entity.misc.DismantleVariantEntity;
-import com.jujutsu.jujutsucraftaddon.entity.clone.ErroEntity;
 import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModEntities;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.minecraft.core.BlockPos;

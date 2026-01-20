@@ -26,19 +26,33 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = KeyReverseCursedTechniqueOnKeyPressedProcedure.class, priority = -10000)
 public abstract class ReverseKeyMixin {
-    public ReverseKeyMixin() {
-    }
-
     /**
      * @author Satushi
      * @reason Giving Reverse Cursed Technique Changes
      */
-
-
     @Inject(at = @At("HEAD"), method = "execute", remap = false, cancellable = true)
     private static void execute(Entity entity, CallbackInfo ci) {
         ci.cancel();
         if (entity != null) {
+
+            if (entity instanceof Player player) {
+                if ((player.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables()).HRVision)) {
+                    {
+                        entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                            capability.HRVision = false;
+                            capability.syncPlayerVariables(player);
+                        });
+                    }
+                } else {
+                    {
+                        entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+                            capability.HRVision = true;
+                            capability.syncPlayerVariables(player);
+                        });
+                    }
+                }
+            }
+
             double level = 0.0;
             boolean strength = false;
             boolean Player = false;
@@ -236,6 +250,8 @@ public abstract class ReverseKeyMixin {
                     return;
                 }
             }
+
+
 
             if (entity instanceof Player) {
                 _player = (Player)entity;

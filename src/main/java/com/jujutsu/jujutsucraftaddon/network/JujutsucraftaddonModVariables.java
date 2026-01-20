@@ -117,6 +117,7 @@ public class JujutsucraftaddonModVariables {
             clone.SimpleDomain = original.SimpleDomain;
             clone.WorldSlash = original.WorldSlash;
             clone.Ultimate = original.Ultimate;
+            clone.HRVision = original.HRVision;
             clone.SecondAllowed = original.SecondAllowed;
             clone.AnimationDefense = original.AnimationDefense;
             clone.AnimationSlash = original.AnimationSlash;
@@ -521,6 +522,7 @@ public class JujutsucraftaddonModVariables {
         public boolean bar = true;
         public boolean save = true;
         public boolean save1 = false;
+        public boolean HRVision = false;
         public boolean SimpleDomain = false;
         public boolean WorldSlash = false;
         public boolean Ultimate = false;
@@ -705,6 +707,7 @@ public class JujutsucraftaddonModVariables {
             nbt.putBoolean("WorldSlash", WorldSlash);
             nbt.putBoolean("Ultimate", Ultimate);
             nbt.putBoolean("SecondAllowed", SecondAllowed);
+            nbt.putBoolean("HRVision", HRVision);
             nbt.putDouble("AnimationDefense", AnimationDefense);
             nbt.putDouble("AnimationSlash", AnimationSlash);
             nbt.putDouble("AnimationYuzuki", AnimationYuzuki);
@@ -900,6 +903,7 @@ public class JujutsucraftaddonModVariables {
             Copy2 = nbt.getDouble("Copy2");
             Copy3 = nbt.getDouble("Copy3");
             Copy4 = nbt.getDouble("Copy4");
+            HRVision = nbt.getBoolean("HRVision");
             CursedLevel = nbt.getDouble("CursedLevel");
             CursedSpiritsKilled = nbt.getDouble("CursedSpiritsKilled");
             DomainType = nbt.getDouble("DomainType");
@@ -1195,6 +1199,7 @@ public class JujutsucraftaddonModVariables {
                     variables.TrueSpeed = message.data.TrueSpeed;
                     variables.Effects = message.data.Effects;
                     variables.FingerReset = message.data.FingerReset;
+                    variables.HRVision = message.data.HRVision;
                 }
             });
             context.setPacketHandled(true);

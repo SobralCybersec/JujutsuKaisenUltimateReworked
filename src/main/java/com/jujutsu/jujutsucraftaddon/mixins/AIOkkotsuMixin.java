@@ -422,7 +422,7 @@ public abstract class AIOkkotsuMixin {
                                     rnd = 20.0;
                                     tick = 20.0;
                                 } else if (Math.random() > 0.8) {
-                                    distance = GetDistanceProcedure.execute(world, entity);
+                                    distance = GetDistanceProcedure.execute(entity);
 
                                     for (int index0 = 0; index0 < 256; ++index0) {
                                         rnd = (double) Math.round(Math.random() * 10.0);
@@ -453,7 +453,7 @@ public abstract class AIOkkotsuMixin {
                                             }
                                         }
                                     }
-                                } else if (entity instanceof OkkotsuYutaCullingGameEntity || entity instanceof YutaCullingGamesEntity && Math.random() > 0.8 && GetDistanceProcedure.execute(world, entity) < 4.0 && canUseCopy) {
+                                } else if (entity instanceof OkkotsuYutaCullingGameEntity || entity instanceof YutaCullingGamesEntity && Math.random() > 0.8 && GetDistanceProcedure.execute(entity) < 4.0 && canUseCopy) {
                                     use_copy = true;
                                     rnd = 106.0;
                                     tick = 50.0;
@@ -593,7 +593,7 @@ public abstract class AIOkkotsuMixin {
 
                             entity.getPersistentData().putDouble("cnt_x", 5.0);
                         } else {
-                            CalculateAttackProcedure.execute(world, x, y, z, entity);
+                            CalculateAttackProcedure.execute(world, entity);
                             if (entity instanceof LivingEntity) {
                                 _livEnt = (LivingEntity) entity;
                                 var55 = _livEnt.getMainHandItem();

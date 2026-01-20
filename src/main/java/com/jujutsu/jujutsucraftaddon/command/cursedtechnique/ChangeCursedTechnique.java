@@ -1,16 +1,17 @@
 package com.jujutsu.jujutsucraftaddon.command.cursedtechnique;
 
+import com.jujutsu.jujutsucraftaddon.procedures.*;
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.commands.CommandSourceStack;
-import java.util.Map;
-import com.jujutsu.jujutsucraftaddon.procedures.*;
+
 import java.util.HashMap;
+import java.util.Map;
 
 @Mod.EventBusSubscriber
 public class ChangeCursedTechnique {

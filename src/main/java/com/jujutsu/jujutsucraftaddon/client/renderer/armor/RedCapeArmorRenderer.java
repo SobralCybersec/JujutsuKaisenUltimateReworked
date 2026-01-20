@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.armor;
 
-import com.jujutsu.jujutsucraftaddon.item.robes.RedCapeItem;
 import com.jujutsu.jujutsucraftaddon.item.model.RedCapeModel;
+import com.jujutsu.jujutsucraftaddon.item.robes.RedCapeItem;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;

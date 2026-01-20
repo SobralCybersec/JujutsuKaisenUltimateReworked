@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,8 +14,9 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "jujutsucraftaddon", bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class CameraLockOnMechanic {
-    private static final float SMOOTH_FACTOR = 0.05f; // Adjust for real-time responsiveness
+    private static final float SMOOTH_FACTOR = 0.05f;
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onRenderTick(TickEvent.RenderTickEvent event) {
         if (event.phase == TickEvent.Phase.START) {
@@ -46,6 +48,7 @@ public class CameraLockOnMechanic {
                     }
                 }
             }
+
         }
     }
 }

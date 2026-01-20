@@ -340,7 +340,7 @@ public abstract class HollowPurpleMixin {
                             if (!(entity instanceof LivingEntity _livEnt3 && _livEnt3.hasEffect(JujutsucraftaddonModMobEffects.MURASAKI_EFFECT.get()))) {
                                 entity.getPersistentData().putBoolean("PRESS_Z", false);
                             }
-                            if (GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity) > 12.0) {
+                            if (GetDistanceNearestEnemyProcedure.execute(world, entity) > 12.0) {
                                 label335:
                                 {
                                     if (entity instanceof Mob) {

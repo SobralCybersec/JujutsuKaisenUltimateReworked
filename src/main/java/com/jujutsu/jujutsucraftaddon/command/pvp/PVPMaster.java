@@ -1,6 +1,9 @@
 package com.jujutsu.jujutsucraftaddon.command.pvp;
 
-import com.jujutsu.jujutsucraftaddon.procedures.*;
+import com.jujutsu.jujutsucraftaddon.procedures.DisableProcedure;
+import com.jujutsu.jujutsucraftaddon.procedures.EnableProcedure;
+import com.jujutsu.jujutsucraftaddon.procedures.PVPFlagProcedure;
+import com.jujutsu.jujutsucraftaddon.procedures.PVPProcedure;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;

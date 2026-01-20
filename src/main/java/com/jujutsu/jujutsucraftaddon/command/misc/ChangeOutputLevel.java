@@ -1,6 +1,5 @@
 package com.jujutsu.jujutsucraftaddon.command.misc;
 
-import com.jujutsu.jujutsucraftaddon.command.cursedenergy.ChangeCursedEnergyFormer;
 import com.jujutsu.jujutsucraftaddon.command.setup.BaseCommand;
 import com.jujutsu.jujutsucraftaddon.procedures.SetOuputProcedure;
 import com.mojang.brigadier.arguments.ArgumentType;

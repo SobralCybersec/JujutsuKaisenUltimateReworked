@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.armor;
 
-import com.jujutsu.jujutsucraftaddon.item.robes.KimonoWhiteItem;
 import com.jujutsu.jujutsucraftaddon.item.model.KimonoWhiteModel;
+import com.jujutsu.jujutsucraftaddon.item.robes.KimonoWhiteItem;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;

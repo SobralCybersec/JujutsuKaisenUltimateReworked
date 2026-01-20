@@ -1,6 +1,5 @@
 package com.jujutsu.jujutsucraftaddon.procedures;
 
-import com.jujutsu.jujutsucraftaddon.utils.RainbowTextUtil;
 import com.jujutsu.jujutsucraftaddon.entity.clone.CloneEntity;
 import com.jujutsu.jujutsucraftaddon.entity.clone.FakeClonesEntity;
 import com.jujutsu.jujutsucraftaddon.entity.clone.FakePurpleClonesEntity;
@@ -11,6 +10,7 @@ import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModGameRules;
 import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModItems;
 import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
+import com.jujutsu.jujutsucraftaddon.utils.RainbowTextUtil;
 import net.mcreator.jujutsucraft.entity.EightHandledSwrodDivergentSilaDivineGeneralMahoragaEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
 import net.mcreator.jujutsucraft.init.JujutsucraftModParticleTypes;

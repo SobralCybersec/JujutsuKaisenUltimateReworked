@@ -18,9 +18,8 @@ public abstract class KeyForwardOnKeyPressedProcedureMixin {
 
     /**
      * @author Satushi
-     * @reason Gives Dashing To Players when Pressing Forward
+     * @reason Refactored Dash Code + Dash Logic
      */
-
 
     @Inject(method = "execute", at = @At("TAIL"), remap = false)
     private static void execute(Entity entity, CallbackInfo ci) {

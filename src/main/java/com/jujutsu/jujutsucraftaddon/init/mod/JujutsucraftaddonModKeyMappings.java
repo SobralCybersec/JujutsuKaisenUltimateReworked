@@ -5,7 +5,6 @@
 package com.jujutsu.jujutsucraftaddon.init.mod;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.client.screens.technique.MasteryEnergyMenu;
 import com.jujutsu.jujutsucraftaddon.client.screens.technique.*;
 import com.jujutsu.jujutsucraftaddon.network.*;
 import net.mcreator.jujutsucraft.network.JujutsucraftModVariables;

@@ -89,7 +89,7 @@ public abstract class JogoFlame1ProcedureMixin {
 
                 if (var10000 instanceof LivingEntity) {
                     entity.getPersistentData().putBoolean("PRESS_Z", false);
-                    if (GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity) > 8.0) {
+                    if (GetDistanceNearestEnemyProcedure.execute(world, entity) > 8.0) {
                         label227:
                         {
                             if (entity instanceof Mob) {

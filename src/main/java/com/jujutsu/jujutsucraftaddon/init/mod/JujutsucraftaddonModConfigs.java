@@ -1,8 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.init.mod;
 
 import com.jujutsu.jujutsucraftaddon.JujutsucraftaddonMod;
-import com.jujutsu.jujutsucraftaddon.configuration.TechniqueRatesConfiguration;
 import com.jujutsu.jujutsucraftaddon.configuration.JujutsuClanRatesConfiguration;
+import com.jujutsu.jujutsucraftaddon.configuration.TechniqueRatesConfiguration;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;

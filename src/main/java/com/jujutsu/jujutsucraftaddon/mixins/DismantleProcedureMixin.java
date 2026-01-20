@@ -155,7 +155,7 @@ public abstract class DismantleProcedureMixin {
                 var10002 = new Vec3(var57, var58, var10006.getZ());
                 entity.lookAt(var10001, var10002);
                 entity.getPersistentData().putBoolean("PRESS_Z", false);
-                if (GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity) > 6.0) {
+                if (GetDistanceNearestEnemyProcedure.execute(world, entity) > 6.0) {
                     label450:
                     {
                         if (entity instanceof Mob) {

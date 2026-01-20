@@ -258,8 +258,8 @@ public abstract class SukunaAIBuffMixin {
                             }
                         }
                     } else if (entity.getPersistentData().getBoolean("flag2")) {
-                        if (GetDistanceProcedure.execute(world, entity) < 32.0) {
-                            if (GetDistanceProcedure.execute(world, entity) < 6.0 && entity.onGround()) {
+                        if (GetDistanceProcedure.execute( entity) < 32.0) {
+                            if (GetDistanceProcedure.execute(entity) < 6.0 && entity.onGround()) {
                                 if (entity instanceof LivingEntity) {
                                     _entity = (LivingEntity) entity;
                                     _entity.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
@@ -523,7 +523,7 @@ public abstract class SukunaAIBuffMixin {
                             }
 
                             vsMahoraga = var47 instanceof EightHandledSwrodDivergentSilaDivineGeneralMahoragaEntity;
-                            distance = GetDistanceProcedure.execute(world, entity);
+                            distance = GetDistanceProcedure.execute(entity);
                             if (vsMahoraga && entity.getPersistentData().getDouble("cnt_target") >= 2400.0 && entity.getPersistentData().getDouble("cnt_target") <= 3600.0) {
                                 entity.getPersistentData().putBoolean("flag_domain", true);
                             }
@@ -757,7 +757,7 @@ public abstract class SukunaAIBuffMixin {
 
                                 if (!domain) {
                                     entity.getPersistentData().putDouble("cnt_x", 0.0);
-                                    CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                    CalculateAttackProcedure.execute(world, entity);
                                     break label779;
                                 }
                             }
@@ -920,7 +920,7 @@ public abstract class SukunaAIBuffMixin {
                                 }
 
                                 if (!(rnd > 0.0)) {
-                                    CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                    CalculateAttackProcedure.execute(world, entity);
                                 } else {
                                     if (rnd == 20.0) {
                                         label503:

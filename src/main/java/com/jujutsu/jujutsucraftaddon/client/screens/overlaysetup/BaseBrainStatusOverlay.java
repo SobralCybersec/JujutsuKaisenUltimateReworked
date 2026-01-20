@@ -1,6 +1,5 @@
 package com.jujutsu.jujutsucraftaddon.client.screens.overlaysetup;
 
-import com.jujutsu.jujutsucraftaddon.client.screens.overlaysetup.OverlayConfig;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;

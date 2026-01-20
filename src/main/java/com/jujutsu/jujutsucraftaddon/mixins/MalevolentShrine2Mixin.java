@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
-import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import com.jujutsu.jujutsucraftaddon.entity.misc.MalevolentShrineEntity;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import net.mcreator.jujutsucraft.entity.EntityMalevolentShrineEntity;

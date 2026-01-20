@@ -27,9 +27,11 @@ public abstract class KeyReverseCursedTechniqueOnKeyReleasedProcedureMixin {
             if (entity instanceof LivingEntity _entity) {
                 _entity.removeEffect(JujutsucraftModMobEffects.REVERSE_CURSED_TECHNIQUE.get());
             }
+
             entity.getPersistentData().putBoolean("PRESS_BURNOUT", false);
             entity.getPersistentData().putDouble("cnt_v", 0);
             entity.getPersistentData().putBoolean("PRESS_M", false);
+
         }
     }
 }

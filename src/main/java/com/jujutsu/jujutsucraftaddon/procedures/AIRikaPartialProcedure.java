@@ -174,7 +174,7 @@ public class AIRikaPartialProcedure {
                                     }
 
                                     entity.getPersistentData().putDouble("cnt_x", 0.0);
-                                    CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                    CalculateAttackProcedure.execute(world, entity);
                                 }
                             }
                         }

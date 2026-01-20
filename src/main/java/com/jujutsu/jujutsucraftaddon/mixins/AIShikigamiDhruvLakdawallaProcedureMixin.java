@@ -156,7 +156,7 @@ public abstract class AIShikigamiDhruvLakdawallaProcedureMixin {
                         if (entity.getPersistentData().getDouble("cnt_x") > 10.0 && entity.getPersistentData().getDouble("skill") == 0.0) {
                             entity.getPersistentData().putDouble("cnt_x", 0.0);
                             ResetCounterProcedure.execute(entity);
-                            distance = GetDistanceProcedure.execute(world, entity);
+                            distance = GetDistanceProcedure.execute( entity);
                             logicStart = LogicStartProcedure.execute(entity);
                             if (entity instanceof ShikigamiPterosaurEntity) {
                                 rnd = 0.0;
@@ -206,7 +206,7 @@ public abstract class AIShikigamiDhruvLakdawallaProcedureMixin {
                                 entity.getPersistentData().putDouble("skill", 1.0);
                                 entity.getPersistentData().putDouble("continue", Math.random() < 0.75 ? 1 : 0);
                             } else {
-                                CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                CalculateAttackProcedure.execute(world, entity);
                             }
                         }
                     } else {
@@ -217,7 +217,7 @@ public abstract class AIShikigamiDhruvLakdawallaProcedureMixin {
                 if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge:ranged_ammo")))) {
                     placed = true;
                 } else if (entity.getPersistentData().getDouble("skill") > 0.0) {
-                    if (GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity) < 15.0) {
+                    if (GetDistanceNearestEnemyProcedure.execute(world, entity) < 15.0) {
                         placed = true;
                     }
                 } else if (entity.getPersistentData().getDouble("skill") == 0.0 && Math.random() < 0.1) {

@@ -2,14 +2,13 @@ package com.jujutsu.jujutsucraftaddon.command.cursedtechnique.tenshadows;
 
 import com.jujutsu.jujutsucraftaddon.procedures.MahoragaDisableProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.MahoragaEnableProcedure;
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.commands.CommandSourceStack;
-
 
 import java.util.Map;
 

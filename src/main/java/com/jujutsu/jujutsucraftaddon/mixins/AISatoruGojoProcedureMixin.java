@@ -393,7 +393,7 @@ public abstract class AISatoruGojoProcedureMixin {
                         }
 
                         ResetCounterProcedure.execute(entity);
-                        distance = GetDistanceProcedure.execute(world, entity);
+                        distance = GetDistanceProcedure.execute(entity);
                         float var63;
                         if (entity instanceof LivingEntity) {
                             _entity = (LivingEntity)entity;
@@ -522,7 +522,7 @@ public abstract class AISatoruGojoProcedureMixin {
                                 }
 
                                 if (!domain && entity instanceof LivingEntity e1 && !e1.hasEffect(JujutsucraftaddonModMobEffects.SOKA_MONA.get())) {
-                                    CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                    CalculateAttackProcedure.execute(world, entity);
                                     break label665;
                                 }
                             }
@@ -773,7 +773,7 @@ public abstract class AISatoruGojoProcedureMixin {
                                         }
                                     }
                                 } else {
-                                    CalculateAttackProcedure.execute(world, x, y, z, entity);
+                                    CalculateAttackProcedure.execute(world, entity);
                                 }
                             }
                         }

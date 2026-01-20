@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.sorcerer;
 
-import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import com.jujutsu.jujutsucraftaddon.entity.model.ItadoriShinjukuModel;
+import com.jujutsu.jujutsucraftaddon.entity.sorcerer.ItadoriShinjukuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.mcreator.jujutsucraft.GenericArmorLayer;

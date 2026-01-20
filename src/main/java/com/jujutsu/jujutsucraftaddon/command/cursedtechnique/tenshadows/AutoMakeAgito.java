@@ -1,6 +1,5 @@
 package com.jujutsu.jujutsucraftaddon.command.cursedtechnique.tenshadows;
 
-import com.jujutsu.jujutsucraftaddon.command.cursedtechnique.ChangeCursedTechniqueNumber;
 import com.jujutsu.jujutsucraftaddon.command.setup.BaseCommand;
 import com.jujutsu.jujutsucraftaddon.procedures.AutoMakeProcedure;
 import com.mojang.brigadier.arguments.ArgumentType;

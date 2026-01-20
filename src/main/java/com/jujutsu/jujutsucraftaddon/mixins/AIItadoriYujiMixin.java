@@ -209,7 +209,7 @@ public class AIItadoriYujiMixin {
                     if (entity.getPersistentData().getDouble("cnt_x") > 10.0 && entity.getPersistentData().getDouble("skill") == 0.0) {
                         label192: {
                             entity.getPersistentData().putDouble("cnt_x", 0.0);
-                            distance = GetDistanceProcedure.execute(world, entity);
+                            distance = GetDistanceProcedure.execute(entity);
                             if (entity instanceof LivingEntity) {
                                 _entity = (LivingEntity)entity;
                                 if (_entity.hasEffect((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get())) {
@@ -299,7 +299,7 @@ public class AIItadoriYujiMixin {
                                 }
                             }
                         } else {
-                            CalculateAttackProcedure.execute(world, x, y, z, entity);
+                            CalculateAttackProcedure.execute(world, entity);
                         }
                     }
                 } else {

@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.armor;
 
-import com.jujutsu.jujutsucraftaddon.item.weapons.VergilItem;
 import com.jujutsu.jujutsucraftaddon.item.model.VergilModel;
+import com.jujutsu.jujutsucraftaddon.item.weapons.VergilItem;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;

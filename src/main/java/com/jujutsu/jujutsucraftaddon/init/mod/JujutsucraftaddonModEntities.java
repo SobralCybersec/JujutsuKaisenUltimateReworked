@@ -16,8 +16,6 @@ import com.jujutsu.jujutsucraftaddon.entity.shadows.Shadow1Entity;
 import com.jujutsu.jujutsucraftaddon.entity.shadows.TanjerinaEntity;
 import com.jujutsu.jujutsucraftaddon.entity.sorcerer.*;
 import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
-import com.jujutsu.jujutsucraftaddon.entity.sorcerer.UiUiEntity;
-import com.jujutsu.jujutsucraftaddon.entity.sorcerer.UraumeEntity;
 import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaFushiguroEntity;
 import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaMangaEntity;
 import com.jujutsu.jujutsucraftaddon.entity.sukuna.SukunaNoShirtEntity;

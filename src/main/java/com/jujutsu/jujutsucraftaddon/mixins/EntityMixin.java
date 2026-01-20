@@ -19,12 +19,20 @@ public abstract class EntityMixin {
 
         if (self.level().isClientSide && self instanceof LivingEntity living && living.getPersistentData().getBoolean("glowing")) {
             if (living instanceof Monster) {
-                cir.setReturnValue(0xFFFF8080); // Light red
+                cir.setReturnValue(0xFFFF8080);
             } else if (living instanceof Animal) {
-                cir.setReturnValue(0xFF00FFFF); // Aqua / light blue
+                cir.setReturnValue(0xFF00FFFF);
             } else if (living instanceof Player) {
-                cir.setReturnValue(0xFFFFFFFF); // White
+                cir.setReturnValue(0xFFFFFFFF);
             }
+        }
+    }
+
+    @Inject(method = "isCurrentlyGlowing", at = @At("RETURN"), cancellable = true)
+    private void modifyGlowingTagCondition(CallbackInfoReturnable<Boolean> cir) {
+        Entity self = (Entity)(Object)this;
+        if (self.level().isClientSide && self instanceof LivingEntity living && living.getPersistentData().getBoolean("glowing")) {
+            cir.setReturnValue(true);
         }
     }
 

@@ -95,7 +95,7 @@ public abstract class AIActive2ProcedureMixin {
             double var68;
             if (entity.getPersistentData().getDouble("skill") == 0.0) {
                 if (target) {
-                    distance = GetDistanceProcedure.execute(world, entity);
+                    distance = GetDistanceProcedure.execute(entity);
                     if (test) {
                         logic_heal_cancel = false;
                     }
@@ -432,7 +432,7 @@ public abstract class AIActive2ProcedureMixin {
                 }
             }
 
-            if (test && (logic_avoid || Math.random() < 0.2) && GetDistanceProcedure.execute(world, entity) > 8.0 && entity instanceof LivingEntity) {
+            if (test && (logic_avoid || Math.random() < 0.2) && GetDistanceProcedure.execute(entity) > 8.0 && entity instanceof LivingEntity) {
                 _livEnt29 = (LivingEntity)entity;
                 if (_livEnt29.hasEffect((MobEffect)JujutsucraftModMobEffects.DOUBLE_JUMP_EFFECT.get())) {
                     KeySpaceOnKeyPressedProcedure.execute(world, x, y, z, entity);

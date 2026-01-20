@@ -35,7 +35,7 @@ import java.util.List;
 @Mixin(value = CalculateAttackProcedure.class, priority = -10000)
 public abstract class CalculateAttackMixin {
     @Inject(method = "execute", at = @At("HEAD"), remap = false, cancellable = true)
-    private static void execute(LevelAccessor world, double x, double y, double z, Entity entity, CallbackInfo ci) {
+    private static void execute(LevelAccessor world, Entity entity, CallbackInfo ci) {
         ci.cancel();
         if (entity != null && entity instanceof LivingEntity _liv && !_liv.hasEffect(JujutsucraftaddonModMobEffects.QUAKE.get())) {
             double rnd;
@@ -115,7 +115,7 @@ public abstract class CalculateAttackMixin {
 
                         if (entity.getPersistentData().getDouble("skill") == 0.0) {
                             success = false;
-                            distance1 = GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity);
+                            distance1 = GetDistanceNearestEnemyProcedure.execute(world, entity);
                             Vec3 _center = new Vec3((double) entity.level().clip(new ClipContext(entity.getEyePosition(1.0F), entity.getEyePosition(1.0F).add(entity.getViewVector(1.0F).scale(5.0)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getBlockPos().getX(), (double) entity.level().clip(new ClipContext(entity.getEyePosition(1.0F), entity.getEyePosition(1.0F).add(entity.getViewVector(1.0F).scale(5.0)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getBlockPos().getY(), (double) entity.level().clip(new ClipContext(entity.getEyePosition(1.0F), entity.getEyePosition(1.0F).add(entity.getViewVector(1.0F).scale(5.0)), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ());
                             List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(8.0), (e) -> {
                                 return true;

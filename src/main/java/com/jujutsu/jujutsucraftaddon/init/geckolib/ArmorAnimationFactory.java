@@ -4,7 +4,6 @@ import com.jujutsu.jujutsucraftaddon.item.armors.*;
 import com.jujutsu.jujutsucraftaddon.item.debug.GojoItem;
 import com.jujutsu.jujutsucraftaddon.item.robes.*;
 import com.jujutsu.jujutsucraftaddon.item.weapons.VergilItem;
-import com.jujutsu.jujutsucraftaddon.item.robes.WhiteCapeItem;
 import com.jujutsu.jujutsucraftaddon.item.weapons.WukongItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;

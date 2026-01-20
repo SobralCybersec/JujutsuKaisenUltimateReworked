@@ -2,8 +2,8 @@ package com.jujutsu.jujutsucraftaddon.item.weapons;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.jujutsu.jujutsucraftaddon.misc.vfx.WaveEffect;
 import com.jujutsu.jujutsucraftaddon.abilities.elemental.earthwall.EarthWallCreation;
+import com.jujutsu.jujutsucraftaddon.misc.vfx.WaveEffect;
 import com.jujutsu.jujutsucraftaddon.procedures.WukongStaffLivingEntityIsHitWithItemProcedure;
 import dev.kosmx.playerAnim.api.layered.IAnimation;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;

@@ -3,6 +3,7 @@ package com.jujutsu.jujutsucraftaddon.mixins;
 
 import net.mcreator.jujutsucraft.procedures.WhenEntitySpawnsProcedure;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.eventbus.api.Event;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,8 +20,8 @@ public abstract class WhenRespawnedMixin {
      * @author Satushi
      * @reason Testing
      */
-    @Inject(at = @At("HEAD"), method = "execute(Lnet/minecraftforge/eventbus/api/Event;Lnet/minecraft/world/entity/Entity;)V", remap = false, cancellable = true)
-    private static void execute(Event event, Entity entity, CallbackInfo ci) {
+    @Inject(at = @At("HEAD"), method = "execute(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/world/entity/Entity;)V", remap = false, cancellable = true)
+    private static void execute(LevelAccessor world, Entity entity, CallbackInfo ci) {
         ci.cancel();
     }
 }

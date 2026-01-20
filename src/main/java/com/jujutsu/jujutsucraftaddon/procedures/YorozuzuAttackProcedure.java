@@ -108,7 +108,7 @@ public class YorozuzuAttackProcedure {
                     }
                 }
             }
-            TechniqueNeedleProcedure.execute(world, x, y, z, entity);
+            TechniqueNeedleProcedure.execute(world, entity);
         }
     }
 }

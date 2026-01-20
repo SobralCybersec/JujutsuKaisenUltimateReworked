@@ -244,7 +244,7 @@ public abstract class RedTechniqueMixin {
 
                 if (var10000 instanceof LivingEntity) {
                     entity.getPersistentData().putBoolean("PRESS_Z", false);
-                    if (GetDistanceNearestEnemyProcedure.execute(world, x, y, z, entity) > 8.0) {
+                    if (GetDistanceNearestEnemyProcedure.execute(world, entity) > 8.0) {
                         label237: {
                             if (entity instanceof Mob) {
                                 _mobEnt = (Mob)entity;

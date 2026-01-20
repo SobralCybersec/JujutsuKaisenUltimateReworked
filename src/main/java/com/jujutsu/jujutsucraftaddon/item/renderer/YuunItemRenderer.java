@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.item.renderer;
 
-import com.jujutsu.jujutsucraftaddon.item.weapons.YuunItem;
 import com.jujutsu.jujutsucraftaddon.item.model.YuunItemModel;
+import com.jujutsu.jujutsucraftaddon.item.weapons.YuunItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;

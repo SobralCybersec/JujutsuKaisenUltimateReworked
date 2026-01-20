@@ -1,16 +1,17 @@
 package com.jujutsu.jujutsucraftaddon.command.misc;
 
-import com.jujutsu.jujutsucraftaddon.procedures.ChangeRaceJujutsuSorcerer;
-import com.jujutsu.jujutsucraftaddon.procedures.ChangeRaceCursedSpirit;
 import com.jujutsu.jujutsucraftaddon.procedures.ChangeRaceCurseUser;
+import com.jujutsu.jujutsucraftaddon.procedures.ChangeRaceCursedSpirit;
+import com.jujutsu.jujutsucraftaddon.procedures.ChangeRaceJujutsuSorcerer;
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import com.mojang.brigadier.context.CommandContext;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.world.level.LevelAccessor;
+
 import java.util.Map;
 
 @Mod.EventBusSubscriber

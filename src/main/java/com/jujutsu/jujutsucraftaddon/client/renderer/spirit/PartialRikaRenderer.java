@@ -1,7 +1,7 @@
 package com.jujutsu.jujutsucraftaddon.client.renderer.spirit;
 
-import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
 import com.jujutsu.jujutsucraftaddon.entity.model.PartialRikaModel;
+import com.jujutsu.jujutsucraftaddon.entity.spirit.PartialRikaEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.mcreator.jujutsucraft.procedures.SizeByNBTProcedure;

@@ -29,7 +29,7 @@ public abstract class PlayAnimationEntityGuardMixin {
      */
 
     @Inject(at = @At("HEAD"), method = "execute", remap = false, cancellable = true)
-    private static void execute(LevelAccessor world, Entity entityiterator, CallbackInfo ci) {
+    private static void execute(LevelAccessor world, Entity entity, Entity entityiterator, CallbackInfo ci) {
         ci.cancel();
         boolean sword = false;
         if (entityiterator != null) {
