@@ -6,12 +6,16 @@ import net.mcreator.jujutsucraft.init.JujutsucraftModParticleTypes;
 import net.mcreator.jujutsucraft.procedures.AIBlackFlashProcedure;
 import net.mcreator.jujutsucraft.procedures.BlockDestroyAllDirectionProcedure;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -34,6 +38,148 @@ public abstract class AIBlackFlashProcedureMixin {
         ci.cancel();
 
         if (entity != null) {
+            double rad = (double)0.0F;
+            double range = (double)0.0F;
+            double x_pos = (double)0.0F;
+            double y_pos = (double)0.0F;
+            double z_pos = (double)0.0F;
+            double soundPitch = (double)0.0F;
+            double rad_now = (double)0.0F;
+            double num1 = (double)0.0F;
+            double num2 = (double)0.0F;
+            double num3 = (double)0.0F;
+            double pitch = (double)0.0F;
+            double loop_num = (double)0.0F;
+            EffectsBlackFlashProcedure.execute(world, x, y, z, entity);
+            entity.getPersistentData().putDouble("cnt1", entity.getPersistentData().getDouble("cnt1") + (double)1.0F);
+            if (entity.getPersistentData().getDouble("cnt1") < (double)10.0F) {
+                if (entity.getPersistentData().getDouble("cnt1") == (double)1.0F) {
+                    soundPitch = (double)0.75F;
+
+                    for(int index0 = 0; index0 < 3; ++index0) {
+                        if (world instanceof Level) {
+                            Level _level = (Level)world;
+                            if (!_level.isClientSide()) {
+                                _level.playSound((Player)null, BlockPos.containing(x, y, z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jujutsucraft:electric_shock")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch);
+                            } else {
+                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jujutsucraft:electric_shock")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch, false);
+                            }
+                        }
+
+                        soundPitch += (double)0.25F;
+                    }
+
+                    if (world instanceof ServerLevel) {
+                        ServerLevel _level = (ServerLevel)world;
+                        _level.sendParticles(ParticleTypes.FLASH, x, y + (double)1.0F, z, 10, (double)0.5F, (double)0.5F, (double)0.5F, (double)0.0F);
+                    }
+                }
+
+                if (world instanceof ServerLevel) {
+                    ServerLevel _level = (ServerLevel)world;
+                    _level.sendParticles((SimpleParticleType)JujutsucraftModParticleTypes.PARTICLE_BLACK_FLASH_1.get(), x, y + (double)1.0F, z, 3, (double)0.5F, (double)1.0F, (double)0.5F, (double)0.0F);
+                }
+            } else if (entity.getPersistentData().getDouble("cnt1") < (double)17.0F) {
+                if (entity.getPersistentData().getDouble("cnt1") == (double)10.0F) {
+                    soundPitch = (double)0.75F;
+
+                    for(int index1 = 0; index1 < 3; ++index1) {
+                        if (world instanceof Level) {
+                            Level _level = (Level)world;
+                            if (!_level.isClientSide()) {
+                                _level.playSound((Player)null, BlockPos.containing(x, y, z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.thunder")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch);
+                            } else {
+                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.thunder")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch, false);
+                            }
+                        }
+
+                        if (world instanceof Level) {
+                            Level _level = (Level)world;
+                            if (!_level.isClientSide()) {
+                                _level.playSound((Player)null, BlockPos.containing(x, y, z), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.impact")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch);
+                            } else {
+                                _level.playLocalSound(x, y, z, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.lightning_bolt.impact")), SoundSource.NEUTRAL, 1.0F, (float)soundPitch, false);
+                            }
+                        }
+
+                        soundPitch += (double)0.25F;
+                    }
+
+                    entity.getPersistentData().putDouble("BlockRange", (double)20.0F);
+                    entity.getPersistentData().putDouble("BlockDamage", (double)5F);
+                    BlockDestroyAllDirectionProcedure.execute(world, x, y, z, entity);
+                }
+
+                loop_num = (double)5.0F + entity.getPersistentData().getDouble("cnt1") * (double)2.0F;
+
+                for(int index2 = 0; index2 < 2; ++index2) {
+                    rad_now = Math.toRadians(Math.random() * (double)360.0F);
+                    pitch = Math.toRadians((double)0.0F);
+                    num1 = (Math.random() - (double)0.5F) * 1.6;
+                    num2 = (Math.random() - (double)0.5F) * 1.6;
+                    num3 = (Math.random() - (double)0.5F) * 1.6;
+                    entity.getPersistentData().putDouble("x_pos", x);
+                    entity.getPersistentData().putDouble("y_pos", y + (double)1.0F);
+                    entity.getPersistentData().putDouble("z_pos", z);
+                    entity.getPersistentData().putDouble("cnt2", (double)0.0F);
+
+                    for(int index3 = 0; index3 < (int)loop_num; ++index3) {
+                        x_pos = entity.getPersistentData().getDouble("x_pos") + Math.cos(rad_now) * (Math.cos(pitch) + Math.abs(Math.sin(rad_now) * Math.sin(pitch))) * (entity.getPersistentData().getDouble("cnt2") + (double)1.0F);
+                        y_pos = entity.getPersistentData().getDouble("y_pos") + Math.sin(pitch) * (entity.getPersistentData().getDouble("cnt2") + (double)1.0F) * (double)-1.0F;
+                        z_pos = entity.getPersistentData().getDouble("z_pos") + Math.sin(rad_now) * (Math.cos(pitch) + Math.abs(Math.cos(rad_now) * Math.sin(pitch))) * (entity.getPersistentData().getDouble("cnt2") + (double)1.0F);
+                        if (world instanceof ServerLevel) {
+                            ServerLevel _level = (ServerLevel)world;
+                            _level.sendParticles((SimpleParticleType)JujutsucraftModParticleTypes.PARTICLE_BLACK_FLASH_1.get(), x_pos, y_pos, z_pos, 1, 0.1, 0.1, 0.1, (double)0.0F);
+                        }
+
+                        if (world.getBlockState(BlockPos.containing(x_pos, y_pos, z_pos)).canOcclude()) {
+                            if (!world.getBlockState(BlockPos.containing(x_pos + (double)1.0F, y_pos + (double)0.0F, z_pos + (double)0.0F)).canOcclude() || !world.getBlockState(BlockPos.containing(x_pos + (double)-1.0F, y_pos + (double)0.0F, z_pos + (double)0.0F)).canOcclude() || !world.getBlockState(BlockPos.containing(x_pos + (double)0.0F, y_pos + (double)1.0F, z_pos + (double)0.0F)).canOcclude() || !world.getBlockState(BlockPos.containing(x_pos + (double)0.0F, y_pos + (double)-1.0F, z_pos + (double)0.0F)).canOcclude() || !world.getBlockState(BlockPos.containing(x_pos + (double)0.0F, y_pos + (double)0.0F, z_pos + (double)1.0F)).canOcclude() || !world.getBlockState(BlockPos.containing(x_pos + (double)0.0F, y_pos + (double)0.0F, z_pos + (double)-1.0F)).canOcclude()) {
+                                world.levelEvent(2001, BlockPos.containing(x_pos, y_pos, z_pos), Block.getId(world.getBlockState(BlockPos.containing(x_pos, y_pos, z_pos))));
+                            }
+
+                            if (world instanceof ServerLevel) {
+                                ServerLevel _level = (ServerLevel)world;
+                                _level.sendParticles(ParticleTypes.EXPLOSION, x_pos, y_pos, z_pos, 5, (double)0.25F, (double)0.25F, (double)0.25F, (double)0.0F);
+                            }
+                        }
+
+                        entity.getPersistentData().putDouble("cnt2", entity.getPersistentData().getDouble("cnt2") + (double)0.25F);
+                        if (entity.getPersistentData().getDouble("cnt2") % (double)4.0F < (double)2.0F) {
+                            entity.getPersistentData().putDouble("x_pos", entity.getPersistentData().getDouble("x_pos") + num1);
+                            entity.getPersistentData().putDouble("y_pos", entity.getPersistentData().getDouble("y_pos") + num2);
+                            entity.getPersistentData().putDouble("z_pos", entity.getPersistentData().getDouble("z_pos") + num3);
+                        } else {
+                            entity.getPersistentData().putDouble("x_pos", entity.getPersistentData().getDouble("x_pos") - num1);
+                            entity.getPersistentData().putDouble("y_pos", entity.getPersistentData().getDouble("y_pos") - num2);
+                            entity.getPersistentData().putDouble("z_pos", entity.getPersistentData().getDouble("z_pos") - num3);
+                        }
+                    }
+                }
+            } else if (entity.getPersistentData().getDouble("cnt1") > (double)20.0F) {
+                x_pos = x + Math.random() * (double)16.0F - (double)8.0F;
+                z_pos = z + Math.random() * (double)16.0F - (double)8.0F;
+                if (world instanceof ServerLevel) {
+                    ServerLevel _level = (ServerLevel)world;
+                    _level.sendParticles((SimpleParticleType)JujutsucraftModParticleTypes.PARTICLE_BLACK_FLASH_1.get(), x_pos, y, z_pos, 40, 0.1, (double)2.0F, 0.1, 0.1);
+                }
+
+                if (world instanceof Level) {
+                    Level _level = (Level)world;
+                    if (!_level.isClientSide()) {
+                        _level.playSound((Player)null, BlockPos.containing(x_pos, y, z_pos), (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jujutsucraft:electric_shock")), SoundSource.NEUTRAL, 0.25F, 1.25F);
+                    } else {
+                        _level.playLocalSound(x_pos, y, z_pos, (SoundEvent)ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("jujutsucraft:electric_shock")), SoundSource.NEUTRAL, 0.25F, 1.25F, false);
+                    }
+                }
+
+                if (entity.getPersistentData().getDouble("cnt1") > (double)25.0F && !entity.level().isClientSide()) {
+                    entity.discard();
+                }
+            }
+
+        }
+
+      /*  if (entity != null) {
             double rad = 0.0;
             double range = 0.0;
             double x_pos = 0.0;
@@ -180,6 +326,6 @@ public abstract class AIBlackFlashProcedureMixin {
                 }
             }
 
-        }
+        }*/
     }
 }

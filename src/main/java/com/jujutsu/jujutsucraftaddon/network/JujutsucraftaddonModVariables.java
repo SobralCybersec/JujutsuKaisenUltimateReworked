@@ -106,6 +106,7 @@ public class JujutsucraftaddonModVariables {
             clone.IsJujutsuSorcerer = original.IsJujutsuSorcerer;
             clone.IsVessel = original.IsVessel;
             clone.PVP = original.PVP;
+            clone.RikaAwakening = original.RikaAwakening;
             clone.RCTMasteryOn = original.RCTMasteryOn;
             clone.RCTOutput = original.RCTOutput;
             clone.RCTOutputActive = original.RCTOutputActive;
@@ -591,6 +592,7 @@ public class JujutsucraftaddonModVariables {
         public double RCTRegen = 0;
         public double Run = 0;
         public double Style = 0;
+        public double RikaAwakening = 0;
         public double AttackNumber = 0;
         public double SH = 0;
         public double SimpleDomainLevel = 0.0;
@@ -721,6 +723,7 @@ public class JujutsucraftaddonModVariables {
             nbt.putDouble("CECap", CECap);
             nbt.putDouble("CEFormer", CEFormer);
             nbt.putDouble("CEPlus", CEPlus);
+            nbt.putDouble("RikaAwakening", RikaAwakening);
             nbt.putDouble("CEShield", CEShield);
             nbt.putDouble("CooldownExp", CooldownExp);
             nbt.putDouble("Copy1", Copy1);
@@ -904,6 +907,7 @@ public class JujutsucraftaddonModVariables {
             Copy3 = nbt.getDouble("Copy3");
             Copy4 = nbt.getDouble("Copy4");
             HRVision = nbt.getBoolean("HRVision");
+            RikaAwakening = nbt.getDouble("RikaAwakening");
             CursedLevel = nbt.getDouble("CursedLevel");
             CursedSpiritsKilled = nbt.getDouble("CursedSpiritsKilled");
             DomainType = nbt.getDouble("DomainType");
@@ -1200,6 +1204,7 @@ public class JujutsucraftaddonModVariables {
                     variables.Effects = message.data.Effects;
                     variables.FingerReset = message.data.FingerReset;
                     variables.HRVision = message.data.HRVision;
+                    variables.RikaAwakening = message.data.RikaAwakening;
                 }
             });
             context.setPacketHandled(true);

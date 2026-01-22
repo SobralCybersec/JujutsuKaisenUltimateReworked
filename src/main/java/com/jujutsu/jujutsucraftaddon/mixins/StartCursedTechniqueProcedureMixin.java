@@ -5,6 +5,7 @@ import com.jujutsu.jujutsucraftaddon.init.mod.JujutsucraftaddonModMobEffects;
 import com.jujutsu.jujutsucraftaddon.network.JujutsucraftaddonModVariables;
 import com.jujutsu.jujutsucraftaddon.procedures.BurnoutKeyOnKeyPressedProcedure;
 import com.jujutsu.jujutsucraftaddon.procedures.CloneMeteor;
+import com.jujutsu.jujutsucraftaddon.procedures.TechniqueRegistry;
 import net.mcreator.jujutsucraft.init.JujutsucraftModGameRules;
 import net.mcreator.jujutsucraft.init.JujutsucraftModItems;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
@@ -121,52 +122,9 @@ public abstract class StartCursedTechniqueProcedureMixin {
                     capability.noChangeTechnique = _setval;
                     capability.syncPlayerVariables(entity);
                 });
-                if (!(
-                        ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.attack5").getString())
-                                ||((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.attack4").getString())
-                                ||((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.flying_kick").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains("Benevolent Shrine")
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains("Soul Dismantle")
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains("Soul Cleave")
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("entity.jujutsucraft.nue_totality").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains("Rika Summon")
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.attack7").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.attack8").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.mahito7").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.attack3").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains(Component.translatable("jujutsu.technique.mahito_body_repel2").getString())
-                                || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                                .orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                .contains("Mahoraga: World Slash")
+                TechniqueRegistry.TechniqueConfig config = TechniqueRegistry.getByName(STR1);
 
-
-                )) {
+                if (config == null) {
                     KeyChangeTechniqueOnKeyPressedProcedure.execute(world, x, y, z, entity);
                 }
 
@@ -233,14 +191,14 @@ public abstract class StartCursedTechniqueProcedureMixin {
                         }
                     })).checkGamemode(entity);
                     if (noUseCursePower) {
-                        NUM1 = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePower - 0.0;
+                        NUM1 = ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePower - 0.0;
                     } else {
-                        NUM1 = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePower - (item_use ? cost : ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueCost);
+                        NUM1 = ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePower - (item_use ? cost : ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueCost);
                     }
 
                     if (!(NUM1 >= 0.0) && !CREATIVE) {
                         if (entity instanceof Player) {
-                            _player = (Player)entity;
+                            _player = (Player) entity;
                             if (!_player.level().isClientSide()) {
                                 _player.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.dont_use").getString()), true);
                             }
@@ -254,432 +212,375 @@ public abstract class StartCursedTechniqueProcedureMixin {
                         if (!CREATIVE) {
                             _setval = NUM1;
                             double final_setval = _setval;
-                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).ifPresent((capability) -> {
+                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
                                 capability.PlayerCursePower = final_setval;
                                 capability.syncPlayerVariables(entity);
                             });
                         }
 
+                        var playerVars = entity.getCapability(
+                                JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null
+                        ).orElse(null);
+
+                        var addonVars = entity.getCapability(
+                                JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null
+                        ).orElse(null);
+
+                        if (playerVars == null || addonVars == null) return;
+
+                        String techName = playerVars.PlayerSelectCurseTechniqueName;
+
                         if (item_use) {
-                            T1 = (double) Math.round(Math.floor(skill / 100.0));
-                            S1 = (double) Math.round(Math.floor(skill % 100.0));
-                        } else if ((entity instanceof LivingEntity _livEnt10 && _livEnt10.hasEffect(JujutsucraftaddonModMobEffects.MURASAKI_EFFECT.get()))) {
+
+                            T1 = Math.floor(skill / 100.0);
+                            S1 = Math.floor(skill % 100.0);
+
+                        } else if (entity instanceof LivingEntity living &&
+                                living.hasEffect(JujutsucraftaddonModMobEffects.MURASAKI_EFFECT.get())) {
+
                             T1 = 2;
                             S1 = 15;
-                        } else if ((entity instanceof LivingEntity _livEnt10 && _livEnt10.hasEffect(JujutsucraftaddonModMobEffects.WORLD_CUT.get()))) {
+
+                        } else if (entity instanceof LivingEntity living &&
+                                living.hasEffect(JujutsucraftaddonModMobEffects.WORLD_CUT.get())) {
+
                             T1 = 1;
                             S1 = 5;
+
                         } else {
-                            if ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique2 == 18
-                                    && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain) {
-                                if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade Semi 1 (Mammoth)")) {
+
+                            if (playerVars.PlayerCurseTechnique2 == 18 && addonVars.InfusedDomain) {
+
+                                if (techName.contains("Cursed Spirit Grade Semi 1 (Mammoth)")) {
                                     T1 = 1;
                                     S1 = 50;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade Semi 1 (Slug)")) {
+
+                                } else if (techName.contains("Cursed Spirit Grade Semi 1 (Slug)")) {
                                     T1 = 1;
                                     S1 = 59;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade 1 (Blindness)")) {
+
+                                } else if (techName.contains("Cursed Spirit Grade 1 (Blindness)")) {
+
                                     if (entity.isShiftKeyDown()) {
                                         T1 = 23;
                                         S1 = 5;
-                                    } else if (!entity.isShiftKeyDown()) {
+                                    } else {
                                         T1 = 1;
                                         S1 = Mth.nextInt(RandomSource.create(), 51, 52);
                                     }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Samurai")) {
+
+                                } else if (techName.contains("Samurai")) {
+
                                     if (entity.isShiftKeyDown()) {
                                         T1 = 22;
                                         S1 = 4;
-                                    } else if (!entity.isShiftKeyDown()) {
+                                    } else {
                                         T1 = 15;
                                         S1 = 16;
                                     }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Tamamo-no-Mae Incarnate")) {
-                                    if (entity.isShiftKeyDown()) {
-                                        T1 = 1;
-                                        S1 = 55;
-                                    } else if (!entity.isShiftKeyDown()) {
-                                        T1 = 1;
-                                        S1 = 56;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Ganesha")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 1;
-                                        S1 = 60;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade Semi 1 (Teruteru Bozu)")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 10;
-                                        S1 = 5;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade 1 (Kuchisake-Onna)")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 1;
-                                        S1 = 53;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Cursed Spirit Grade 1 (Forest)")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 1;
-                                        S1 = 54;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Jogo")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 4;
-                                        S1 = 5;
-                                    } else {
-                                        T1 = 4;
-                                        S1 = 7;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Mahito")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 15;
-                                        S1 = 5;
-                                    } else {
-                                        T1 = 15;
-                                        S1 = 9;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Dagon")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 8;
-                                        S1 = 9;
-                                    } else {
-                                        T1 = 8;
-                                        S1 = 10;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Zenin Naoya")) {
-                                    if (!entity.isShiftKeyDown()) {
-                                        T1 = 19;
-                                        S1 = 5;
-                                    } else {
-                                        T1 = 19;
-                                        S1 = 10;
-                                    }
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                        .equals(Component.translatable("jujutsu.technique.attack1").getString())) {
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                                        capability.PlayerSelectCurseTechniqueName = (Component.translatable("jujutsu.technique.kaori1").getString());
-                                        capability.syncPlayerVariables(entity);
+
+                                } else if (techName.contains("Tamamo-no-Mae Incarnate")) {
+
+                                    T1 = 1;
+                                    S1 = entity.isShiftKeyDown() ? 55 : 56;
+
+                                } else if (techName.contains("Ganesha") && !entity.isShiftKeyDown()) {
+
+                                    T1 = 1;
+                                    S1 = 60;
+
+                                } else if (techName.contains("Cursed Spirit Grade Semi 1 (Teruteru Bozu)") && !entity.isShiftKeyDown()) {
+
+                                    T1 = 10;
+                                    S1 = 5;
+
+                                } else if (techName.contains("Cursed Spirit Grade 1 (Kuchisake-Onna)") && !entity.isShiftKeyDown()) {
+
+                                    T1 = 1;
+                                    S1 = 53;
+
+                                } else if (techName.contains("Cursed Spirit Grade 1 (Forest)") && !entity.isShiftKeyDown()) {
+
+                                    T1 = 1;
+                                    S1 = 54;
+
+                                } else if (techName.contains("Jogo")) {
+
+                                    T1 = 4;
+                                    S1 = entity.isShiftKeyDown() ? 7 : 5;
+
+                                } else if (techName.contains("Mahito")) {
+
+                                    T1 = 15;
+                                    S1 = entity.isShiftKeyDown() ? 9 : 5;
+
+                                } else if (techName.contains("Dagon")) {
+
+                                    T1 = 8;
+                                    S1 = entity.isShiftKeyDown() ? 10 : 9;
+
+                                } else if (techName.contains("Zenin Naoya")) {
+
+                                    T1 = 19;
+                                    S1 = entity.isShiftKeyDown() ? 10 : 5;
+
+                                } else if (techName.equals(Component.translatable("jujutsu.technique.attack1").getString())) {
+
+                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(cap -> {
+                                        cap.PlayerSelectCurseTechniqueName = Component.translatable("jujutsu.technique.kaori1").getString();
+                                        cap.syncPlayerVariables(entity);
                                     });
+
                                     T1 = 41;
                                     S1 = 10;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName)
-                                        .equals(Component.translatable("jujutsu.technique.attack2").getString())) {
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                                        capability.PlayerSelectCurseTechniqueName = ("Anti-Gravity Push");
-                                        capability.syncPlayerVariables(entity);
+
+                                } else if (techName.equals(Component.translatable("jujutsu.technique.attack2").getString())) {
+
+                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(cap -> {
+                                        cap.PlayerSelectCurseTechniqueName = "Anti-Gravity Push";
+                                        cap.syncPlayerVariables(entity);
                                     });
+
                                     T1 = 1;
                                     S1 = 60;
                                 }
 
-                                STR1 = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerSelectCurseTechniqueName;
-                                T2 = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerCurseTechnique2;
+                                STR1 = playerVars.PlayerSelectCurseTechniqueName;
+                                T2 = playerVars.PlayerCurseTechnique2;
+
                             } else {
-                                if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.kashimo_domain").getString())) {
-                                    T1 = 7;
-                                    S1 = 20;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.attack5").getString())) {
-                                    T1 = -1;
-                                    S1 = 7;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.attack4").getString())) {
-                                    T1 = -1;
-                                    S1 = 6;
-                                }  else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.flying_kick").getString())) {
-                                    T1 = 29;
-                                    S1 = 4;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Benevolent Shrine")) {
-                                    T1 = 1;
-                                    S1 = 20;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Soul Dismantle")) {
-                                    T1 = 1;
-                                    S1 = 5;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Soul Cleave")) {
-                                    T1 = 1;
-                                    S1 = 6;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Rika Summon")) {
-                                    T1 = 5;
-                                    S1 = 10;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.attack7").getString())) {
-                                    T1 = 15;
-                                    S1 = 4;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.attack3").getString())) {
-                                    T1 = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerCurseTechnique;
-                                    S1 = 2;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.mahito7").getString())) {
-                                    T1 = 15;
-                                    S1 = 7;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.attack8").getString())) {
-                                    T1 = 15;
-                                    S1 = 16;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("jujutsu.technique.mahito_body_repel2").getString())) {
-                                    T1 = 15;
-                                    S1 = 9;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("entity.jujutsucraft.divine_dog_white").getString()) && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain || ((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("entity.jujutsucraft.divine_dog_black").getString()) && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain) {
+
+                                TechniqueRegistry.TechniqueConfig config =
+                                        TechniqueRegistry.findByDisplayName(techName);
+
+                                if (config != null) {
+
+                                    T1 = config.t1();
+                                    S1 = config.s1();
+
+                                } else if ((techName.contains(Component.translatable("entity.jujutsucraft.divine_dog_white").getString())
+                                        || techName.contains(Component.translatable("entity.jujutsucraft.divine_dog_black").getString()))
+                                        && addonVars.InfusedDomain) {
+
                                     AttackBeastProcedure.execute(world, x, y, z, entity);
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("entity.jujutsucraft.nue").getString()) && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain) {
+
+                                } else if (techName.contains(Component.translatable("entity.jujutsucraft.nue").getString())
+                                        && addonVars.InfusedDomain) {
+
                                     T1 = 7;
                                     S1 = 5;
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("entity.jujutsucraft.piercing_ox").getString()) && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain) {
+
+                                } else if (techName.contains(Component.translatable("entity.jujutsucraft.piercing_ox").getString())
+                                        && addonVars.InfusedDomain) {
+
                                     AttackPiecingOxProcedure.execute(world, x, y, z, entity);
-                                } else if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains(Component.translatable("entity.jujutsucraft.max_elephant").getString()) && (entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).InfusedDomain) {
+
+                                } else if (techName.contains(Component.translatable("entity.jujutsucraft.max_elephant").getString())
+                                        && addonVars.InfusedDomain) {
+
                                     T1 = 8;
                                     S1 = 5;
+
                                 } else {
-                                    STR1 = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerSelectCurseTechniqueName;
-                                    T1 = ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).SecondTechnique ? ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique2 : ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique;
-                                    S1 = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerSelectCurseTechnique;
+
+                                    STR1 = techName;
+
+                                    T1 = playerVars.SecondTechnique
+                                            ? playerVars.PlayerCurseTechnique2
+                                            : playerVars.PlayerCurseTechnique;
+
+                                    S1 = playerVars.PlayerSelectCurseTechnique;
                                 }
                             }
                         }
 
-                        if (((entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueName).contains("Divine Meteor")) {
+
+                        if (playerVars == null || addonVars == null) return;
+
+                        LivingEntity living = entity instanceof LivingEntity ? (LivingEntity) entity : null;
+                        ItemStack mainHand = living != null ? living.getMainHandItem() : ItemStack.EMPTY;
+
+
+                        if (playerVars.PlayerSelectCurseTechniqueName.contains("Divine Meteor")) {
+
                             entity.getPersistentData().putDouble("skill", 415);
                             CloneMeteor.execute(world, x, y, z, entity);
+
                         } else {
-                            entity.getPersistentData().putDouble("skill", item_use ? skill : T1 * 100.0 + S1);
+
+                            entity.getPersistentData().putDouble(
+                                    "skill",
+                                    item_use ? skill : (T1 * 100.0 + S1)
+                            );
                         }
+
                         ResetCounterProcedure.execute(entity);
-                        LivingEntity _entity;
-                        if (entity instanceof LivingEntity) {
-                            _entity = (LivingEntity)entity;
-                            if (!_entity.level().isClientSide()) {
-                                _entity.addEffect(new MobEffectInstance((MobEffect)JujutsucraftModMobEffects.CURSED_TECHNIQUE.get(), Integer.MAX_VALUE, 0, false, false));
-                            }
+
+
+                        if (living != null && !living.level().isClientSide()) {
+
+                            living.addEffect(new MobEffectInstance(
+                                    JujutsucraftModMobEffects.CURSED_TECHNIQUE.get(),
+                                    Integer.MAX_VALUE, 0, false, false
+                            ));
                         }
 
-                        if (entity instanceof LivingEntity) {
-                            _entity = (LivingEntity)entity;
-                            _entity.addEffect(new MobEffectInstance((MobEffect)JujutsucraftModMobEffects.CURSED_TECHNIQUE.get(), Integer.MAX_VALUE, 0, false, false));
-                        }
 
-                        if ((T1 != 2.0 || S1 != 5.0) && (T1 != 9.0 || S1 != 10.0) && (T1 != 18.0 || !(S1 >= 10.0) || !(S1 < 15.0)) && !CREATIVE) {
-                            if (S1 == 20.0) {
-                                Tick = 20.0;
+                        if ((T1 != 2 || S1 != 5) &&
+                                (T1 != 9 || S1 != 10) &&
+                                !(T1 == 18 && S1 >= 10 && S1 < 15) &&
+                                !CREATIVE) {
+
+                            if (S1 == 20) {
+
+                                Tick = 20;
+
                             } else {
-                                Tick = Math.max((item_use ? cost : ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerSelectCurseTechniqueCostOrgin) / 2.0, 20.0);
-                                if (STR1.equals(Component.translatable("jujutsu.technique.attack1").getString())) {
-                                    Tick = 5.0;
-                                } else if (STR1.equals(Component.translatable("jujutsu.technique.attack2").getString())) {
-                                    Tick = 15.0;
-                                } else if (STR1.equals(Component.translatable("jujutsu.technique.attack3").getString())) {
-                                    Tick = 20.0;
-                                } else if (STR1.equals(Component.translatable("jujutsu.technique.attack4").getString())) {
-                                    Tick = 100.0;
-                                } else if (STR1.equals(Component.translatable("jujutsu.technique.attack5").getString())) {
-                                    Tick = 200.0;
-                                } else if (!STR1.equals(Component.translatable("jujutsu.technique.attack6").getString()) && !STR1.equals(Component.translatable("jujutsu.technique.flying_kick").getString())) {
-                                    if (STR1.equals(Component.translatable("jujutsu.technique.attack7").getString())) {
-                                        Tick = 100.0;
-                                    }
-                                } else {
-                                    Tick = 100.0;
+
+                                Tick = Math.max(
+                                        item_use ? cost : playerVars.PlayerSelectCurseTechniqueCostOrgin / 2.0,
+                                        20
+                                );
+
+                                String tech = STR1;
+
+                                if (tech.equals(Component.translatable("jujutsu.technique.attack1").getString()))
+                                    Tick = 5;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack2").getString()))
+                                    Tick = 15;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack3").getString()))
+                                    Tick = 20;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack4").getString()))
+                                    Tick = 100;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack5").getString()))
+                                    Tick = 200;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack6").getString())
+                                        || tech.equals(Component.translatable("jujutsu.technique.flying_kick").getString()))
+                                    Tick = 100;
+                                else if (tech.equals(Component.translatable("jujutsu.technique.attack7").getString()))
+                                    Tick = 100;
+
+                                if (T1 == 5 && S1 == 5) Tick = 20;
+
+                                if (T1 == 6 && S1 >= 5 && S1 < 20 &&
+                                        !tech.equals(Component.translatable("jujutsu.technique.choso3").getString())) {
+                                    Tick = 5;
                                 }
 
-                                if (T1 == 5.0 && S1 == 5.0) {
-                                    Tick = 20.0;
-                                }
+                                if (T1 == 7 && (S1 == 5 || S1 == 10)) Tick = 20;
 
-                                if (T1 == 6.0 && S1 >= 5.0 && S1 < 20.0 && !STR1.equals(Component.translatable("jujutsu.technique.choso3").getString())) {
-                                    Tick = 5.0;
-                                }
+                                if (T1 == 19 && S1 < 5 && LogicStartPassiveProcedure.execute(entity)) Tick = 5;
 
-                                if (T1 == 7.0 && (S1 == 5.0 || S1 == 10.0)) {
-                                    Tick = 20.0;
-                                }
+                                if (T1 == 39 && S1 >= 8) Tick = 20;
 
-                                if (T1 == 19.0 && S1 < 5.0 && LogicStartPassiveProcedure.execute(entity)) {
-                                    Tick = 5.0;
-                                }
-
-                                if (T1 == 39.0 && S1 >= 8.0) {
-                                    Tick = 20.0;
-                                }
-
-                                if (T1 == 40.0 && (S1 == 6.0 || S1 == 7.0)) {
-                                    Tick = 20.0;
-                                }
+                                if (T1 == 40 && (S1 == 6 || S1 == 7)) Tick = 20;
                             }
+
                         } else {
-                            Tick = 1.0;
+
+                            Tick = 1;
                         }
 
 
-                        if (world.getLevelData().getGameRules().getBoolean(JujutsucraftModGameRules.JUJUTSU_GAIN_FAME)) {
-                            _setval = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerTechniqueUsedNumber + (double)Math.round(Tick);
-                            double final_setval1 = _setval;
-                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).ifPresent((capability) -> {
-                                capability.PlayerTechniqueUsedNumber = final_setval1;
-                                capability.syncPlayerVariables(entity);
-                            });
-                            Advancement _adv;
-                            AdvancementProgress _ap;
-                            Iterator var36;
-                            String criteria;
-                            ServerPlayer _player2;
-                            if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerTechniqueUsedNumber > (double)((T1 != 27.0 && T2 != 27.0 ? 4000 : 2000) * (1 + world.getLevelData().getGameRules().getInt(JujutsucraftModGameRules.JUJUTSUUPGRADEDIFFICULTY) / 10)) && entity instanceof ServerPlayer) {
-                                _player2 = (ServerPlayer)entity;
-                                _adv = _player2.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:mastery_simple_domain"));
-                                _ap = _player2.getAdvancements().getOrStartProgress(_adv);
-                                if (!_ap.isDone()) {
-                                    var36 = _ap.getRemainingCriteria().iterator();
+                        if (world.getLevelData().getGameRules()
+                                .getBoolean(JujutsucraftModGameRules.JUJUTSU_GAIN_FAME)) {
 
-                                    while(var36.hasNext()) {
-                                        criteria = (String)var36.next();
-                                        _player2.getAdvancements().award(_adv, criteria);
-                                    }
+                            double newValue = playerVars.PlayerTechniqueUsedNumber + Math.round(Tick);
+
+                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                                    .ifPresent(cap -> {
+                                        cap.PlayerTechniqueUsedNumber = newValue;
+                                        cap.syncPlayerVariables(entity);
+                                    });
+
+                            if (entity instanceof ServerPlayer player) {
+
+                                int diff = world.getLevelData()
+                                        .getGameRules()
+                                        .getInt(JujutsucraftModGameRules.JUJUTSUUPGRADEDIFFICULTY);
+
+                                boolean special = (T1 == 27 || T2 == 27);
+
+                                if (newValue > (special ? 2000 : 4000) * (1 + diff / 10.0)) {
+                                    grantAdvancement(player, "jujutsucraft:mastery_simple_domain");
                                 }
-                            }
 
-                            if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerTechniqueUsedNumber > (double)((T1 != 27.0 && T2 != 27.0 ? 12000 : 100) * (1 + world.getLevelData().getGameRules().getInt(JujutsucraftModGameRules.JUJUTSUUPGRADEDIFFICULTY) / 10)) && entity instanceof ServerPlayer) {
-                                _player2 = (ServerPlayer)entity;
-                                _adv = _player2.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:mastery_domain_expansion"));
-                                _ap = _player2.getAdvancements().getOrStartProgress(_adv);
-                                if (!_ap.isDone()) {
-                                    var36 = _ap.getRemainingCriteria().iterator();
-
-                                    while(var36.hasNext()) {
-                                        criteria = (String)var36.next();
-                                        _player2.getAdvancements().award(_adv, criteria);
-                                    }
+                                if (newValue > (special ? 100 : 12000) * (1 + diff / 10.0)) {
+                                    grantAdvancement(player, "jujutsucraft:mastery_domain_expansion");
                                 }
                             }
                         }
 
-                        if (entity instanceof LivingEntity) {
-                            _entity = (LivingEntity)entity;
-                            var10000 = _entity.getMainHandItem();
-                        } else {
-                            var10000 = ItemStack.EMPTY;
+
+                        if (mainHand.getItem() == JujutsucraftModItems.LOUDSPEAKER.get()) {
+                            mainHand.getOrCreateTag().putBoolean("Used", true);
                         }
 
-                        LivingEntity _livingEntity41;
-                        if (var10000.getItem() == JujutsucraftModItems.LOUDSPEAKER.get()) {
-                            if (entity instanceof LivingEntity) {
-                                _livingEntity41 = (LivingEntity)entity;
-                                var10000 = _livingEntity41.getMainHandItem();
-                            } else {
-                                var10000 = ItemStack.EMPTY;
-                            }
 
-                            var10000.getOrCreateTag().putBoolean("Used", true);
-                        }
+                        if (noUseCursePower) {
 
-                        if (!noUseCursePower) {
-                            if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PhysicalAttack && !item_use) {
-                                if (S1 >= 0.0 && S1 <= 2.0) {
-                                    if (entity instanceof LivingEntity) {
-                                        _entity = (LivingEntity)entity;
-                                        var10000 = _entity.getItemBySlot(EquipmentSlot.CHEST);
-                                    } else {
-                                        var10000 = ItemStack.EMPTY;
-                                    }
-
-                                    if (var10000.getItem() == JujutsucraftModItems.SUKUNA_BODY_CHESTPLATE.get()) {
-                                        Tick *= 0.5;
-                                    }
-
-                                    if (entity instanceof LivingEntity) {
-                                        _entity = (LivingEntity)entity;
-                                        if (_entity.getAttributes().hasAttribute(Attributes.ATTACK_SPEED)) {
-                                            double var10003;
-                                            label235: {
-                                                if (entity instanceof LivingEntity) {
-                                                    _livingEntity41 = (LivingEntity)entity;
-                                                    if (_livingEntity41.getAttributes().hasAttribute(Attributes.ATTACK_SPEED)) {
-                                                        var10003 = _livingEntity41.getAttribute(Attributes.ATTACK_SPEED).getValue();
-                                                        break label235;
-                                                    }
-                                                }
-
-                                                var10003 = 0.0;
-                                            }
-
-                                            Tick += 20.0 * Math.max(1.7 - var10003, 0.0);
-                                        }
-                                    }
-                                    if (((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Profession).equals("Sage") || ((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Subrace).equals("Disaster Curses")) {
-                                        if (entity instanceof LivingEntity) {
-                                            _entity = (LivingEntity) entity;
-                                            if (!_entity.level().isClientSide()) {
-                                                if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                    _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(), (int) Math.round(Tick), 1, false, false));
-                                                }
-                                            }
-
-                                            return;
-                                        }
-                                    } else {
-                                        if (entity instanceof LivingEntity) {
-                                            _entity = (LivingEntity) entity;
-                                            if (!_entity.level().isClientSide()) {
-                                                if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                    _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(), (int) Math.round(Tick / 2), 1, false, false));
-                                                }
-                                            }
-
-                                            return;
-                                        }
-                                    }
-                                } else if (entity instanceof LivingEntity) {
-                                    if (((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Profession).equals("Sage") || ((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Subrace).equals("Disaster Curses")) {
-                                        _entity = (LivingEntity) entity;
-                                        if (!_entity.level().isClientSide()) {
-                                            if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(), (int) Math.round(Tick / 2), 0, false, false));
-                                            }
-                                        }
-
-                                        return;
-                                    } else {
-                                        _entity = (LivingEntity) entity;
-                                        if (!_entity.level().isClientSide()) {
-                                            if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(), (int) Math.round(Tick), 0, false, false));
-                                            }
-                                        }
-
-                                        return;
-                                    }
-                                }
-
-                                return;
-                            } else {
-                                if (((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Profession).equals("Sage") || ((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Subrace).equals("Disaster Curses")) {
-                                    if (entity instanceof LivingEntity) {
-                                        _entity = (LivingEntity) entity;
-                                        if (!_entity.level().isClientSide()) {
-                                            if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME.get(), (int) Math.round(Tick / 2), 0, false, false));
-                                            }
-                                            if  ((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).BurnOutRCT) {
-                                                BurnoutKeyOnKeyPressedProcedure.execute(entity);
-                                            }
-                                        }
-
-                                        return;
-                                    }
-                                } else {
-                                    if (entity instanceof LivingEntity) {
-                                        _entity = (LivingEntity) entity;
-                                        if (!_entity.level().isClientSide()) {
-                                            if (entity instanceof LivingEntity && !world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN)) {
-                                                _entity.addEffect(new MobEffectInstance((MobEffect) JujutsucraftModMobEffects.COOLDOWN_TIME.get(), (int) Math.round(Tick), 0, false, false));
-                                            }
-                                            if  ((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).BurnOutRCT) {
-                                                BurnoutKeyOnKeyPressedProcedure.execute(entity);
-                                            }
-                                        }
-
-                                        return;
-                                    }
-                                }
-
-                                return;
-                            }
-                        } else {
-                            entity.getPersistentData().putDouble("COOLDOWN_TICKS", Math.max(entity.getPersistentData().getDouble("COOLDOWN_TICKS"), (double)Math.round(Tick)));
+                            entity.getPersistentData().putDouble(
+                                    "COOLDOWN_TICKS",
+                                    Math.max(entity.getPersistentData().getDouble("COOLDOWN_TICKS"),
+                                            Math.round(Tick))
+                            );
                             return;
                         }
+
+                        boolean sage = addonVars.Profession.equals("Sage")
+                                || addonVars.Subrace.equals("Disaster Curses");
+
+                        boolean noCooldown = world.getLevelData()
+                                .getGameRules()
+                                .getBoolean(JujutsucraftaddonModGameRules.JJKU_NO_COOLDOWN);
+
+                        if (living == null || living.level().isClientSide() || noCooldown) return;
+
+
+                        if (playerVars.PhysicalAttack && !item_use) {
+
+                            if (S1 >= 0 && S1 <= 2) {
+
+                                ItemStack chest = living.getItemBySlot(EquipmentSlot.CHEST);
+
+                                if (chest.getItem() == JujutsucraftModItems.SUKUNA_BODY_CHESTPLATE.get()) {
+                                    Tick *= 0.5;
+                                }
+
+                                if (living.getAttributes().hasAttribute(Attributes.ATTACK_SPEED)) {
+                                    double speed = living.getAttribute(Attributes.ATTACK_SPEED).getValue();
+                                    Tick += 20 * Math.max(1.7 - speed, 0);
+                                }
+
+                                living.addEffect(new MobEffectInstance(
+                                        JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(),
+                                        (int) Math.round(sage ? Tick : Tick / 2),
+                                        1, false, false
+                                ));
+
+                            } else {
+
+                                living.addEffect(new MobEffectInstance(
+                                        JujutsucraftModMobEffects.COOLDOWN_TIME_COMBAT.get(),
+                                        (int) Math.round(sage ? Tick / 2 : Tick),
+                                        0, false, false
+                                ));
+                            }
+
+                            return;
+                        }
+
+
+                        living.addEffect(new MobEffectInstance(
+                                JujutsucraftModMobEffects.COOLDOWN_TIME.get(),
+                                (int) Math.round(sage ? Tick / 2 : Tick),
+                                0, false, false
+                        ));
+
+                        if (addonVars.BurnOutRCT) {
+                            BurnoutKeyOnKeyPressedProcedure.execute(entity);
+                        }
+
                     }
                 }
             }
@@ -693,5 +594,23 @@ public abstract class StartCursedTechniqueProcedureMixin {
 
         }
     }
+
+    private static void grantAdvancement(ServerPlayer player, String id) {
+
+        Advancement adv = player.server.getAdvancements()
+                .getAdvancement(new ResourceLocation(id));
+
+        if (adv == null) return;
+
+        AdvancementProgress progress =
+                player.getAdvancements().getOrStartProgress(adv);
+
+        if (progress.isDone()) return;
+
+        for (String crit : progress.getRemainingCriteria()) {
+            player.getAdvancements().award(adv, crit);
+        }
+    }
+
 }
 
