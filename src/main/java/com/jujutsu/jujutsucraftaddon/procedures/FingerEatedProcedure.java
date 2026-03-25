@@ -11,9 +11,7 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -28,1070 +26,223 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 public class FingerEatedProcedure {
+
+    private record EligibilityResult(boolean success, double levelControl) {}
+
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-        boolean success = false;
-        boolean sukuna = false;
-        double num1 = 0.0;
-        double cursed_technique = 0.0;
-        double num2 = 0.0;
-        double level_control = 0.0;
-        double tick = 0.0;
-        double cursed_technique2 = 0.0;
-        boolean logic_unluck = false;
-        Player _player;
-        LivingEntity _livEnt;
-        LivingEntity _livEnt26;
-        if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-            success = true;
-        } else {
-            if (world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_ONLY_ONE_SUKUNA)) {
-                if (JujutsucraftaddonModVariables.MapVariables.get(world).Sukuna == 0) {
-                    if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount() == 0.0) {
-                        if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                            success = true;
-                        } else {
-                            cursed_technique = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique;
-                            cursed_technique2 = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique2;
-                            if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerFormer == 0.0) {
-                                success = true;
-                                level_control = 2.0;
-                            } else if (cursed_technique != 21.0 && cursed_technique2 != 21.0 && ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() != JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                                label319: {
-                                    label331: {
-                                        if (entity instanceof Player) {
-                                            _player = (Player)entity;
-                                            if (_player.getAbilities().instabuild) {
-                                                break label331;
-                                            }
-                                        }
-
-                                        if (entity instanceof LivingEntity) {
-                                            _livEnt = (LivingEntity)entity;
-                                            if (_livEnt.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                break label331;
-                                            }
-                                        }
-
-                                        if (cursed_technique != 1.0 && cursed_technique2 != 1.0 && cursed_technique != 6.0 && cursed_technique2 != 6.0) {
-                                            success = false;
-                                            level_control = 0.0;
-                                            break label319;
-                                        }
-                                    }
-
-                                    success = true;
-                                    level_control = 0.0;
-                                }
-                            } else {
-                                success = true;
-                                level_control = 1.0;
-                            }
-
-                            if (!success) {
-                                label302: {
-                                    if (entity instanceof Player) {
-                                        _player = (Player)entity;
-                                        if (_player.getAbilities().instabuild) {
-                                            break label302;
-                                        }
-                                    }
-
-                                    if (entity instanceof Player) {
-                                        _player = (Player)entity;
-                                        ItemStack _setstack = (new ItemStack((ItemLike)JujutsucraftModItems.SUKUNA_FINGER.get())).copy();
-                                        _setstack.setCount(1);
-                                        ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-                                    }
-                                }
-
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity)entity;
-                                    _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.INFINITY_EFFECT.get());
-                                }
-
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity)entity;
-                                    _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.ZONE.get());
-                                }
-
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "kill @s");
-                                }
-                            }
-                        }
-
-                        if (entity.isAlive()) {
-                            if (level_control < 2.0) {
-                                if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.DEATH_PAINTING.get() && entity instanceof Player) {
-                                    _player = (Player) entity;
-                                    if (!_player.level().isClientSide()) {
-                                        _player.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.death_painting").getString()), false);
-                                    }
-                                }
-
-                                if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                                    ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.setCount(Math.min(((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount() + 1, 20));
-                                } else {
-                                    ItemStack _setval = new ItemStack((ItemLike) JujutsucraftModItems.SUKUNA_FINGER.get());
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.BodyItem = _setval.copy();
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                }
-
-                                if (entity instanceof Player) {
-                                    _player = (Player) entity;
-                                    if (!_player.level().isClientSide()) {
-                                        String var10001 = Component.translatable("item.jujutsucraft.sukuna_finger").getString();
-                                        _player.displayClientMessage(Component.literal(var10001 + ": " + Math.round((float) ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount())), false);
-                                    }
-                                }
-
-                                num1 = (double) ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount();
-                            }
-
-                            Iterator var26;
-                            String criteria;
-                            Advancement _adv;
-                            AdvancementProgress _ap;
-                            ServerPlayer _player1;
-                            if (num1 > 0.0) {
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "advancement revoke @s only jujutsucraft:update");
-                                }
-
-                                if (entity instanceof ServerPlayer) {
-                                    _player1 = (ServerPlayer) entity;
-                                    _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:update"));
-                                    _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                                    if (!_ap.isDone()) {
-                                        var26 = _ap.getRemainingCriteria().iterator();
-
-                                        while (var26.hasNext()) {
-                                            criteria = (String) var26.next();
-                                            _player1.getAdvancements().award(_adv, criteria);
-                                        }
-                                    }
-                                }
-
-                                if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                                    double _setval = ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerChange + 1000.0;
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.PlayerCursePowerChange = _setval;
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                } else {
-                                    label336:
-                                    {
-                                        if (entity instanceof LivingEntity) {
-                                            _livEnt26 = (LivingEntity) entity;
-                                            if (_livEnt26.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                break label336;
-                                            }
-                                        }
-
-                                        int var10000;
-                                        label278:
-                                        {
-                                            logic_unluck = true;
-                                            if (entity instanceof LivingEntity) {
-                                                LivingEntity _livEnt24 = (LivingEntity) entity;
-                                                if (_livEnt24.hasEffect(MobEffects.UNLUCK)) {
-                                                    label274:
-                                                    {
-                                                        if (entity instanceof LivingEntity) {
-                                                            _livEnt = (LivingEntity) entity;
-                                                            if (_livEnt.hasEffect(MobEffects.UNLUCK)) {
-                                                                var10000 = _livEnt.getEffect(MobEffects.UNLUCK).getAmplifier();
-                                                                break label274;
-                                                            }
-                                                        }
-
-                                                        var10000 = 0;
-                                                    }
-
-                                                    ++var10000;
-                                                    break label278;
-                                                }
-                                            }
-
-                                            var10000 = 0;
-                                        }
-
-                                        num2 = (double) var10000;
-                                        num2 = Math.min(num2, 9.0);
-                                    }
-
-                                    if (level_control == 2.0) {
-                                        sukuna = false;
-                                        tick = 300.0;
-                                    } else if (level_control != 1.0) {
-                                        if (level_control == 0.0) {
-                                            sukuna = true;
-                                            tick = 1000000.0;
-                                        }
-                                    } else {
-                                        label344:
-                                        {
-                                            label265:
-                                            {
-                                                if (entity instanceof LivingEntity) {
-                                                    _livEnt26 = (LivingEntity) entity;
-                                                    if (_livEnt26.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                        break label265;
-                                                    }
-                                                }
-
-                                                if (num1 != 1.0 && !(num2 >= 9.0)) {
-                                                    break label344;
-                                                }
-                                            }
-
-                                            sukuna = true;
-                                            tick = 300.0;
-                                        }
-                                    }
-                                }
-                            }
-
-                            num1 = -300.0 - Math.random();
-                            Entity entityToSpawn;
-                            ServerLevel _level;
-                            if (sukuna && world instanceof ServerLevel) {
-                                _level = (ServerLevel) world;
-                                entityToSpawn = EntityType.PIG.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                                if (entityToSpawn != null) {
-                                    entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                                }
-                            }
-
-                            sukuna = false;
-                            Vec3 _center = new Vec3(entity.getX(), num1, entity.getZ());
-                            Vec3 final_center = _center;
-                            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                                return true;
-                            }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                                return _entcnd.distanceToSqr(final_center);
-                            })).toList();
-                            Iterator var39 = _entfound.iterator();
-
-                            Entity entityiterator;
-                            while (var39.hasNext()) {
-                                entityiterator = (Entity) var39.next();
-                                if (entityiterator instanceof Pig && entityiterator.isAlive()) {
-                                    sukuna = true;
-                                    if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                        entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel) entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                                    }
-
-                                    if (!entityiterator.level().isClientSide()) {
-                                        entityiterator.discard();
-                                    }
-                                    break;
-                                }
-                            }
-
-                            if (sukuna) {
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity) entity;
-                                    _livEnt26.removeEffect(MobEffects.UNLUCK);
-                                }
-
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    Commands var29 = entity.getServer().getCommands();
-                                    CommandSourceStack var28 = new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity);
-                                    Object var10002;
-                                    if (tick > 10000.0) {
-                                        var10002 = "infinite";
-                                    } else {
-                                        int var10003;
-                                        label241:
-                                        {
-                                            if (entity instanceof LivingEntity) {
-                                                _livEnt = (LivingEntity) entity;
-                                                if (_livEnt.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                    var10003 = _livEnt.getEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get()).getAmplifier();
-                                                    break label241;
-                                                }
-                                            }
-
-                                            var10003 = 0;
-                                        }
-
-                                        var10002 = Math.round(Math.max(tick, (double) Math.round(Math.floor((double) (var10003 / 20)))));
-                                    }
-
-                                    var29.performPrefixedCommand(var28, "effect give @s jujutsucraft:sukuna_effect " + var10002 + " " + Math.round(Math.min(Math.max(GetSukunaLevelProcedure.execute(entity), 1.0), 20.0) - 1.0) + " true");
-                                }
-                            }
-
-                            if (logic_unluck && world instanceof ServerLevel) {
-                                _level = (ServerLevel) world;
-                                entityToSpawn = EntityType.COW.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                                if (entityToSpawn != null) {
-                                    entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                                }
-                            }
-
-                            logic_unluck = false;
-                            _center = new Vec3(entity.getX(), num1, entity.getZ());
-                            Vec3 final_center1 = _center;
-                            _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                                return true;
-                            }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                                return _entcnd.distanceToSqr(final_center1);
-                            })).toList();
-                            var39 = _entfound.iterator();
-
-                            while (var39.hasNext()) {
-                                entityiterator = (Entity) var39.next();
-                                if (entityiterator instanceof Cow && entityiterator.isAlive()) {
-                                    logic_unluck = true;
-                                    if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                        entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel) entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                                    }
-
-                                    if (!entityiterator.level().isClientSide()) {
-                                        entityiterator.discard();
-                                    }
-                                    break;
-                                }
-                            }
-
-                            if (logic_unluck && !entity.level().isClientSide() && entity.getServer() != null) {
-                                entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "effect give @s minecraft:unluck 180 " + Math.round(num2) + " true");
-                            }
-
-                            if (!entity.getPersistentData().getBoolean("CursedSpirit")) {
-                                if (entity instanceof ServerPlayer) {
-                                    _player1 = (ServerPlayer) entity;
-                                    _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:observation_of_the_soul"));
-                                    _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                                    if (!_ap.isDone()) {
-                                        var26 = _ap.getRemainingCriteria().iterator();
-
-                                        while (var26.hasNext()) {
-                                            criteria = (String) var26.next();
-                                            _player1.getAdvancements().award(_adv, criteria);
-                                        }
-                                    }
-                                }
-
-                                if (level_control == 0.0) {
-                                    boolean _setval = true;
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.flag_sukuna = _setval;
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                }
-                            }
-                        }
-
-                        WhenRespawnProcedure.execute(world, x, y, z, entity);
-                        JujutsucraftaddonModVariables.MapVariables.get(world).Sukuna = 1;
-                        JujutsucraftaddonModVariables.MapVariables.get(world).syncData(world);
-
-                    }
-                } else {
-                    if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount() > 0.0) {
-                        if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                            success = true;
-                        } else {
-                            cursed_technique = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique;
-                            cursed_technique2 = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique2;
-                            if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerFormer == 0.0) {
-                                success = true;
-                                level_control = 2.0;
-                            } else if (cursed_technique != 21.0 && cursed_technique2 != 21.0 && ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() != JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                                label319: {
-                                    label331: {
-                                        if (entity instanceof Player) {
-                                            _player = (Player)entity;
-                                            if (_player.getAbilities().instabuild) {
-                                                break label331;
-                                            }
-                                        }
-
-                                        if (entity instanceof LivingEntity) {
-                                            _livEnt = (LivingEntity)entity;
-                                            if (_livEnt.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                break label331;
-                                            }
-                                        }
-
-                                        if (cursed_technique != 1.0 && cursed_technique2 != 1.0 && cursed_technique != 6.0 && cursed_technique2 != 6.0) {
-                                            success = false;
-                                            level_control = 0.0;
-                                            break label319;
-                                        }
-                                    }
-
-                                    success = true;
-                                    level_control = 0.0;
-                                }
-                            } else {
-                                success = true;
-                                level_control = 1.0;
-                            }
-
-                            if (!success) {
-                                label302: {
-                                    if (entity instanceof Player) {
-                                        _player = (Player)entity;
-                                        if (_player.getAbilities().instabuild) {
-                                            break label302;
-                                        }
-                                    }
-
-                                    if (entity instanceof Player) {
-                                        _player = (Player)entity;
-                                        ItemStack _setstack = (new ItemStack((ItemLike)JujutsucraftModItems.SUKUNA_FINGER.get())).copy();
-                                        _setstack.setCount(1);
-                                        ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-                                    }
-                                }
-
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity)entity;
-                                    _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.INFINITY_EFFECT.get());
-                                }
-
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity)entity;
-                                    _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.ZONE.get());
-                                }
-
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "kill @s");
-                                }
-                            }
-                        }
-
-                        if (entity.isAlive()) {
-                            if (level_control < 2.0) {
-                                if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.DEATH_PAINTING.get() && entity instanceof Player) {
-                                    _player = (Player) entity;
-                                    if (!_player.level().isClientSide()) {
-                                        _player.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.death_painting").getString()), false);
-                                    }
-                                }
-
-                                if (((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                                    ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.setCount(Math.min(((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount() + 1, 20));
-                                } else {
-                                    ItemStack _setval = new ItemStack((ItemLike) JujutsucraftModItems.SUKUNA_FINGER.get());
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.BodyItem = _setval.copy();
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                }
-
-                                if (entity instanceof Player) {
-                                    _player = (Player) entity;
-                                    if (!_player.level().isClientSide()) {
-                                        String var10001 = Component.translatable("item.jujutsucraft.sukuna_finger").getString();
-                                        _player.displayClientMessage(Component.literal(var10001 + ": " + Math.round((float) ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount())), false);
-                                    }
-                                }
-
-                                num1 = (double) ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount();
-                            }
-
-                            Iterator var26;
-                            String criteria;
-                            Advancement _adv;
-                            AdvancementProgress _ap;
-                            ServerPlayer _player1;
-                            if (num1 > 0.0) {
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "advancement revoke @s only jujutsucraft:update");
-                                }
-
-                                if (entity instanceof ServerPlayer) {
-                                    _player1 = (ServerPlayer) entity;
-                                    _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:update"));
-                                    _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                                    if (!_ap.isDone()) {
-                                        var26 = _ap.getRemainingCriteria().iterator();
-
-                                        while (var26.hasNext()) {
-                                            criteria = (String) var26.next();
-                                            _player1.getAdvancements().award(_adv, criteria);
-                                        }
-                                    }
-                                }
-
-                                if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                                    double _setval = ((JujutsucraftModVariables.PlayerVariables) entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerChange + 1000.0;
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.PlayerCursePowerChange = _setval;
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                } else {
-                                    label336:
-                                    {
-                                        if (entity instanceof LivingEntity) {
-                                            _livEnt26 = (LivingEntity) entity;
-                                            if (_livEnt26.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                break label336;
-                                            }
-                                        }
-
-                                        int var10000;
-                                        label278:
-                                        {
-                                            logic_unluck = true;
-                                            if (entity instanceof LivingEntity) {
-                                                LivingEntity _livEnt24 = (LivingEntity) entity;
-                                                if (_livEnt24.hasEffect(MobEffects.UNLUCK)) {
-                                                    label274:
-                                                    {
-                                                        if (entity instanceof LivingEntity) {
-                                                            _livEnt = (LivingEntity) entity;
-                                                            if (_livEnt.hasEffect(MobEffects.UNLUCK)) {
-                                                                var10000 = _livEnt.getEffect(MobEffects.UNLUCK).getAmplifier();
-                                                                break label274;
-                                                            }
-                                                        }
-
-                                                        var10000 = 0;
-                                                    }
-
-                                                    ++var10000;
-                                                    break label278;
-                                                }
-                                            }
-
-                                            var10000 = 0;
-                                        }
-
-                                        num2 = (double) var10000;
-                                        num2 = Math.min(num2, 9.0);
-                                    }
-
-                                    if (level_control == 2.0) {
-                                        sukuna = false;
-                                        tick = 300.0;
-                                    } else if (level_control != 1.0) {
-                                        if (level_control == 0.0) {
-                                            sukuna = true;
-                                            tick = 1000000.0;
-                                        }
-                                    } else {
-                                        label344:
-                                        {
-                                            label265:
-                                            {
-                                                if (entity instanceof LivingEntity) {
-                                                    _livEnt26 = (LivingEntity) entity;
-                                                    if (_livEnt26.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                        break label265;
-                                                    }
-                                                }
-
-                                                if (num1 != 1.0 && !(num2 >= 9.0)) {
-                                                    break label344;
-                                                }
-                                            }
-
-                                            sukuna = true;
-                                            tick = 300.0;
-                                        }
-                                    }
-                                }
-                            }
-
-                            num1 = -300.0 - Math.random();
-                            Entity entityToSpawn;
-                            ServerLevel _level;
-                            if (sukuna && world instanceof ServerLevel) {
-                                _level = (ServerLevel) world;
-                                entityToSpawn = EntityType.PIG.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                                if (entityToSpawn != null) {
-                                    entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                                }
-                            }
-
-                            sukuna = false;
-                            Vec3 _center = new Vec3(entity.getX(), num1, entity.getZ());
-                            Vec3 final_center = _center;
-                            List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                                return true;
-                            }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                                return _entcnd.distanceToSqr(final_center);
-                            })).toList();
-                            Iterator var39 = _entfound.iterator();
-
-                            Entity entityiterator;
-                            while (var39.hasNext()) {
-                                entityiterator = (Entity) var39.next();
-                                if (entityiterator instanceof Pig && entityiterator.isAlive()) {
-                                    sukuna = true;
-                                    if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                        entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel) entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                                    }
-
-                                    if (!entityiterator.level().isClientSide()) {
-                                        entityiterator.discard();
-                                    }
-                                    break;
-                                }
-                            }
-
-                            if (sukuna) {
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity) entity;
-                                    _livEnt26.removeEffect(MobEffects.UNLUCK);
-                                }
-
-                                if (!entity.level().isClientSide() && entity.getServer() != null) {
-                                    Commands var29 = entity.getServer().getCommands();
-                                    CommandSourceStack var28 = new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity);
-                                    Object var10002;
-                                    if (tick > 10000.0) {
-                                        var10002 = "infinite";
-                                    } else {
-                                        int var10003;
-                                        label241:
-                                        {
-                                            if (entity instanceof LivingEntity) {
-                                                _livEnt = (LivingEntity) entity;
-                                                if (_livEnt.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                    var10003 = _livEnt.getEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get()).getAmplifier();
-                                                    break label241;
-                                                }
-                                            }
-
-                                            var10003 = 0;
-                                        }
-
-                                        var10002 = Math.round(Math.max(tick, (double) Math.round(Math.floor((double) (var10003 / 20)))));
-                                    }
-
-                                    var29.performPrefixedCommand(var28, "effect give @s jujutsucraft:sukuna_effect " + var10002 + " " + Math.round(Math.min(Math.max(GetSukunaLevelProcedure.execute(entity), 1.0), 20.0) - 1.0) + " true");
-                                }
-                            }
-
-                            if (logic_unluck && world instanceof ServerLevel) {
-                                _level = (ServerLevel) world;
-                                entityToSpawn = EntityType.COW.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                                if (entityToSpawn != null) {
-                                    entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                                }
-                            }
-
-                            logic_unluck = false;
-                            _center = new Vec3(entity.getX(), num1, entity.getZ());
-                            Vec3 final_center1 = _center;
-                            _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                                return true;
-                            }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                                return _entcnd.distanceToSqr(final_center1);
-                            })).toList();
-                            var39 = _entfound.iterator();
-
-                            while (var39.hasNext()) {
-                                entityiterator = (Entity) var39.next();
-                                if (entityiterator instanceof Cow && entityiterator.isAlive()) {
-                                    logic_unluck = true;
-                                    if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                        entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel) entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                                    }
-
-                                    if (!entityiterator.level().isClientSide()) {
-                                        entityiterator.discard();
-                                    }
-                                    break;
-                                }
-                            }
-
-                            if (logic_unluck && !entity.level().isClientSide() && entity.getServer() != null) {
-                                entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "effect give @s minecraft:unluck 180 " + Math.round(num2) + " true");
-                            }
-
-                            if (!entity.getPersistentData().getBoolean("CursedSpirit")) {
-                                if (entity instanceof ServerPlayer) {
-                                    _player1 = (ServerPlayer) entity;
-                                    _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:observation_of_the_soul"));
-                                    _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                                    if (!_ap.isDone()) {
-                                        var26 = _ap.getRemainingCriteria().iterator();
-
-                                        while (var26.hasNext()) {
-                                            criteria = (String) var26.next();
-                                            _player1.getAdvancements().award(_adv, criteria);
-                                        }
-                                    }
-                                }
-
-                                if (level_control == 0.0) {
-                                    boolean _setval = true;
-                                    entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction) null).ifPresent((capability) -> {
-                                        capability.flag_sukuna = _setval;
-                                        capability.syncPlayerVariables(entity);
-                                    });
-                                }
-                            }
-                        }
-
-                        WhenRespawnProcedure.execute(world, x, y, z, entity);
-                        JujutsucraftaddonModVariables.MapVariables.get(world).Sukuna = 1;
-                        JujutsucraftaddonModVariables.MapVariables.get(world).syncData(world);
-                    }
-
-
-                }
-            } else {
-                if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                    success = true;
-                } else {
-                    cursed_technique = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique;
-                    cursed_technique2 = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCurseTechnique2;
-                    if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerFormer == 0.0) {
-                        success = true;
-                        level_control = 2.0;
-                    } else if (cursed_technique != 21.0 && cursed_technique2 != 21.0 && ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() != JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                        label319: {
-                            label331: {
-                                if (entity instanceof Player) {
-                                    _player = (Player)entity;
-                                    if (_player.getAbilities().instabuild) {
-                                        break label331;
-                                    }
-                                }
-
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt = (LivingEntity)entity;
-                                    if (_livEnt.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                        break label331;
-                                    }
-                                }
-
-                                if (cursed_technique != 1.0 && cursed_technique2 != 1.0 && cursed_technique != 6.0 && cursed_technique2 != 6.0) {
-                                    success = false;
-                                    level_control = 0.0;
-                                    break label319;
-                                }
-                            }
-
-                            success = true;
-                            level_control = 0.0;
-                        }
-                    } else {
-                        success = true;
-                        level_control = 1.0;
-                    }
-
-                    if (!success) {
-                        label302: {
-                            if (entity instanceof Player) {
-                                _player = (Player)entity;
-                                if (_player.getAbilities().instabuild) {
-                                    break label302;
-                                }
-                            }
-
-                            if (entity instanceof Player) {
-                                _player = (Player)entity;
-                                ItemStack _setstack = (new ItemStack((ItemLike)JujutsucraftModItems.SUKUNA_FINGER.get())).copy();
-                                _setstack.setCount(1);
-                                ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-                            }
-                        }
-
-                        if (entity instanceof LivingEntity) {
-                            _livEnt26 = (LivingEntity)entity;
-                            _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.INFINITY_EFFECT.get());
-                        }
-
-                        if (entity instanceof LivingEntity) {
-                            _livEnt26 = (LivingEntity)entity;
-                            _livEnt26.removeEffect((MobEffect)JujutsucraftModMobEffects.ZONE.get());
-                        }
-
-                        if (!entity.level().isClientSide() && entity.getServer() != null) {
-                            entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "kill @s");
-                        }
-                    }
-                }
-
-                if (entity.isAlive()) {
-                    if (level_control < 2.0) {
-                        if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.DEATH_PAINTING.get() && entity instanceof Player) {
-                            _player = (Player)entity;
-                            if (!_player.level().isClientSide()) {
-                                _player.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.death_painting").getString()), false);
-                            }
-                        }
-
-                        if (((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getItem() == JujutsucraftModItems.SUKUNA_FINGER.get()) {
-                            ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.setCount(Math.min(((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount() + 1, 20));
-                        } else {
-                            ItemStack _setval = new ItemStack((ItemLike)JujutsucraftModItems.SUKUNA_FINGER.get());
-                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).ifPresent((capability) -> {
-                                capability.BodyItem = _setval.copy();
-                                capability.syncPlayerVariables(entity);
-                            });
-                        }
-
-                        if (entity instanceof Player) {
-                            _player = (Player)entity;
-                            if (!_player.level().isClientSide()) {
-                                String var10001 = Component.translatable("item.jujutsucraft.sukuna_finger").getString();
-                                _player.displayClientMessage(Component.literal(var10001 + ": " + Math.round((float)((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount())), false);
-                            }
-                        }
-
-                        num1 = (double)((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).BodyItem.getCount();
-                    }
-
-                    Iterator var26;
-                    String criteria;
-                    Advancement _adv;
-                    AdvancementProgress _ap;
-                    ServerPlayer _player1;
-                    if (num1 > 0.0) {
-                        if (!entity.level().isClientSide() && entity.getServer() != null) {
-                            entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "advancement revoke @s only jujutsucraft:update");
-                        }
-
-                        if (entity instanceof ServerPlayer) {
-                            _player1 = (ServerPlayer)entity;
-                            _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:update"));
-                            _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                            if (!_ap.isDone()) {
-                                var26 = _ap.getRemainingCriteria().iterator();
-
-                                while(var26.hasNext()) {
-                                    criteria = (String)var26.next();
-                                    _player1.getAdvancements().award(_adv, criteria);
-                                }
-                            }
-                        }
-
-                        if (entity.getPersistentData().getBoolean("CursedSpirit")) {
-                            double _setval = ((JujutsucraftModVariables.PlayerVariables)entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).orElse(new JujutsucraftModVariables.PlayerVariables())).PlayerCursePowerChange + 1000.0;
-                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).ifPresent((capability) -> {
-                                capability.PlayerCursePowerChange = _setval;
-                                capability.syncPlayerVariables(entity);
-                            });
-                        } else {
-                            label336: {
-                                if (entity instanceof LivingEntity) {
-                                    _livEnt26 = (LivingEntity)entity;
-                                    if (_livEnt26.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                        break label336;
-                                    }
-                                }
-
-                                int var10000;
-                                label278: {
-                                    logic_unluck = true;
-                                    if (entity instanceof LivingEntity) {
-                                        LivingEntity _livEnt24 = (LivingEntity)entity;
-                                        if (_livEnt24.hasEffect(MobEffects.UNLUCK)) {
-                                            label274: {
-                                                if (entity instanceof LivingEntity) {
-                                                    _livEnt = (LivingEntity)entity;
-                                                    if (_livEnt.hasEffect(MobEffects.UNLUCK)) {
-                                                        var10000 = _livEnt.getEffect(MobEffects.UNLUCK).getAmplifier();
-                                                        break label274;
-                                                    }
-                                                }
-
-                                                var10000 = 0;
-                                            }
-
-                                            ++var10000;
-                                            break label278;
-                                        }
-                                    }
-
-                                    var10000 = 0;
-                                }
-
-                                num2 = (double)var10000;
-                                num2 = Math.min(num2, 9.0);
-                            }
-
-                            if (level_control == 2.0) {
-                                sukuna = false;
-                                tick = 300.0;
-                            } else if (level_control != 1.0) {
-                                if (level_control == 0.0) {
-                                    sukuna = true;
-                                    tick = 1000000.0;
-                                }
-                            } else {
-                                label344: {
-                                    label265: {
-                                        if (entity instanceof LivingEntity) {
-                                            _livEnt26 = (LivingEntity)entity;
-                                            if (_livEnt26.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                                break label265;
-                                            }
-                                        }
-
-                                        if (num1 != 1.0 && !(num2 >= 9.0)) {
-                                            break label344;
-                                        }
-                                    }
-
-                                    sukuna = true;
-                                    tick = 300.0;
-                                }
-                            }
-                        }
-                    }
-
-                    num1 = -300.0 - Math.random();
-                    Entity entityToSpawn;
-                    ServerLevel _level;
-                    if (sukuna && world instanceof ServerLevel) {
-                        _level = (ServerLevel)world;
-                        entityToSpawn = EntityType.PIG.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                        if (entityToSpawn != null) {
-                            entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                        }
-                    }
-
-                    sukuna = false;
-                    Vec3 _center = new Vec3(entity.getX(), num1, entity.getZ());
-                    Vec3 final_center = _center;
-                    List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                        return true;
-                    }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                        return _entcnd.distanceToSqr(final_center);
-                    })).toList();
-                    Iterator var39 = _entfound.iterator();
-
-                    Entity entityiterator;
-                    while(var39.hasNext()) {
-                        entityiterator = (Entity)var39.next();
-                        if (entityiterator instanceof Pig && entityiterator.isAlive()) {
-                            sukuna = true;
-                            if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel)entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                            }
-
-                            if (!entityiterator.level().isClientSide()) {
-                                entityiterator.discard();
-                            }
-                            break;
-                        }
-                    }
-
-                    if (sukuna) {
-                        if (entity instanceof LivingEntity) {
-                            _livEnt26 = (LivingEntity)entity;
-                            _livEnt26.removeEffect(MobEffects.UNLUCK);
-                        }
-
-                        if (!entity.level().isClientSide() && entity.getServer() != null) {
-                            Commands var29 = entity.getServer().getCommands();
-                            CommandSourceStack var28 = new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity);
-                            Object var10002;
-                            if (tick > 10000.0) {
-                                var10002 = "infinite";
-                            } else {
-                                int var10003;
-                                label241: {
-                                    if (entity instanceof LivingEntity) {
-                                        _livEnt = (LivingEntity)entity;
-                                        if (_livEnt.hasEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get())) {
-                                            var10003 = _livEnt.getEffect((MobEffect)JujutsucraftModMobEffects.SUKUNA_EFFECT.get()).getAmplifier();
-                                            break label241;
-                                        }
-                                    }
-
-                                    var10003 = 0;
-                                }
-
-                                var10002 = Math.round(Math.max(tick, (double)Math.round(Math.floor((double)(var10003 / 20)))));
-                            }
-
-                            var29.performPrefixedCommand(var28, "effect give @s jujutsucraft:sukuna_effect " + var10002 + " " + Math.round(Math.min(Math.max(GetSukunaLevelProcedure.execute(entity), 1.0), 20.0) - 1.0) + " true");
-                        }
-                    }
-
-                    if (logic_unluck && world instanceof ServerLevel) {
-                        _level = (ServerLevel)world;
-                        entityToSpawn = EntityType.COW.spawn(_level, BlockPos.containing(entity.getX(), num1, entity.getZ()), MobSpawnType.MOB_SUMMONED);
-                        if (entityToSpawn != null) {
-                            entityToSpawn.setYRot(world.getRandom().nextFloat() * 360.0F);
-                        }
-                    }
-
-                    logic_unluck = false;
-                    _center = new Vec3(entity.getX(), num1, entity.getZ());
-                    Vec3 final_center1 = _center;
-                    _entfound = world.getEntitiesOfClass(Entity.class, (new AABB(_center, _center)).inflate(0.5), (e) -> {
-                        return true;
-                    }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
-                        return _entcnd.distanceToSqr(final_center1);
-                    })).toList();
-                    var39 = _entfound.iterator();
-
-                    while(var39.hasNext()) {
-                        entityiterator = (Entity)var39.next();
-                        if (entityiterator instanceof Cow && entityiterator.isAlive()) {
-                            logic_unluck = true;
-                            if (!entityiterator.level().isClientSide() && entityiterator.getServer() != null) {
-                                entityiterator.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entityiterator.position(), entityiterator.getRotationVector(), entityiterator.level() instanceof ServerLevel ? (ServerLevel)entityiterator.level() : null, 4, entityiterator.getName().getString(), entityiterator.getDisplayName(), entityiterator.level().getServer(), entityiterator), "kill @s");
-                            }
-
-                            if (!entityiterator.level().isClientSide()) {
-                                entityiterator.discard();
-                            }
-                            break;
-                        }
-                    }
-
-                    if (logic_unluck && !entity.level().isClientSide() && entity.getServer() != null) {
-                        entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel)entity.level() : null, 4, entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), "effect give @s minecraft:unluck 180 " + Math.round(num2) + " true");
-                    }
-
-                    if (!entity.getPersistentData().getBoolean("CursedSpirit")) {
-                        if (entity instanceof ServerPlayer) {
-                            _player1 = (ServerPlayer)entity;
-                            _adv = _player1.server.getAdvancements().getAdvancement(new ResourceLocation("jujutsucraft:observation_of_the_soul"));
-                            _ap = _player1.getAdvancements().getOrStartProgress(_adv);
-                            if (!_ap.isDone()) {
-                                var26 = _ap.getRemainingCriteria().iterator();
-
-                                while(var26.hasNext()) {
-                                    criteria = (String)var26.next();
-                                    _player1.getAdvancements().award(_adv, criteria);
-                                }
-                            }
-                        }
-
-                        if (level_control == 0.0) {
-                            boolean _setval = true;
-                            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, (Direction)null).ifPresent((capability) -> {
-                                capability.flag_sukuna = _setval;
-                                capability.syncPlayerVariables(entity);
-                            });
-                        }
-                    }
-
-                    WhenRespawnProcedure.execute(world, x, y, z, entity);
-
-                }
-
-            }
-
+        boolean isCursedSpirit = entity.getPersistentData().getBoolean("CursedSpirit");
+
+        if (isCursedSpirit) {
+            processFingerEaten(world, x, y, z, entity, true, 0.0);
+            return;
         }
+
+        boolean onlyOneSukunaEnabled = world.getLevelData().getGameRules().getBoolean(JujutsucraftaddonModGameRules.JJKU_ONLY_ONE_SUKUNA);
+
+        if (onlyOneSukunaEnabled) {
+            if (JujutsucraftaddonModVariables.MapVariables.get(world).Sukuna != 0) return;
+            if (getPlayerVar(entity).BodyItem.getCount() > 0) return;
+        } else {
+            if (getPlayerVar(entity).BodyItem.getCount() <= 0) return;
+        }
+
+        EligibilityResult eligibility = checkEligibility(entity);
+
+        if (!eligibility.success()) {
+            rejectFinger(entity);
+            return;
+        }
+
+        if (entity.isAlive())
+            processFingerEaten(world, x, y, z, entity, false, eligibility.levelControl());
+    }
+
+    private static EligibilityResult checkEligibility(Entity entity) {
+        JujutsucraftModVariables.PlayerVariables vars = getPlayerVar(entity);
+        double ct = vars.PlayerCurseTechnique;
+        double ct2 = vars.PlayerCurseTechnique2;
+
+        if (vars.PlayerCursePowerFormer == 0.0) return new EligibilityResult(true, 2.0);
+
+        if (ct == 21.0 || ct2 == 21.0 || vars.BodyItem.getItem() == JujutsucraftModItems.SUKUNA_FINGER.get())
+            return new EligibilityResult(true, 1.0);
+
+        boolean isCreative = entity instanceof Player p && p.getAbilities().instabuild;
+        boolean hasSukunaEffect = entity instanceof LivingEntity l && l.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get());
+        boolean hasValidCT = ct == 1.0 || ct2 == 1.0 || ct == 6.0 || ct2 == 6.0;
+
+        if (isCreative || hasSukunaEffect || hasValidCT) return new EligibilityResult(true, 0.0);
+
+        return new EligibilityResult(false, 0.0);
+    }
+
+    private static void rejectFinger(Entity entity) {
+        boolean isCreative = entity instanceof Player p && p.getAbilities().instabuild;
+        if (!isCreative && entity instanceof Player player) {
+            ItemStack finger = new ItemStack(JujutsucraftModItems.SUKUNA_FINGER.get());
+            finger.setCount(1);
+            ItemHandlerHelper.giveItemToPlayer(player, finger);
+        }
+        if (entity instanceof LivingEntity living) {
+            living.removeEffect((MobEffect) JujutsucraftModMobEffects.INFINITY_EFFECT.get());
+            living.removeEffect((MobEffect) JujutsucraftModMobEffects.ZONE.get());
+        }
+        runCommand(entity, "kill @s");
+    }
+
+    private static void processFingerEaten(LevelAccessor world, double x, double y, double z, Entity entity, boolean isCursedSpirit, double levelControl) {
+        double fingerCount = 0;
+
+        if (!isCursedSpirit && levelControl < 2.0) {
+            fingerCount = incrementFingerCount(entity);
+            notifyFingerCount(entity);
+        }
+
+        if (fingerCount > 0 || isCursedSpirit) {
+            runCommand(entity, "advancement revoke @s only jujutsucraft:update");
+            awardAdvancement(entity, "jujutsucraft:update");
+
+            if (isCursedSpirit) {
+                double newPowerChange = getPlayerVar(entity).PlayerCursePowerChange + 1000.0;
+                entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                        .ifPresent(cap -> { cap.PlayerCursePowerChange = newPowerChange; cap.syncPlayerVariables(entity); });
+            } else if (!(entity instanceof LivingEntity l && l.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get()))) {
+                SukunaEffectResult result = computeSukunaEffect(entity, fingerCount, levelControl);
+                applyMarkerEntity(world, entity, result);
+            }
+        }
+
+        if (!isCursedSpirit) {
+            awardAdvancement(entity, "jujutsucraft:observation_of_the_soul");
+            if (levelControl == 0.0)
+                entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                        .ifPresent(cap -> { cap.flag_sukuna = true; cap.syncPlayerVariables(entity); });
+        }
+
+        WhenRespawnProcedure.execute(world, x, y, z, entity);
+        JujutsucraftaddonModVariables.MapVariables.get(world).Sukuna = 1;
+        JujutsucraftaddonModVariables.MapVariables.get(world).syncData(world);
+    }
+
+    private record SukunaEffectResult(boolean shouldApplySukuna, double tick, double unluckLevel) {}
+
+    private static SukunaEffectResult computeSukunaEffect(Entity entity, double fingerCount, double levelControl) {
+        int unluckAmplifier = 0;
+        if (entity instanceof LivingEntity living && living.hasEffect(MobEffects.UNLUCK))
+            unluckAmplifier = living.getEffect(MobEffects.UNLUCK).getAmplifier() + 1;
+        double unluck = Math.min(unluckAmplifier, 9.0);
+
+        boolean hasSukunaEffect = entity instanceof LivingEntity l && l.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get());
+
+        if (levelControl == 2.0) return new SukunaEffectResult(false, 300.0, unluck);
+        if (levelControl == 0.0) return new SukunaEffectResult(true, 1_000_000.0, unluck);
+
+        boolean triggersOnFirstFinger = fingerCount == 1.0 || unluck >= 9.0 || hasSukunaEffect;
+        return new SukunaEffectResult(triggersOnFirstFinger, 300.0, unluck);
+    }
+
+    private static void applyMarkerEntity(LevelAccessor world, Entity entity, SukunaEffectResult result) {
+        double markerY = -300.0 - Math.random();
+        Vec3 markerPos = new Vec3(entity.getX(), markerY, entity.getZ());
+
+        if (result.shouldApplySukuna() && world instanceof ServerLevel level) {
+            Entity pig = EntityType.PIG.spawn(level, BlockPos.containing(entity.getX(), markerY, entity.getZ()), MobSpawnType.MOB_SUMMONED);
+            if (pig != null) pig.setYRot(world.getRandom().nextFloat() * 360f);
+        }
+
+        boolean foundPig = killFirstMatchingEntity(world, markerPos, Pig.class);
+        if (foundPig) {
+            if (entity instanceof LivingEntity living) living.removeEffect(MobEffects.UNLUCK);
+            applySukunaEffectCommand(entity, result.tick());
+        }
+
+        if (result.unluckLevel() > 0 && world instanceof ServerLevel level) {
+            Entity cow = EntityType.COW.spawn(level, BlockPos.containing(entity.getX(), markerY, entity.getZ()), MobSpawnType.MOB_SUMMONED);
+            if (cow != null) cow.setYRot(world.getRandom().nextFloat() * 360f);
+        }
+
+        boolean foundCow = killFirstMatchingEntity(world, markerPos, Cow.class);
+        if (foundCow)
+            runCommand(entity, "effect give @s minecraft:unluck 180 " + Math.round(result.unluckLevel()) + " true");
+    }
+
+    private static <T extends Entity> boolean killFirstMatchingEntity(LevelAccessor world, Vec3 center, Class<T> type) {
+        List<Entity> nearby = world.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(0.5), e -> true)
+                .stream().sorted(Comparator.comparingDouble(e -> e.distanceToSqr(center))).toList();
+        for (Entity e : nearby) {
+            if (type.isInstance(e) && e.isAlive()) {
+                runCommand(e, "kill @s");
+                if (!e.level().isClientSide()) e.discard();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void applySukunaEffectCommand(Entity entity, double tick) {
+        if (entity.level().isClientSide() || entity.getServer() == null) return;
+        String duration = tick > 10000.0 ? "infinite" : String.valueOf(Math.round(Math.max(tick, computeCurrentSukunaFloor(entity))));
+        long level = Math.round(Math.min(Math.max(GetSukunaLevelProcedure.execute(entity), 1.0), 20.0) - 1.0);
+        runCommand(entity, "effect give @s jujutsucraft:sukuna_effect " + duration + " " + level + " true");
+    }
+
+    private static double computeCurrentSukunaFloor(Entity entity) {
+        if (entity instanceof LivingEntity l && l.hasEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get()))
+            return Math.floor(l.getEffect((MobEffect) JujutsucraftModMobEffects.SUKUNA_EFFECT.get()).getAmplifier() / 20.0);
+        return 0;
+    }
+
+    private static double incrementFingerCount(Entity entity) {
+        JujutsucraftModVariables.PlayerVariables vars = getPlayerVar(entity);
+        if (vars.BodyItem.getItem() == JujutsucraftModItems.DEATH_PAINTING.get() && entity instanceof Player p && !p.level().isClientSide())
+            p.displayClientMessage(Component.literal(Component.translatable("jujutsu.message.death_painting").getString()), false);
+
+        if (vars.BodyItem.getItem() == JujutsucraftModItems.SUKUNA_FINGER.get()) {
+            vars.BodyItem.setCount(Math.min(vars.BodyItem.getCount() + 1, 20));
+        } else {
+            ItemStack finger = new ItemStack(JujutsucraftModItems.SUKUNA_FINGER.get());
+            entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                    .ifPresent(cap -> { cap.BodyItem = finger.copy(); cap.syncPlayerVariables(entity); });
+        }
+        return getPlayerVar(entity).BodyItem.getCount();
+    }
+
+    private static void notifyFingerCount(Entity entity) {
+        if (entity instanceof Player player && !player.level().isClientSide()) {
+            String name = Component.translatable("item.jujutsucraft.sukuna_finger").getString();
+            int count = Math.round(getPlayerVar(entity).BodyItem.getCount());
+            player.displayClientMessage(Component.literal(name + ": " + count), false);
+        }
+    }
+
+    private static void awardAdvancement(Entity entity, String advancementId) {
+        if (!(entity instanceof ServerPlayer player)) return;
+        Advancement adv = player.server.getAdvancements().getAdvancement(new ResourceLocation(advancementId));
+        if (adv == null) return;
+        AdvancementProgress ap = player.getAdvancements().getOrStartProgress(adv);
+        if (!ap.isDone()) ap.getRemainingCriteria().forEach(c -> player.getAdvancements().award(adv, c));
+    }
+
+    private static void runCommand(Entity entity, String command) {
+        if (entity.level().isClientSide() || entity.getServer() == null) return;
+        entity.getServer().getCommands().performPrefixedCommand(
+                new CommandSourceStack(CommandSource.NULL, entity.position(), entity.getRotationVector(),
+                        entity.level() instanceof ServerLevel sl ? sl : null, 4,
+                        entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity),
+                command);
+    }
+
+    private static JujutsucraftModVariables.PlayerVariables getPlayerVar(Entity entity) {
+        return entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                .orElse(new JujutsucraftModVariables.PlayerVariables());
     }
 }

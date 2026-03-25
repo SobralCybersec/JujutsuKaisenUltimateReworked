@@ -24,9 +24,9 @@ public abstract class StartCursedTechniqueTest {
         if (entity == null) return;
         ci.cancel();
 
-        boolean isCreative = isCreativeMode(entity);
-        String techniqueName = getTechniqueName(entity);
-        double cost = getTechniqueCost(entity);
+        boolean isCreative = TechniqueValidator.isCreativeMode(entity);
+        String techniqueName = TechniqueValidator.getTechniqueName(entity);
+        double cost = TechniqueValidator.getTechniqueCost(entity);
 
         if (!TechniqueValidator.canUse(entity, cost, isCreative)) return;
 
@@ -39,35 +39,7 @@ public abstract class StartCursedTechniqueTest {
             config = new TechniqueRegistry.TechniqueConfig((int)t1, (int)s1, Math.max(cost / 2.0, 20.0));
         }
 
-        if (!isCreative) consumeCursePower(entity, cost);
+        if (!isCreative) TechniqueValidator.consumeCursePower(entity, cost);
         TechniqueExecutor.execute(world, entity, config.t1(), config.s1(), config.tick(), isCreative);
-    }
-
-    private static boolean isCreativeMode(Entity entity) {
-        if (entity instanceof ServerPlayer player) return player.gameMode.getGameModeForPlayer() == GameType.CREATIVE;
-        if (entity.level().isClientSide() && entity instanceof Player player) {
-            return Minecraft.getInstance().getConnection().getPlayerInfo(player.getGameProfile().getId()) != null &&
-                    Minecraft.getInstance().getConnection().getPlayerInfo(player.getGameProfile().getId()).getGameMode() == GameType.CREATIVE;
-        }
-        return false;
-    }
-
-    private static String getTechniqueName(Entity entity) {
-        return entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                .orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerSelectCurseTechniqueName;
-    }
-
-    private static double getTechniqueCost(Entity entity) {
-        return entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                .orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerSelectCurseTechniqueCost;
-    }
-
-    private static void consumeCursePower(Entity entity, double cost) {
-        double current = entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-                .orElse(new JujutsucraftModVariables.PlayerVariables()).PlayerCursePower;
-        entity.getCapability(JujutsucraftModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(cap -> {
-            cap.PlayerCursePower = current - cost;
-            cap.syncPlayerVariables(entity);
-        });
     }
 }

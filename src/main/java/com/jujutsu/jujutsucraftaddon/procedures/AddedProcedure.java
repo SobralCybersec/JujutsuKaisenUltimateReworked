@@ -11,18 +11,27 @@ import net.minecraft.world.level.LevelAccessor;
 
 public class AddedProcedure {
     public static void execute(LevelAccessor world, Entity entity, String effect) {
-        if (entity == null || effect == null)
+        if (entity == null || effect == null || !(entity instanceof LivingEntity living))
             return;
-        if (effect.contains("jackpot") || effect.contains("JACKPOT")) {
-            if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-                _entity.addEffect(new MobEffectInstance(JujutsucraftaddonModMobEffects.JACKPOT.get(), 60, 1, false, false));
-            if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-                _entity.addEffect(new MobEffectInstance(MobEffects.LUCK, 5020, entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.LUCK) ? _livEnt.getEffect(MobEffects.LUCK).getAmplifier() : 0, false, false));
-            if (((entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new JujutsucraftaddonModVariables.PlayerVariables())).Clans).equals("Hakari")) {
-                if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
-                    _entity.addEffect(new MobEffectInstance(JujutsucraftModMobEffects.JACKPOT.get(), 5020,
-                            (entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(JujutsucraftModMobEffects.JACKPOT.get()) ? _livEnt.getEffect(JujutsucraftModMobEffects.JACKPOT.get()).getAmplifier() : 0) + 6, false, false));
-            }
+
+        if (!effect.toLowerCase().contains("jackpot"))
+            return;
+
+        if (living.level().isClientSide())
+            return;
+
+        living.addEffect(new MobEffectInstance(JujutsucraftaddonModMobEffects.JACKPOT.get(), 60, 1, false, false));
+
+        int luckAmplifier = living.hasEffect(MobEffects.LUCK) ? living.getEffect(MobEffects.LUCK).getAmplifier() : 0;
+        living.addEffect(new MobEffectInstance(MobEffects.LUCK, 5020, luckAmplifier, false, false));
+
+        String clan = entity.getCapability(JujutsucraftaddonModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+                .orElse(new JujutsucraftaddonModVariables.PlayerVariables()).Clans;
+
+        if ("Hakari".equals(clan)) {
+            int jackpotAmplifier = living.hasEffect(JujutsucraftModMobEffects.JACKPOT.get())
+                    ? living.getEffect(JujutsucraftModMobEffects.JACKPOT.get()).getAmplifier() : 0;
+            living.addEffect(new MobEffectInstance(JujutsucraftModMobEffects.JACKPOT.get(), 5020, jackpotAmplifier + 6, false, false));
         }
     }
 }

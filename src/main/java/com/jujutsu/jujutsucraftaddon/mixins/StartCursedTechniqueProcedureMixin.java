@@ -351,7 +351,7 @@ public abstract class StartCursedTechniqueProcedureMixin {
                             } else {
 
                                 TechniqueRegistry.TechniqueConfig config =
-                                        TechniqueRegistry.findByDisplayName(techName);
+                                        TechniqueRegistry.getByName(techName);
 
                                 if (config != null) {
 

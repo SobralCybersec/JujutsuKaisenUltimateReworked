@@ -1,10 +1,8 @@
 package com.jujutsu.jujutsucraftaddon.mixins;
 
+import com.jujutsu.jujutsucraftaddon.services.EntityGlowService;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,24 +14,18 @@ public abstract class EntityMixin {
     @Inject(method = "getTeamColor", at = @At("HEAD"), cancellable = true)
     private void modifyGlowColor(CallbackInfoReturnable<Integer> cir) {
         Entity self = (Entity)(Object)this;
-
-        if (self.level().isClientSide && self instanceof LivingEntity living && living.getPersistentData().getBoolean("glowing")) {
-            if (living instanceof Monster) {
-                cir.setReturnValue(0xFFFF8080);
-            } else if (living instanceof Animal) {
-                cir.setReturnValue(0xFF00FFFF);
-            } else if (living instanceof Player) {
-                cir.setReturnValue(0xFFFFFFFF);
-            }
+        
+        if (self instanceof LivingEntity living && EntityGlowService.shouldGlow(living)) {
+            cir.setReturnValue(EntityGlowService.getGlowColor(living));
         }
     }
 
     @Inject(method = "isCurrentlyGlowing", at = @At("RETURN"), cancellable = true)
     private void modifyGlowingTagCondition(CallbackInfoReturnable<Boolean> cir) {
         Entity self = (Entity)(Object)this;
-        if (self.level().isClientSide && self instanceof LivingEntity living && living.getPersistentData().getBoolean("glowing")) {
+        
+        if (self instanceof LivingEntity living && EntityGlowService.shouldGlow(living)) {
             cir.setReturnValue(true);
         }
     }
-
 }
