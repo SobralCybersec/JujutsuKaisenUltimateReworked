@@ -5,7 +5,16 @@ import net.mcreator.jujutsucraft.entity.GojoSatoruSchoolDaysEntity;
 import net.mcreator.jujutsucraft.entity.UroTakakoEntity;
 import net.mcreator.jujutsucraft.init.JujutsucraftModItems;
 import net.mcreator.jujutsucraft.init.JujutsucraftModMobEffects;
-import net.mcreator.jujutsucraft.procedures.*;
+import net.mcreator.jujutsucraft.procedures.AIActive2Procedure;
+import net.mcreator.jujutsucraft.procedures.GetDistanceProcedure;
+import net.mcreator.jujutsucraft.procedures.KeyReverseCursedTechniqueOnKeyPressedProcedure;
+import net.mcreator.jujutsucraft.procedures.KeyReverseCursedTechniqueOnKeyReleasedProcedure;
+import net.mcreator.jujutsucraft.procedures.KeySpaceOnKeyPressedProcedure;
+import net.mcreator.jujutsucraft.procedures.LogicAttackProcedure;
+import net.mcreator.jujutsucraft.procedures.RotateEntityProcedure;
+import net.mcreator.jujutsucraft.procedures.StartGuardProcedure;
+import net.mcreator.jujutsucraft.procedures.SupremeMartialSolutionRightClickedInAirProcedure;
+import net.mcreator.jujutsucraft.procedures.WhenBackStepProcedure;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -74,16 +83,9 @@ public abstract class AIActive2ProcedureMixin {
             logic_heal_cancel = true;
             logic_avoid = false;
             LivingEntity var10000;
-            Mob _mobEnt;
             if (entity.getPersistentData().getDouble("cnt_target") > 6.0) {
                 test = entity.getPersistentData().getDouble("cnt_target") % 5.0 == 4.0;
-                if (entity instanceof Mob) {
-                    _mobEnt = (Mob)entity;
-                    var10000 = _mobEnt.getTarget();
-                } else {
-                    var10000 = null;
-                }
-
+                var10000 = getTarget(entity);
                 target = var10000 instanceof LivingEntity;
             }
 
@@ -109,24 +111,12 @@ public abstract class AIActive2ProcedureMixin {
                                 }
                             }
 
-                            if (entity instanceof Mob) {
-                                _mobEnt = (Mob)entity;
-                                var10000 = _mobEnt.getTarget();
-                            } else {
-                                var10000 = null;
-                            }
-
+                            var10000 = getTarget(entity);
                             if (var10000.getPersistentData().getDouble("skill") == 0.0) {
                                 break label695;
                             }
 
-                            if (entity instanceof Mob) {
-                                _mobEnt = (Mob)entity;
-                                var10000 = _mobEnt.getTarget();
-                            } else {
-                                var10000 = null;
-                            }
-
+                            var10000 = getTarget(entity);
                             if (!(var10000.getPersistentData().getDouble("Damage") > 0.0)) {
                                 break label695;
                             }
@@ -167,8 +157,8 @@ public abstract class AIActive2ProcedureMixin {
                         }
 
                         Vec3 _center;
-                        List _entfound;
-                        Iterator var51;
+                        List<Entity> _entfound;
+                        Iterator<Entity> var51;
                         if (!logic_guard) {
                             label668: {
                                 dis = 24.0;
@@ -331,21 +321,9 @@ public abstract class AIActive2ProcedureMixin {
                                 }
 
                                 if (distance < 24.0) {
-                                    if (entity instanceof Mob) {
-                                        _mobEnt = (Mob)entity;
-                                        var10000 = _mobEnt.getTarget();
-                                    } else {
-                                        var10000 = null;
-                                    }
-
+                                    var10000 = getTarget(entity);
                                     if (var10000.getPersistentData().getDouble("skill") != 0.0) {
-                                        if (entity instanceof Mob) {
-                                            _mobEnt = (Mob)entity;
-                                            var10000 = _mobEnt.getTarget();
-                                        } else {
-                                            var10000 = null;
-                                        }
-
+                                        var10000 = getTarget(entity);
                                         if (var10000.getPersistentData().getDouble("skill") > -900.0) {
                                             logic_avoid = true;
                                         }
@@ -371,21 +349,9 @@ public abstract class AIActive2ProcedureMixin {
                 entity.setShiftKeyDown(true);
                 if (entity.getType().is(TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("jujutsucraft:can_use_domain_amplification")))) {
                     label716: {
-                        if (entity instanceof Mob) {
-                            _mobEnt = (Mob)entity;
-                            var10000 = _mobEnt.getTarget();
-                        } else {
-                            var10000 = null;
-                        }
-
+                        var10000 = getTarget(entity);
                         if (var10000 instanceof LivingEntity) {
-                            if (entity instanceof Mob) {
-                                _mobEnt = (Mob)entity;
-                                var10000 = _mobEnt.getTarget();
-                            } else {
-                                var10000 = null;
-                            }
-
+                            var10000 = getTarget(entity);
                             if (var10000.getPersistentData().getBoolean("attack")) {
                                 break label716;
                             }
@@ -545,7 +511,7 @@ public abstract class AIActive2ProcedureMixin {
                         }).stream().sorted(Comparator.comparingDouble((_entcnd) -> {
                             return _entcnd.distanceToSqr(_center);
                         })).toList();
-                        Iterator var58 = _entfound.iterator();
+                        Iterator<Entity> var58 = _entfound.iterator();
 
                         while(var58.hasNext()) {
                             Entity entityiterator = (Entity)var58.next();
@@ -735,48 +701,16 @@ public abstract class AIActive2ProcedureMixin {
             if (test && Math.random() < 1.0 && entity.isInWaterOrBubble() && entity.isSprinting() && entity instanceof LivingEntity) {
                 _livEnt29 = (LivingEntity)entity;
                 if (_livEnt29.getAttributes().hasAttribute((Attribute)ForgeMod.SWIM_SPEED.get())) {
-                    if (entity instanceof Mob) {
-                        _mobEnt = (Mob)entity;
-                        var10000 = _mobEnt.getTarget();
-                    } else {
-                        var10000 = null;
-                    }
-
+                    var10000 = getTarget(entity);
                     double var72;
                     if (var10000 instanceof LivingEntity) {
-                        if (entity instanceof Mob) {
-                            _mobEnt = (Mob)entity;
-                            var10000 = _mobEnt.getTarget();
-                        } else {
-                            var10000 = null;
-                        }
-
+                        var10000 = getTarget(entity);
                         var68 = var10000.getX();
-                        LivingEntity var71;
-                        if (entity instanceof Mob) {
-                            _mobEnt = (Mob)entity;
-                            var71 = _mobEnt.getTarget();
-                        } else {
-                            var71 = null;
-                        }
-
+                        LivingEntity var71 = getTarget(entity);
                         var72 = var71.getY();
-                        LivingEntity var67;
-                        if (entity instanceof Mob) {
-                            _mobEnt = (Mob)entity;
-                            var67 = _mobEnt.getTarget();
-                        } else {
-                            var67 = null;
-                        }
-
+                        LivingEntity var67 = getTarget(entity);
                         var72 += (double)var67.getBbHeight() * 0.5;
-                        if (entity instanceof Mob) {
-                            _mobEnt = (Mob)entity;
-                            var67 = _mobEnt.getTarget();
-                        } else {
-                            var67 = null;
-                        }
-
+                        var67 = getTarget(entity);
                         RotateEntityProcedure.execute(var68, var72, var67.getZ(), entity);
                         if (entity.getAirSupply() < 4) {
                             entity.setYRot(entity.getYRot());
@@ -864,5 +798,11 @@ public abstract class AIActive2ProcedureMixin {
 
         }
     }
-}
 
+    private static LivingEntity getTarget(Entity entity) {
+        if (entity instanceof Mob) {
+            return ((Mob) entity).getTarget();
+        }
+        return null;
+    }
+}
