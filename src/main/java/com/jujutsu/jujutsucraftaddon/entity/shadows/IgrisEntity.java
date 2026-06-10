@@ -173,28 +173,10 @@ public class IgrisEntity extends TamableAnimal implements GeoEntity {
         } else {
             if (this.isTame()) {
                 if (this.isOwnedBy(sourceentity)) {
-                    if (item.isEdible() && this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-                        this.usePlayerItem(sourceentity, hand, itemstack);
-                        this.heal((float) item.getFoodProperties().getNutrition());
-                        retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-                    } else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-                        this.usePlayerItem(sourceentity, hand, itemstack);
-                        this.heal(4);
-                        retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-                    } else {
-                        retval = super.mobInteract(sourceentity, hand);
-                    }
+                    retval = handleTamedInteraction(sourceentity, hand, itemstack, item);
                 }
             } else if (this.isFood(itemstack)) {
-                this.usePlayerItem(sourceentity, hand, itemstack);
-                if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, sourceentity)) {
-                    this.tame(sourceentity);
-                    this.level().broadcastEntityEvent(this, (byte) 7);
-                } else {
-                    this.level().broadcastEntityEvent(this, (byte) 6);
-                }
-                this.setPersistenceRequired();
-                retval = InteractionResult.sidedSuccess(this.level().isClientSide());
+                retval = handleUntamedTaming(sourceentity, hand, itemstack);
             } else {
                 retval = super.mobInteract(sourceentity, hand);
                 if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME)
@@ -209,6 +191,32 @@ public class IgrisEntity extends TamableAnimal implements GeoEntity {
 
         IgrisRightClickedOnEntityProcedure.execute(entity);
         return retval;
+    }
+
+    private InteractionResult handleTamedInteraction(Player sourceentity, InteractionHand hand, ItemStack itemstack, Item item) {
+        if (item.isEdible() && this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+            this.usePlayerItem(sourceentity, hand, itemstack);
+            this.heal((float) item.getFoodProperties().getNutrition());
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        } else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
+            this.usePlayerItem(sourceentity, hand, itemstack);
+            this.heal(4);
+            return InteractionResult.sidedSuccess(this.level().isClientSide());
+        } else {
+            return super.mobInteract(sourceentity, hand);
+        }
+    }
+
+    private InteractionResult handleUntamedTaming(Player sourceentity, InteractionHand hand, ItemStack itemstack) {
+        this.usePlayerItem(sourceentity, hand, itemstack);
+        if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, sourceentity)) {
+            this.tame(sourceentity);
+            this.level().broadcastEntityEvent(this, (byte) 7);
+        } else {
+            this.level().broadcastEntityEvent(this, (byte) 6);
+        }
+        this.setPersistenceRequired();
+        return InteractionResult.sidedSuccess(this.level().isClientSide());
     }
 
     @Override

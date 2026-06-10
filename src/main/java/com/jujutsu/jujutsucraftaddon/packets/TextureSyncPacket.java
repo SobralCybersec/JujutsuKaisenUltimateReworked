@@ -48,7 +48,6 @@ public class TextureSyncPacket {
         contextSupplier.get().enqueueWork(() -> {
             String texture = packet.texture;
             String displayName = packet.displayName;
-            System.out.println("Received texture: " + texture + " from: " + displayName);
             NetworkEvent.Context context = contextSupplier.get();
 
             if (context.getSender() != null) {
@@ -76,8 +75,6 @@ public class TextureSyncPacket {
                     try {
                         capability.syncPlayerVariables(player);
                     } catch (Exception e) {
-                        System.out.println("Failed to sync player variables: " + e.getMessage());
-                        e.printStackTrace();
                     }
                 });
             }
