@@ -17,7 +17,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -43,22 +42,18 @@ public abstract class KugisakiNailProcedureMixin {
             double x_pos = 0.0;
             double y_pos = 0.0;
             double z_pos = 0.0;
-            LivingEntity _livEnt;
-            if (entity instanceof LivingEntity) {
-                _livEnt = (LivingEntity) entity;
-                _livEnt.swing(InteractionHand.MAIN_HAND, true);
-            }
 
-            ItemStack var10000;
+            ItemStack handItem;
             if (entity instanceof LivingEntity) {
-                _livEnt = (LivingEntity) entity;
-                var10000 = _livEnt.getMainHandItem();
+                LivingEntity _livEnt = (LivingEntity) entity;
+                _livEnt.swing(InteractionHand.MAIN_HAND, true);
+                handItem = _livEnt.getMainHandItem();
             } else {
-                var10000 = ItemStack.EMPTY;
+                handItem = ItemStack.EMPTY;
             }
 
             Level projectileLevel;
-            if (var10000.getItem() == JujutsucraftModItems.HAMMER.get()) {
+            if (handItem.getItem() == JujutsucraftModItems.HAMMER.get()) {
                 if (world instanceof Level) {
                     projectileLevel = (Level) world;
                     if (!projectileLevel.isClientSide()) {
@@ -79,49 +74,11 @@ public abstract class KugisakiNailProcedureMixin {
                 }
             }
 
-            LivingEntity var23;
-            if (entity instanceof Mob) {
-                Mob _mobEnt = (Mob) entity;
-                var23 = _mobEnt.getTarget();
-            } else {
-                var23 = null;
-            }
-
-            if (var23 instanceof LivingEntity) {
-                Mob _mobEnt;
-                if (entity instanceof Mob) {
-                    _mobEnt = (Mob) entity;
-                    var23 = _mobEnt.getTarget();
-                } else {
-                    var23 = null;
-                }
-
-                x_pos = var23.getX();
-                if (entity instanceof Mob) {
-                    _mobEnt = (Mob) entity;
-                    var23 = _mobEnt.getTarget();
-                } else {
-                    var23 = null;
-                }
-
-                double var24 = var23.getY();
-                LivingEntity var10001;
-                if (entity instanceof Mob) {
-                    _mobEnt = (Mob) entity;
-                    var10001 = _mobEnt.getTarget();
-                } else {
-                    var10001 = null;
-                }
-
-                y_pos = var24 + (double) var10001.getBbHeight() * 0.5;
-                if (entity instanceof Mob) {
-                    _mobEnt = (Mob) entity;
-                    var23 = _mobEnt.getTarget();
-                } else {
-                    var23 = null;
-                }
-
-                z_pos = var23.getZ();
+            LivingEntity target = getMobTarget(entity);
+            if (target != null) {
+                x_pos = target.getX();
+                y_pos = target.getY() + (double) target.getBbHeight() * 0.5;
+                z_pos = target.getZ();
                 RotateEntityProcedure.execute(x_pos, y_pos, z_pos, entity);
             }
 
@@ -130,18 +87,13 @@ public abstract class KugisakiNailProcedureMixin {
             Entity _shootFrom = entity;
             projectileLevel = _shootFrom.level();
             if (!projectileLevel.isClientSide()) {
-                Projectile _entityToSpawn = ((new Object() {
-                    public Projectile getArrow(Level level, Entity shooter, float damage, int knockback) {
-                        AbstractArrow entityToSpawn = new BulletNailEntity((EntityType) JujutsucraftModEntities.BULLET_NAIL.get(), level);
-                        entityToSpawn.setOwner(shooter);
-                        entityToSpawn.setBaseDamage((double) damage);
-                        entityToSpawn.setKnockback(knockback);
-                        entityToSpawn.setSilent(true);
-                        entityToSpawn.setCritArrow(true);
-                        entityToSpawn.pickup = AbstractArrow.Pickup.ALLOWED;
-                        return entityToSpawn;
-                    }
-                })).getArrow(projectileLevel, entity, (float) entity.getPersistentData().getDouble("Damage"), 0);
+                AbstractArrow _entityToSpawn = new BulletNailEntity((EntityType) JujutsucraftModEntities.BULLET_NAIL.get(), projectileLevel);
+                _entityToSpawn.setOwner(entity);
+                _entityToSpawn.setBaseDamage((float) entity.getPersistentData().getDouble("Damage"));
+                _entityToSpawn.setKnockback(0);
+                _entityToSpawn.setSilent(true);
+                _entityToSpawn.setCritArrow(true);
+                _entityToSpawn.pickup = AbstractArrow.Pickup.ALLOWED;
                 _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 0.1, _shootFrom.getZ());
                 _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 3.0F, 0.0F);
                 projectileLevel.addFreshEntity(_entityToSpawn);
@@ -150,5 +102,11 @@ public abstract class KugisakiNailProcedureMixin {
             entity.getPersistentData().putDouble("skill", 0.0);
         }
     }
-}
 
+    private static LivingEntity getMobTarget(Entity entity) {
+        if (entity instanceof Mob) {
+            return ((Mob) entity).getTarget();
+        }
+        return null;
+    }
+}
